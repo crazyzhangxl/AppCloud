@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.jit.appcloud.ui.activity.me.FmDataManageActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/include_toolbar"/>
+    <com.jit.appcloud.widget.DropDownView
+        android:layout_marginBottom="@dimen/common_dimension_30"
+        android:layout_below="@id/toolbar"
+        android:id="@+id/dropDownView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:containerBackgroundColor="@color/dropDownContainerColor"
+        app:overlayColor="@color/transparentGray"/>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="@dimen/common_dimension_30">
+        <View
+            android:background="@color/bg_line_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_0.5"/>
+        <TextView
+            android:id="@+id/tvRecordNum"
+            android:text="记录数:0"
+            android:layout_marginLeft="@dimen/common_dimension_8"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</RelativeLayout>

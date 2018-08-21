@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="@dimen/common_dimension_16"
+    android:paddingRight="@dimen/common_dimension_16"
+    android:paddingTop="@dimen/common_dimension_8"
+    android:paddingBottom="@dimen/common_dimension_8"
+    android:layout_margin="10dp"
+    android:text="运动"
+    android:textColor="@color/black"
+    android:textSize="@dimen/mediumTextSize"
+    android:background="@drawable/bg_enjoy_normal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+</TextView>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#8000"
+    android:id="@+id/llContent"
+    tools:context="com.jit.appcloud.ui.activity.LoginActivity">
+    <RelativeLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_login_fish"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/rela_name"
+            android:background="@drawable/bg_border_color_black"
+            >
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/iconmbile"
+                android:id="@+id/loginusericon" />
+
+
+            <com.jit.appcloud.widget.EditTextWithDel
+                android:id="@+id/userph"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textColorHint="@color/white"
+                android:hint="请输入您的用户名/姓名/电话"
+                android:textSize="13sp"
+                android:background="@null"
+                android:textCursorDrawable="@drawable/shape_cursor_login"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/loginusericon"
+                tools:ignore="RtlCompat" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rela_pass"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_border_color_black"
+            >
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/codeicon"
+                android:id="@+id/codeicon" />
+
+            <com.jit.appcloud.widget.EditTextWithDel
+                android:id="@+id/userpass"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="请输入您的密码"
+                android:textCursorDrawable="@drawable/shape_cursor_login"
+                android:inputType="textPassword"
+                android:textColorHint="@color/white"
+                android:textSize="13sp"
+                android:background="@null"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/codeicon"
+                tools:ignore="RtlCompat" />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/bt_login"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:text="登录"
+            android:background="@drawable/selector_btn_login_submit"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_15"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <TextView
+            android:id="@+id/tv_forgetcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            android:text="忘记登录信息？登陆需要帮助" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_gravity="center_vertical"
+                android:layout_width="100dp"
+                android:background="@color/white"
+                android:layout_marginRight="20dp"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/white"
+                android:text="或" />
+
+            <View
+                android:layout_gravity="center_vertical"
+                android:layout_width="100dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/white"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:orientation="horizontal"
+            android:layout_height="70dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/iv_weibo"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/weibo"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/iv_qq"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/qq"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/iv_weixin"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/weixin"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

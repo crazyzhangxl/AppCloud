@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--实时监护的Item -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvDeviceName"
+        android:paddingTop="@dimen/common_dimension_8"
+        android:paddingBottom="@dimen/common_dimension_8"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/BasicTextSize"
+        android:textColor="@color/black"
+        android:layout_width="0dp"
+        android:layout_weight="1.3"
+        android:layout_height="wrap_content" />
+    <View
+        android:background="@color/bg_line_2"
+        android:layout_width="@dimen/common_dimension_0.5"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tvO2Value"
+        android:paddingLeft="@dimen/common_dimension_2"
+        android:paddingTop="@dimen/common_dimension_8"
+        android:paddingBottom="@dimen/common_dimension_8"
+        android:textSize="@dimen/BasicTextSize"
+        android:textColor="@color/black"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+    <View
+        android:background="@color/bg_line_2"
+        android:layout_width="@dimen/common_dimension_0.5"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tvPHValue"
+        android:paddingLeft="@dimen/common_dimension_12"
+        android:paddingTop="@dimen/common_dimension_8"
+        android:paddingBottom="@dimen/common_dimension_8"
+        android:textSize="@dimen/BasicTextSize"
+        android:textColor="@color/black"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+    <View
+        android:background="@color/bg_line_2"
+        android:layout_width="@dimen/common_dimension_0.5"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/tvTempValue"
+        android:gravity="center"
+        android:paddingTop="@dimen/common_dimension_8"
+        android:paddingBottom="@dimen/common_dimension_8"
+        android:paddingLeft="@dimen/common_dimension_8"
+        android:textSize="@dimen/BasicTextSize"
+        android:textColor="@color/black"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+    <View
+        android:background="@color/bg_line_2"
+        android:layout_width="@dimen/common_dimension_0.5"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/tvTimeUpdate"
+        android:paddingTop="@dimen/common_dimension_8"
+        android:paddingBottom="@dimen/common_dimension_8"
+        android:gravity="center"
+        android:textSize="@dimen/BasicTextSize"
+        android:textColor="@color/black"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+</LinearLayout>

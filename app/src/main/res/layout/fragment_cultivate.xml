@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app ="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary">
+    <!-- 返回按钮
+         牛逼啊,设置这样
+    -->
+        <ImageView
+            android:scaleType="centerInside"
+            android:visibility="visible"
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:id="@+id/ivToolbarNavigation"
+            android:layout_width="@dimen/common_dimension_20"
+            android:layout_height="@dimen/common_dimension_40"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_back2" />
+        <!--  竖直的线-->
+        <View
+            android:id="@+id/vToolbarDivision"
+            android:layout_width="@dimen/common_dimension_20"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/ivToolbarNavigation"
+            android:background="@drawable/shape_vertical_line"
+            android:visibility="visible"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/vToolbarDivision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvToolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_15"
+                android:visibility="visible"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivRealTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/common_dimension_10"
+            android:src="@mipmap/ic_table"
+            android:visibility="visible"/>
+
+    </RelativeLayout>
+    <!-- 总代理商的显示-->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_generalAgency"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray4"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:paddingBottom="@dimen/common_dimension_10"
+                android:paddingTop="@dimen/common_dimension_10"
+                android:singleLine="true"
+                android:text="客户名称"
+                android:textColor="@color/black"
+                android:textSize="@dimen/mediumTextSize" />
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/bg_line_2" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="@dimen/common_dimension_10"
+                android:paddingTop="@dimen/common_dimension_10"
+                android:singleLine="true"
+                android:text="注册数"
+                android:textColor="@color/black"
+                android:textSize="@dimen/mediumTextSize" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/bg_line_2" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="@dimen/common_dimension_10"
+                android:paddingTop="@dimen/common_dimension_10"
+                android:singleLine="true"
+                android:text="设备数"
+                android:textColor="@color/black"
+                android:textSize="@dimen/mediumTextSize" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/bg_line_2" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="@dimen/common_dimension_10"
+                android:paddingTop="@dimen/common_dimension_10"
+                android:singleLine="true"
+                android:text="删除"
+                android:textColor="@color/black"
+                android:textSize="@dimen/mediumTextSize" />
+        </LinearLayout>
+        <View
+            android:background="@color/bg_line_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_0.5"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvGeneralAgList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+    <!-- 经销商-->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_agency"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_height="@dimen/common_dimension_45">
+            <LinearLayout
+                android:id="@+id/llCus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:text="客户:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    app:ms_background_color="@color/white"
+                    android:id="@+id/spFarm"
+                    android:layout_width="165dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_alignParentRight="true"
+                android:id="@+id/llTime"
+                android:layout_marginLeft="@dimen/common_dimension_8"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:text="日期:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:id="@+id/tvTimeOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018-06-25"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/BasicTextSize" />
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/ivTimeOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_dimension_8"
+                    android:layout_marginRight="@dimen/common_dimension_8"
+                    android:src="@mipmap/ic_arrow_bottom"
+                    tools:targetApi="lollipop" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <View
+            android:background="@color/line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_0.5"/>
+        <TextView
+            android:id="@+id/tvDeviceState"
+            android:layout_marginLeft="8dp"
+            android:text="总设备数:0  在线设备:0  离线设备:0"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_45" />
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeAg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:id="@+id/rvDevice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+    <!-- 养殖户-->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_farmer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_height="@dimen/common_dimension_45">
+            <LinearLayout
+                android:id="@+id/llPond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:text="养殖塘:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    app:ms_background_color="@color/white"
+                    android:id="@+id/spPond"
+                    android:layout_width="165dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_alignParentRight="true"
+                android:id="@+id/llPondTime"
+                android:layout_marginLeft="@dimen/common_dimension_15"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:text="日期:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:id="@+id/tvTimeTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018-06-25"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/BasicTextSize" />
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/ivTimeTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_dimension_8"
+                    android:layout_marginRight="@dimen/common_dimension_8"
+                    android:src="@mipmap/ic_arrow_bottom"
+                    tools:targetApi="lollipop" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <View
+            android:background="@color/line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_0.5"/>
+        <TextView
+            android:id="@+id/tvFarmDeviceSt"
+            android:layout_marginLeft="8dp"
+            android:text="总设备数:0  在线设备:0  离线设备:0"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_45" />
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeFm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:id="@+id/rvFarmDevice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+</LinearLayout>

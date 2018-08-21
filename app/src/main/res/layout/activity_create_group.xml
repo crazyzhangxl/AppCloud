@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.message.CreateGroupActivity">
+    <include
+        layout="@layout/include_toolbar"/>
+
+    <LinearLayout
+            android:id="@+id/llTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/common_dimension_10"
+            android:paddingBottom="@dimen/common_dimension_5">
+            <LinearLayout
+                android:layout_marginLeft="@dimen/common_dimension_5"
+                android:id="@+id/llName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_40">
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:text="群聊名称"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/common_dimension_15"
+                    android:background="@drawable/shape_add_head_pic"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="@dimen/common_dimension_5"
+                    android:layout_marginBottom="@dimen/common_dimension_5"
+                    android:layout_marginRight="@dimen/common_dimension_75"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:lines="1"
+                        android:id="@+id/tvNameSelected"
+                        android:layout_marginLeft="@dimen/common_dimension_10"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="@dimen/BasicTextSize"
+                        android:background="@null"
+                        android:hint="请输入群聊名称"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llDt"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/common_dimension_10"
+        android:layout_marginBottom="@dimen/common_dimension_10"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginLeft="@dimen/common_dimension_85"
+            android:background="@drawable/shape_add_head_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/vGroupImage"
+                android:padding="@dimen/common_dimension_5"
+                android:scaleType="fitXY"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnSetImage"
+                android:background="@drawable/selector_btn_group"
+                android:text="设置头像"
+                android:layout_width="80dp"
+                android:layout_height="35dp" />
+            <Button
+                android:layout_marginTop="@dimen/common_dimension_10"
+                android:id="@+id/btnDelImage"
+                android:background="@drawable/selector_btn_group"
+                android:text="删除头像"
+                android:layout_width="80dp"
+                android:layout_height="35dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--联系人选择列表-->
+    <com.lqr.recyclerview.LQRRecyclerView
+        android:layout_marginTop="@dimen/common_dimension_5"
+        android:background="@color/white"
+        app:rv_divider_color="@color/bg_line_2"
+        app:rv_divider_size="@dimen/common_dimension_0.5"
+        android:id="@+id/rvContacts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

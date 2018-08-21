@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.ChangePwdActivity">
+    <include
+        layout="@layout/include_toolbar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/common_dimension_30"
+        android:paddingRight="@dimen/common_dimension_30">
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/common_dimension_25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_45"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/common_dimension_80"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_tv_old_pwd"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/BasicTextSize"/>
+
+                <EditText
+                    android:id="@+id/etOldPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/common_dimension_28"
+                    android:background="@null"
+                    android:hint="@string/str_et_hint_old_pwd"
+                    android:inputType="textPassword"
+                    android:text=""
+                    android:textColorHint="@color/gray3"
+                    android:textSize="@dimen/BasicTextSize"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/vLineOldPwd"
+            style="@style/Line"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_45"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/common_dimension_80"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_tv_new_pwd"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/BasicTextSize"/>
+
+                <EditText
+                    android:id="@+id/etPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/common_dimension_28"
+                    android:background="@null"
+                    android:hint="@string/str_et_hint_new_pwd"
+                    android:inputType="textPassword"
+                    android:text=""
+                    android:textColorHint="@color/gray3"
+                    android:textSize="@dimen/BasicTextSize"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivSeePwd"
+                android:layout_width="@dimen/common_dimension_20"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/common_dimension_10"
+                android:src="@mipmap/ic_eye_normal"/>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/vLinePwd"
+            style="@style/Line"
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_45"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="@dimen/common_dimension_80"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_tv_confirm_pwd"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/BasicTextSize"/>
+
+                <EditText
+                    android:id="@+id/etCfmPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/common_dimension_28"
+                    android:background="@null"
+                    android:hint="@string/str_et_hint_confirm_pwd"
+                    android:inputType="textPassword"
+                    android:text=""
+                    android:textColorHint="@color/gray3"
+                    android:textSize="@dimen/BasicTextSize"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivSeeCfmPwd"
+                android:layout_width="@dimen/common_dimension_20"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/common_dimension_10"
+                android:src="@mipmap/ic_eye_normal"/>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/vLineCfmPwd"
+            style="@style/Line"
+            />
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_45"
+            android:layout_marginBottom="@dimen/common_dimension_15"
+            android:layout_marginTop="@dimen/common_dimension_30"
+            android:background="@drawable/selector_confirm_btn"
+            android:enabled="false"
+            android:text="@string/str_btn_confirm"
+            android:textColor="@color/selector_confirm_btn"
+            android:textSize="@dimen/mediumTextSize"/>
+    </LinearLayout>
+
+
+</LinearLayout>

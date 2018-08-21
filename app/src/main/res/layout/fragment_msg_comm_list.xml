@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.lqr.recyclerview.LQRRecyclerView
+        android:id="@+id/rvContacts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rv_divider_color="@color/line"
+        app:rv_divider_size="@dimen/common_dimension_0.5"/>
+
+    <com.jit.appcloud.widget.QuickIndexBar
+        android:id="@+id/qib"
+        android:layout_width="@dimen/common_dimension_20"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"/>
+
+    <!--字母对话框-->
+    <TextView
+        android:id="@+id/tvLetter"
+        android:layout_width="@dimen/common_dimension_75"
+        android:layout_height="@dimen/common_dimension_75"
+        android:layout_centerInParent="true"
+        android:background="@drawable/shape_contact_letter_bg"
+        android:gravity="center"
+        android:text="A"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_20"
+        android:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.jit.appcloud.ui.activity.me.LogDdListActivity">
+    <include
+        layout="@layout/include_toolbar_farm_log"/>
+    <LinearLayout
+        android:background="@color/gray4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_45">
+        <View
+            android:id="@+id/viewEmpty"
+            android:visibility="gone"
+            android:layout_width="@dimen/common_dimension_30"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:text="文件名"
+            android:layout_height="match_parent" />
+        <TextView
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text="下载时间"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginBottom="@dimen/common_dimension_45"
+            android:id="@+id/rcDdLog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rlBottom"
+            android:background="@color/gray4"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_45">
+            <View
+                android:background="@color/line_color"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+            <CheckBox
+                android:layout_centerVertical="true"
+                android:id="@+id/cbAll"
+                android:layout_marginLeft="@dimen/common_dimension_8"
+                android:text="全选"
+                android:textSize="@dimen/BasicTextSize"
+                android:textColor="@color/black"
+                android:theme="@style/MyCheckBoxGreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:enabled="false"
+                android:background="@drawable/selector_button_enable"
+                android:id="@+id/btnDel"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/common_dimension_15"
+                android:text="删除"
+                android:layout_width="80dp"
+                android:layout_height="35dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

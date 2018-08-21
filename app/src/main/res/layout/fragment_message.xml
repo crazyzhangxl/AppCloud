@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+       app:tabIndicatorHeight="1dp"  指示器高度
+       app:tabIndicatorColor="@color/white" 指示器颜色
+       app:tabMode 默认是fixed：固定的，标签很多时候会被挤压，不能滑动。
+                   scrollable 可滑动伸缩式的
+                   R.drawable.ic_msg_find
+    -->
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_45">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/fg_mg_tab"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="@dimen/toolbar_height"
+            app:tabIndicatorHeight="@dimen/common_dimension_2"
+            app:tabMode="fixed"
+            android:fillViewport="false"
+            app:tabIndicatorColor="@color/green1"
+            app:tabTextAppearance="@style/core_IconTabLayout"
+            app:tabTextColor="@color/white"
+            />
+        <LinearLayout
+            android:id="@+id/llFind"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/iv_msg_tab"
+                android:src="@drawable/ic_msg_find"
+                android:scaleType="centerInside"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/common_dimension_2"
+                android:id="@+id/tv_msg_tab"
+                android:textColor="@color/white"
+                android:text="发现"
+                android:textSize="@dimen/SmallerTextSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fg_mg_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

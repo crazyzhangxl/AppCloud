@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/common_dimension_8"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginTop="@dimen/common_dimension_5"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="1"
+            android:id="@+id/tvFuncCount"
+            android:textSize="@dimen/mediumTextSize"
+            android:layout_marginLeft="@dimen/common_dimension_5"
+            android:textColor="@color/red0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="功能选择"
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/mediumTextSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/spDeviceFun"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:layout_marginRight="@dimen/common_dimension_10"
+            android:src="@mipmap/ic_device_del"
+            android:id="@+id/ivDelFun"
+            android:padding="@dimen/common_dimension_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/device_bg_yellow"
+        android:paddingTop="@dimen/common_dimension_5"
+        android:paddingBottom="@dimen/common_dimension_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:textSize="@dimen/mediumTextSize"
+            android:textColor="@color/black"
+            android:text="黄色(预警):"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/etYellow1"
+                    android:layout_marginLeft="@dimen/common_dimension_20"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:textColor="@color/black"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="到"
+                    android:layout_marginLeft="@dimen/common_dimension_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/etYellow2"
+                    android:layout_marginLeft="@dimen/common_dimension_10"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:textColor="@color/black"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/etYellow3"
+                    android:layout_marginLeft="@dimen/common_dimension_20"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:textColor="@color/black"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="到"
+                    android:layout_marginLeft="@dimen/common_dimension_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/etYellow4"
+                    android:layout_marginLeft="@dimen/common_dimension_10"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:textColor="@color/black"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="@color/device_bg_green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/common_dimension_5"
+        android:paddingBottom="@dimen/common_dimension_5">
+        <TextView
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:textSize="@dimen/mediumTextSize"
+            android:textColor="@color/black"
+            android:text="绿色(正常):"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/etGreen1"
+            android:layout_marginLeft="@dimen/common_dimension_20"
+            android:textSize="@dimen/mediumTextSize"
+            android:textColor="@color/black"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="到"
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/etGreen2"
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:textSize="@dimen/mediumTextSize"
+            android:textColor="@color/black"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:background="@color/device_bg_red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/common_dimension_5"
+        android:paddingBottom="@dimen/common_dimension_5">
+        <TextView
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:textSize="@dimen/mediumTextSize"
+            android:textColor="@color/black"
+            android:text="红色(警报):"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="@dimen/common_dimension_20"
+            android:textSize="@dimen/mediumTextSize"
+            android:textColor="@color/black"
+            android:text="超出预警范围!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray4"
+    tools:context="com.jit.appcloud.ui.activity.me.EditInfoActivity">
+    <include
+        layout="@layout/include_toolbar"/>
+    <RelativeLayout
+        android:layout_marginTop="@dimen/common_dimension_15"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_50">
+        <EditText
+            android:id="@+id/edContent"
+            android:layout_marginLeft="@dimen/common_dimension_15"
+            android:layout_width="match_parent"
+            android:lines="1"
+            android:background="@null"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/BasicTextSize"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:padding="@dimen/common_dimension_5"
+            android:visibility="visible"
+            android:id="@+id/ivDelete"
+            android:src="@mipmap/ic_edit_info_delete"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_dimension_18"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

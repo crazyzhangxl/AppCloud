@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rlCusAction"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_45">
+        <TextView
+            android:id="@+id/tvCusNameShow"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/mediumTextSize"
+            android:layout_marginLeft="@dimen/common_dimension_16"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/arrowImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_dimension_8"
+            android:layout_marginRight="@dimen/common_dimension_8"
+            android:src="@mipmap/ic_arrow_bottom"
+            tools:targetApi="lollipop" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:background="@color/bg_line_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_0.5"/>
+    </RelativeLayout>
+</LinearLayout>

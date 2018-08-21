@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.cultivate.AgencyCulLogActivity">
+    <include
+        layout="@layout/include_toolbar"/>
+    <com.lqr.recyclerview.LQRRecyclerView
+        android:id="@+id/lqr_cul_manage"
+        app:rv_column="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.lqr.recyclerview.LQRRecyclerView>
+</LinearLayout>

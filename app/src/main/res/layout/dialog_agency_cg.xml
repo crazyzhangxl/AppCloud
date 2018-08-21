@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 经销类别选择 +++++ -->
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginLeft="@dimen/common_dimension_30"
+        android:layout_marginRight="@dimen/common_dimension_30"
+        android:layout_marginBottom="@dimen/common_dimension_70"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:text="选择经销类别"
+            android:layout_marginTop="@dimen/common_dimension_20"
+            android:textSize="@dimen/LargeTextSize"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_marginTop="@dimen/common_dimension_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/common_dimension_30"
+        android:layout_marginRight="@dimen/common_dimension_30"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <TextView
+            android:id="@+id/tvFive"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
+            android:text="最多选择5项"
+            android:textSize="@dimen/SmallTextSize"
+            android:textColor="@color/red10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:background="@color/red10"
+            android:id="@+id/tvBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:text="确定"
+            android:textSize="@dimen/mediumTextSize"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </RelativeLayout>
+</LinearLayout>

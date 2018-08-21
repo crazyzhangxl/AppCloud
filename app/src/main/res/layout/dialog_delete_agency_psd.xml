@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 带密码验证的删除养殖户 -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:paddingLeft="@dimen/common_dimension_25"
+    android:paddingRight="@dimen/common_dimension_25"
+    android:paddingTop="@dimen/common_dimension_15"
+    android:paddingBottom="@dimen/common_dimension_15"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvTitle"
+        android:text="删除养殖户"
+        android:textColor="@color/black"
+        android:textSize="@dimen/LargeTextSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textSize="@dimen/mediumTextSize"
+        android:layout_marginTop="@dimen/common_dimension_10"
+        android:layout_below="@id/tvTitle"
+        android:id="@+id/tvDelDes"
+        android:lines="1"
+        android:text="确认删除该养殖户？"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_marginTop="@dimen/common_dimension_5"
+        android:textSize="@dimen/mediumTextSize"
+        android:id="@+id/etPsd"
+        android:hint="请输入密码"
+        android:layout_below="@id/tvDelDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_marginTop="@dimen/common_dimension_12"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_dimension_5"
+        android:layout_below="@id/etPsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/red0"
+            android:id="@+id/tvCancel"
+            android:padding="@dimen/common_dimension_5"
+            android:textSize="@dimen/BasicTextSize"
+            android:text="取消"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/red0"
+            android:text="确定"
+            android:id="@+id/tvSubmit"
+            android:padding="@dimen/common_dimension_5"
+            android:layout_marginLeft="@dimen/common_dimension_40"
+            android:textSize="@dimen/BasicTextSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

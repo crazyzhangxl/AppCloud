@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="@dimen/common_dimension_10"
+    android:layout_marginTop="@dimen/common_dimension_5"
+    android:layout_marginBottom="@dimen/common_dimension_5"
+    >
+    <ImageView
+        android:id="@+id/ivPic"
+        android:scaleType="fitXY"
+        android:layout_width="100dp"
+        android:layout_height="120dp"/>
+</LinearLayout>

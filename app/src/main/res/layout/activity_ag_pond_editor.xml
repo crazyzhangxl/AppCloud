@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.cultivate.AgPondEditorActivity">
+    <include
+        layout="@layout/include_toolbar"/>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior ="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50">
+
+                <TextView
+                    android:id="@+id/tvPondId"
+                    android:paddingLeft="@dimen/common_dimension_10"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray4"
+                    android:gravity="center"
+                    android:text="*塘号"
+                    android:textColor="@color/red0"
+                    android:textSize="@dimen/BasicTextSize"/>
+                <EditText
+                    android:inputType="text"
+                    android:id="@+id/etPondId"
+                    android:background="@null"
+                    android:lines="1"
+                    android:hint="请输入塘号..."
+                    android:textCursorDrawable="@drawable/style_cursor_black"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/SmallTextSize" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:id="@+id/tvPondCategory"
+                    android:paddingLeft="@dimen/common_dimension_10"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray4"
+                    android:gravity="center"
+                    android:text="分类"
+                    android:textColor="@color/green1"
+                    android:textSize="@dimen/BasicTextSize"/>
+                <EditText
+                    android:inputType="text"
+                    android:id="@+id/etPondCg"
+                    android:background="@null"
+                    android:lines="1"
+                    android:hint="请输入分类..."
+                    android:textCursorDrawable="@drawable/style_cursor_black"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/SmallTextSize" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:id="@+id/tvVy"
+                    android:paddingLeft="@dimen/common_dimension_10"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray4"
+                    android:gravity="center"
+                    android:text="品种"
+                    android:textColor="@color/green1"
+                    android:textSize="@dimen/BasicTextSize"/>
+                <EditText
+                    android:inputType="text"
+                    android:id="@+id/etVy"
+                    android:background="@null"
+                    android:lines="1"
+                    android:hint="请输入品种..."
+                    android:textCursorDrawable="@drawable/style_cursor_black"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/SmallTextSize" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:id="@+id/tvBreedBrand"
+                    android:paddingLeft="@dimen/common_dimension_10"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray4"
+                    android:gravity="center"
+                    android:text="放苗品牌"
+                    android:textColor="@color/green1"
+                    android:textSize="@dimen/BasicTextSize"/>
+                <EditText
+                    android:inputType="text"
+                    android:id="@+id/etBreedBrand"
+                    android:background="@null"
+                    android:lines="1"
+                    android:hint="请输入放苗品牌..."
+                    android:textCursorDrawable="@drawable/style_cursor_black"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/SmallTextSize" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:id="@+id/tvBreedNum"
+                    android:paddingLeft="@dimen/common_dimension_10"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray4"
+                    android:gravity="center"
+                    android:text="放苗数量"
+                    android:textColor="@color/green1"
+                    android:textSize="@dimen/BasicTextSize"/>
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:id="@+id/etBreedNum"
+                    android:background="@null"
+                    android:lines="1"
+                    android:hint="请输入放苗数量..."
+                    android:textCursorDrawable="@drawable/style_cursor_black"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/SmallTextSize" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:id="@+id/tvArea"
+                    android:paddingLeft="@dimen/common_dimension_10"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray4"
+                    android:gravity="center"
+                    android:text="养殖面积"
+                    android:textColor="@color/green1"
+                    android:textSize="@dimen/BasicTextSize"/>
+                <EditText
+                    android:inputType="text"
+                    android:id="@+id/etArea"
+                    android:background="@null"
+                    android:lines="1"
+                    android:hint="请输入年产值..."
+                    android:textCursorDrawable="@drawable/style_cursor_black"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/SmallTextSize" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlBreedTime"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:paddingLeft="@dimen/common_dimension_10"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray4"
+                    android:gravity="center"
+                    android:text="放苗时间"
+                    android:textColor="@color/green1"
+                    android:textSize="@dimen/BasicTextSize"/>
+                <TextView
+                    android:paddingRight="@dimen/common_dimension_12"
+                    android:textColor="@color/black"
+                    android:id="@+id/tvBreedTime"
+                    android:layout_marginRight="@dimen/common_dimension_30"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|left"
+                    android:hint="点击选择放苗时间..."
+                    android:textSize="@dimen/SmallTextSize"/>
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/common_dimension_12"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_60">
+                <LinearLayout
+                    android:background="@color/gray4"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tvLiaoName"
+                        android:text="用料品牌"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green1"
+                        android:textSize="@dimen/BasicTextSize"/>
+                </LinearLayout>
+
+                <EditText
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:id="@+id/etLiaoName"
+                    android:background="@null"
+                    android:hint="请输入用料品牌..."
+                    android:textCursorDrawable="@drawable/style_cursor_black"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/SmallTextSize" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_60">
+                <LinearLayout
+                    android:background="@color/gray4"
+                    android:id="@+id/llAgCategory"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tvLiaoType"
+                        android:text="用料型号"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green1"
+                        android:textSize="@dimen/BasicTextSize"/>
+                </LinearLayout>
+
+                <EditText
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:id="@+id/etLiaoType"
+                    android:background="@null"
+                    android:hint="请输入用料型号..."
+                    android:textCursorDrawable="@drawable/style_cursor_black"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/SmallTextSize" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

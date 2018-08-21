@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <!-- 显示时间 -->
+    <!-- 来点padding值好看的多啊 注意dp -->
+    <!--  线性布局可以设置gravity啊 可以的啊-->
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/common_dimension_10"
+        android:background="@drawable/shape_notification_bg"
+        android:gravity="center"
+        android:paddingBottom="@dimen/common_dimension_2"
+        android:paddingLeft="@dimen/common_dimension_5"
+        android:paddingRight="@dimen/common_dimension_5"
+        android:paddingTop="@dimen/common_dimension_2"
+        android:text="下午 5点"
+        android:textColor="#fff"
+        android:textSize="@dimen/SmallerTextSize"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/common_dimension_20"
+        android:paddingLeft="@dimen/common_dimension_5"
+        android:paddingRight="@dimen/common_dimension_5"
+        android:paddingTop="@dimen/common_dimension_10">
+
+        <!-- 重试 -->
+
+        <LinearLayout
+            android:id="@+id/llError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvRetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="重试"
+                android:visibility="gone"
+                />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivError"
+                android:layout_width="@dimen/common_dimension_20"
+                android:layout_height="@dimen/common_dimension_20"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/common_dimension_5"
+                android:src="@mipmap/img_error"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pbSending"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="@dimen/common_dimension_20"
+            android:layout_height="@dimen/common_dimension_20"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/common_dimension_5"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/common_dimension_10"
+                android:text="CSDN_LQR"
+                android:textColor="#666666"
+                android:textSize="@dimen/SmallerTextSize"
+                android:visibility="visible"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6''"/>
+
+                <RelativeLayout
+                    android:id="@+id/rlAudio"
+                    android:layout_width="@dimen/common_dimension_65"
+                    android:layout_height="@dimen/common_dimension_43"
+                    android:background="@drawable/img_bubble_send">
+
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/ivAudio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/audio_animation_right_list"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 人物头像 -->
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="@dimen/common_dimension_40"
+            android:layout_height="@dimen/common_dimension_40"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.cultivate.SubmitDrugActivity">
+    <include
+        layout="@layout/include_toolbar"/>
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollview"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/ll_pond"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="塘口"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="@dimen/SmallTextSize"
+                    android:id="@+id/tvPondSelected"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="点击选择塘口"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+            <RelativeLayout
+                android:id="@+id/rl_symptom"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_60">
+                <TextView
+                    android:text="病害症状"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="@dimen/SmallTextSize"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginRight="@dimen/common_dimension_35"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/tvSymptomInput"
+                    android:background="@null"
+                    android:lines="2"
+                    android:gravity="right"
+                    android:hint="点击填写病害症状，例如大面积死鱼、鱼鳃内生长寄生虫、鱼鳞破损长绿毛等"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="visible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+
+            <LinearLayout
+                android:id="@+id/ll_dragType"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="药品名称"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textSize="@dimen/SmallTextSize"
+                    android:id="@+id/etDrugName"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="输入药品名称"
+                    android:inputType="text"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:visibility="invisible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+            <LinearLayout
+                android:id="@+id/ll_dragInputMount"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="投放数量"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textSize="@dimen/SmallTextSize"
+                    android:id="@+id/etInputCount"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="输入投放数量"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:visibility="invisible"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+            <LinearLayout
+                android:id="@+id/ll_dragBuyMount"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="采购数量"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textSize="@dimen/SmallTextSize"
+                    android:id="@+id/etBuyCount"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="输入采购数量"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:visibility="invisible"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_drugOrigin"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="药品来源"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textSize="@dimen/SmallTextSize"
+                    android:id="@+id/etDrugOrigin"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="输入药品来源"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:visibility="invisible"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+            <RelativeLayout
+                android:id="@+id/rl_typeDefine"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_60">
+                <TextView
+                    android:text="用量用法"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="@dimen/SmallTextSize"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginRight="@dimen/common_dimension_35"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/tvTypeDefine"
+                    android:background="@null"
+                    android:lines="2"
+                    android:gravity="right"
+                    android:hint="点击填写该药物的作用，例如该药品药品是用来改底还是治病，治疗什么病虫害等"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="visible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_dragTime"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="用药时间"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tvTimeSelected"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="点击选择时间"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+            <RelativeLayout
+                android:id="@+id/rl_ReMark"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_60">
+                <TextView
+                    android:text="备注"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="@dimen/SmallTextSize"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginRight="@dimen/common_dimension_35"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/tvReMarkInput"
+                    android:background="@null"
+                    android:lines="2"
+                    android:gravity="right"
+                    android:hint="添加特殊记录。例如：检测人，记录员姓名或其他环境因素可能导致的记录偏差"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="visible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginRight="90dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_add_head_pic">
+
+                <FrameLayout
+                    android:id="@+id/flAdd"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:visibility="visible"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true">
+
+                        <ImageView
+                            android:id="@+id/ivHeadPic"
+                            android:layout_width="102dp"
+                            android:layout_height="102dp"
+                            android:scaleType="centerCrop" />
+                    </android.support.v7.widget.CardView>
+
+                </FrameLayout>
+                <ImageView
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:id="@+id/delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/shape_pic_del"
+                    android:padding="5dp"
+                    android:src="@mipmap/ic_pic_del"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/tvAddLogPic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@mipmap/ic_pic_head_add"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:text="添加投放图片"
+                    android:visibility="visible" />
+            </FrameLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/logTab"
+        app:backgroundTint="@color/md_red_400"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="@dimen/common_dimension_16"
+        android:layout_marginBottom="@dimen/common_dimension_16"
+        android:clickable="true"
+        android:elevation="4dp"
+        app:elevation="4dp"
+        app:borderWidth="0dp"
+        app:layout_anchorGravity="right|bottom"
+        android:src="@mipmap/ic_log"/>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jit.appcloud">
+
+    <!-- 访问网络一定要加网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 对SDCard进行读写操作 一定要加上 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 获取网络状态的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 打电话的权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 开机自启 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- 读取联系人 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 有可滑动的控件就在控件中滑动,不会遮挡标题栏 -->
+    <application
+        android:name=".app.MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_sea"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_sea"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="label,allowBackup,theme">
+
+        <!-- 2324255aa747d2fac8e1094ea0a00737 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="7f54a1dec5ea65fb9e8f155158efbac3" />
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="f0e4e6036d8078631ab8b92bb3fd7dd8" />
+
+        <!-- imlib config begin -->
+        <meta-data
+            android:name="RONG_CLOUD_APP_KEY"
+            android:value="m7ua80gbmjazm" />
+
+        <service
+            android:name="io.rong.imlib.ipc.RongService"
+            android:exported="true"
+            android:process=":ipc" />
+        <service
+            android:name="io.rong.imlib.ReConnectService"
+            android:exported="true" />
+
+        <receiver
+            android:name="io.rong.imlib.ConnectChangeReceiver"
+            android:exported="true" />
+        <receiver
+            android:name="io.rong.imlib.HeartbeatReceiver"
+            android:process=":ipc" />
+        <!-- imlib config end -->
+        <!-- 必选： SDK 核心功能 -->
+        <!-- 第三方相关,向第三方推送服务请求 token 的服务 -->
+        <service
+            android:name="io.rong.push.core.PushRegistrationService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <!-- 处理 push 消息相关的服务 -->
+        <service
+            android:name="io.rong.push.core.MessageHandleService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <!-- push服务 -->
+        <service
+            android:name="io.rong.push.PushService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process="io.rong.push">
+
+            <!-- push进程，可以改名 -->
+        </service>
+        <!-- push 相关事件接收器 -->
+        <receiver
+            android:name="io.rong.push.PushReceiver"
+            android:process="io.rong.push"> <!-- 此处进程可以改名，名称需要和PushService所在进程统一 -->
+            <!-- 心跳事件 -->
+            <intent-filter>
+                <action android:name="io.rong.push.intent.action.HEART_BEAT" />
+            </intent-filter>
+            <!-- 网络变动事件 -->
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- 部分用户事件 -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receiver.RongPushReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.THIRD_PARTY_PUSH_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 必选： SDK 核心功能 -->
+
+
+        <!-- 必选： SDK 核心功能 -->
+
+
+        <!-- 必选： SDK 核心功能 -->
+        <!-- end -->
+
+        <activity android:name=".ui.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.activity.me.WeatherActivity"
+            android:theme="@style/weatherImageActivity" />
+        <activity android:name=".ui.activity.me.ZxingActivity" />
+        <activity android:name=".ui.activity.me.SettingActivity" />
+        <activity
+            android:name=".ui.activity.message.SessionActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".ui.activity.message.ShowBigImageActivity" />
+        <activity
+            android:name=".ui.activity.me.CalendarActivity"
+            android:theme="@style/DataPickerTheme" />
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity
+            android:name=".ui.activity.news.PublishInfoActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ui.activity.me.ViceUserAddActivity" />
+        <activity android:name=".ui.activity.me.AddFarmPondActivity" />
+        <activity android:name=".ui.activity.cultivate.FarmDeviceActivity" />
+        <activity android:name=".ui.activity.ChangePwdActivity" />
+        <activity android:name=".ui.activity.cultivate.RegisterListActivity" />
+        <activity android:name=".ui.activity.cultivate.SingleSelectionActivity" />
+        <activity android:name=".ui.activity.cultivate.SubmitWaterActivity" />
+        <activity android:name=".ui.activity.cultivate.SubmitDrugActivity" />
+        <activity android:name=".ui.activity.cultivate.SubmitFeedActivity" />
+        <activity android:name=".ui.activity.cultivate.SubmitSeedActivity" />
+        <activity android:name=".ui.activity.cultivate.CustomerDSActivity" />
+        <activity android:name=".ui.activity.cultivate.AgencyCulLogActivity" />
+        <activity android:name=".ui.activity.cultivate.PondManageActivity" />
+        <activity android:name=".ui.activity.cultivate.PondAdByMGActivity" />
+        <activity android:name=".ui.activity.cultivate.KeyInputActivity" />
+        <activity android:name=".ui.activity.cultivate.PondDetailShowActivity" />
+        <activity android:name=".ui.activity.cultivate.PondModifyActivity" />
+        <activity android:name=".ui.activity.news.MyPublishActivity" />
+        <activity
+            android:name=".ui.activity.me.PersonalInfoActivity"
+            android:theme="@style/CustomPersonal" />
+        <activity
+            android:name=".ui.activity.news.PublishDetailShowActivity"
+            android:theme="@style/AppTheme.ShowTheme" />
+        <activity android:name=".ui.activity.MulPictureShowActivity" />
+        <activity android:name=".ui.activity.me.EditInfoActivity" />
+        <activity
+            android:name=".ui.activity.news.PublishEditorActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ui.activity.cultivate.FarmerChooseActivity" />
+        <activity android:name=".ui.activity.me.EditSignatureActivity" />
+        <activity android:name=".ui.activity.cultivate.LogFeedActivity" />
+        <activity android:name=".ui.activity.cultivate.LogSeedActivity" />
+        <activity android:name=".ui.activity.cultivate.LogWaterDtActivity" />
+        <activity android:name=".ui.activity.cultivate.LogDrugActivity" />
+        <activity android:name=".ui.activity.cultivate.DeviceAdByMGActivity" />
+        <activity android:name=".ui.activity.cultivate.DeviceManageActivity" />
+        <activity android:name=".ui.activity.cultivate.DeviceDetailShowActivity" />
+        <activity android:name=".ui.activity.cultivate.DeviceModifyActivity" />
+        <activity android:name=".ui.activity.cultivate.SubmitDeviceActivity" />
+        <activity android:name=".ui.activity.cultivate.LogDeviceActivity" />
+        <activity android:name=".ui.activity.cultivate.DeviceSelectedActivity" />
+        <activity android:name=".ui.activity.message.SearchUserActivity" />
+        <activity android:name=".ui.activity.message.UserInfoBySearchActivity" />
+        <activity android:name=".ui.activity.message.NewFriendActivity" />
+        <activity android:name=".ui.activity.cultivate.MealFeedManageActivity" />
+        <activity android:name=".ui.activity.cultivate.MealFeedModifyActivity" />
+        <activity android:name=".ui.activity.cultivate.MealFeedAddActivity" />
+        <activity android:name=".ui.activity.cultivate.MealSeedAddActivity" />
+        <activity android:name=".ui.activity.cultivate.MealSeedModifyActivity" />
+        <activity android:name=".ui.activity.cultivate.MealSeedManageActivity" />
+        <activity android:name=".ui.activity.message.PostScriptActivity" />
+        <activity android:name=".ui.activity.message.SetAliasActivity" />
+        <activity android:name=".ui.activity.cultivate.BoundFarmActivity" />
+        <activity android:name=".ui.activity.cultivate.MgRegisterFmActivity" />
+        <activity android:name=".ui.activity.cultivate.CusDtRoleAmActivity" />
+        <activity android:name=".ui.activity.cultivate.CusDtRoleMgActivity" />
+        <activity android:name=".ui.activity.cultivate.AgPondAddActivity" />
+        <activity android:name=".ui.activity.cultivate.AgPondEditorActivity" />
+        <activity android:name=".ui.activity.cultivate.AgDeviceAddActivity" />
+        <activity android:name=".ui.activity.cultivate.AgDeviceEditorActivity" />
+        <activity android:name=".ui.activity.me.FmPondManageActivity" />
+        <activity android:name=".ui.activity.me.FmDeviceManageActivity" />
+        <activity android:name=".ui.activity.me.FmDataManageActivity" />
+        <activity android:name=".ui.activity.me.GalleryActivity" />
+        <activity android:name=".widget.viewbigimage.ViewBigImageActivity" />
+        <activity android:name=".ui.activity.me.PopNiceActivity" />
+        <activity android:name=".ui.activity.me.GalleryNiceActivity" />
+        <activity
+            android:name=".ui.activity.FarmLogActivity"
+            android:theme="@style/AccentRedTheme" />
+        <activity android:name=".ui.activity.me.LogDdListActivity" />
+        <activity android:name=".ui.activity.me.LogFileCsActivity" />
+        <activity android:name=".ui.activity.me.GalleryShowActivity" />
+        <activity
+            android:name=".ui.activity.me.EpAddPondActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.activity.me.EpEdPondActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ui.activity.me.EpAddDeviceActivity" />
+        <activity android:name=".ui.activity.me.EpEtDeviceActivity" />
+        <activity android:name=".ui.activity.me.ViceUserMgActivity" />
+        <activity android:name=".ui.activity.me.ViceUserEditorActivity" />
+        <activity android:name=".ui.activity.message.CreateGroupActivity" />
+        <activity android:name=".ui.activity.message.GroupListActivity" />
+        <activity android:name=".ui.activity.message.SessionInfoActivity" />
+        <activity android:name=".ui.activity.message.SetGroupNameActivity" />
+        <activity android:name=".ui.activity.message.QRCodeCardActivity" />
+
+        <receiver
+            android:name=".receiver.NotificationReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ui.activity.message.RemoveGpMemberActivity" />
+        <activity android:name=".ui.activity.message.FriendCircleActivity"
+            android:theme="@style/FriendCircleTheme"/>
+        <activity
+            android:name=".ui.activity.message.PublishTalkActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/FriendCircleTheme"/>
+        <activity android:name=".ui.activity.cultivate.NormalChartActivity" />
+        <activity android:name=".ui.activity.cultivate.RTimeMonitorActivity"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout
+    android:id="@+id/app_bar_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="@dimen/toolbar_height">
+    <FrameLayout
+        android:id="@+id/flToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+            <!-- 返回按钮
+                 牛逼啊,设置这样
+            -->
+            <ImageView
+                android:scaleType="centerInside"
+                android:visibility="visible"
+                android:layout_marginLeft="@dimen/common_dimension_10"
+                android:id="@+id/ivToolbarNavigation"
+                android:layout_width="@dimen/common_dimension_20"
+                android:layout_height="@dimen/common_dimension_40"
+
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back2" />
+            <!--  竖直的线-->
+            <View
+                android:id="@+id/vToolbarDivision"
+                android:layout_width="@dimen/common_dimension_20"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/ivToolbarNavigation"
+                android:background="@drawable/shape_vertical_line"
+                android:visibility="visible"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/llToolbarTitle"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/vToolbarDivision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvToolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_15"
+                    android:visibility="visible"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llGallery"
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/common_dimension_10"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/llAdd"
+                    android:layout_gravity="center_vertical"
+                    android:paddingTop="@dimen/common_dimension_3"
+                    android:paddingBottom="@dimen/common_dimension_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:src= "@mipmap/ic_pic_add"
+                        android:layout_width="@dimen/common_dimension_18"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="@dimen/common_dimension_5"
+                        android:text="上传"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llMinus"
+                    android:layout_marginLeft="@dimen/common_dimension_8"
+                    android:layout_gravity="center_vertical"
+                    android:paddingTop="@dimen/common_dimension_3"
+                    android:paddingBottom="@dimen/common_dimension_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:src= "@mipmap/ic_pic_minus"
+                        android:layout_width="@dimen/common_dimension_15"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="@dimen/common_dimension_5"
+                        android:text="删除"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <CheckBox
+                    android:gravity="center_vertical"
+                    android:id="@+id/checkEditor"
+                    android:paddingTop="@dimen/common_dimension_3"
+                    android:paddingBottom="@dimen/common_dimension_3"
+                    android:layout_marginLeft="@dimen/common_dimension_3"
+                    android:text="编辑"
+                    style="@style/MyCheckBox"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:padding="@dimen/common_dimension_5"
+                android:text="添加"
+                android:id="@+id/tvAdd"
+                android:layout_marginRight="@dimen/common_dimension_10"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/color_select_add"
+                android:textSize="@dimen/text_size_15"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </FrameLayout>
+</android.support.design.widget.AppBarLayout>

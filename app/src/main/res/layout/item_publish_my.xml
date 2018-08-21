@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_marginLeft="@dimen/common_dimension_3"
+    android:layout_marginRight="@dimen/common_dimension_3"
+    android:layout_marginBottom="@dimen/common_dimension_8"
+    android:id="@+id/llPBDetail"
+    android:background="@drawable/bg_card"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout
+        android:id="@+id/llTop"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+        <android.support.v7.widget.CardView
+            android:layout_marginLeft="@dimen/common_dimension_10"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true">
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/ivNewsHead"
+                android:scaleType="centerCrop"
+                android:layout_width="95dp"
+                android:layout_height="110dp"/>
+        </android.support.v7.widget.CardView>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginTop="@dimen/common_dimension_4"
+                android:visibility="visible"
+                android:id="@+id/tvNewTitle"
+                android:text="这是标题吖"
+                android:textColor="@color/black"
+                android:textSize="@dimen/BasicTextSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/ivNewsFlag"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_news_flag_net"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginRight="@dimen/common_dimension_25"
+                android:layout_marginTop="@dimen/common_dimension_8"
+                android:layout_below="@id/tvNewTitle"
+                android:id="@+id/tvNewsDes"
+                android:textSize="@dimen/SmallTextSize"
+                android:text="对商品的简要的描述：这件商品好好啊，欢迎来购买"
+                android:lines="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_alignParentRight="true"
+                android:id="@+id/tvTypeHot"
+                android:layout_marginTop="@dimen/common_dimension_8"
+                android:layout_below="@id/tvNewsDes"
+                android:text="鱼类 · 80人浏览"
+                android:textSize="@dimen/SmallTextSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_marginBottom="@dimen/common_dimension_5"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:visibility="visible"
+                    android:layout_marginBottom="@dimen/common_dimension_8"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/tvNewsTime"
+                    android:text="2017-8-8"
+                    android:textSize="@dimen/SmallTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:visibility="visible"
+                    android:id="@+id/tvNewsAccount"
+                    android:text="￥109"
+                    android:textSize="@dimen/SmallTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/common_dimension_5"
+        android:layout_marginRight="@dimen/common_dimension_5"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/common_dimension_8"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_40"
+        android:gravity="right">
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/llDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="15sp"
+                android:layout_height="30sp"
+                android:src="@mipmap/ic_pond_delete"
+                android:layout_gravity="center_vertical" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="删除"
+                android:textSize="@dimen/mediumTextSize"
+                android:textColor="@color/red0"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/set_remove_adapter"
+                android:layout_marginRight="40sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/llEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="15sp"
+                android:layout_height="30sp"
+                android:src="@mipmap/ic_pond_edit"
+                android:layout_gravity="center_vertical" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修改"
+                android:textSize="@dimen/mediumTextSize"
+                android:textColor="@color/green1"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

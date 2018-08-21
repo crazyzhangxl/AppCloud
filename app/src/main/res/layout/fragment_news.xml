@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        layout="@layout/include_toolbar"/>
+    <include layout="@layout/item_news_head"/>
+
+    <!--这下面就是个RecyclerView吖 是不-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcvNewsBody"
+            android:layout_marginLeft="@dimen/common_dimension_2"
+            android:layout_marginRight="@dimen/common_dimension_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

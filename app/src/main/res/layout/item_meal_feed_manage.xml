@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_card"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/common_dimension_8"
+    android:layout_height="50dp">
+    <TextView
+        android:layout_gravity="center_vertical"
+        android:text="套餐三"
+        android:id="@+id/tvMealName"
+        android:textSize="@dimen/mediumTextSize"
+        android:layout_marginLeft="@dimen/common_dimension_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/common_dimension_20"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvMealType"
+            android:text="虾类"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tvMealDetail"
+            android:text="大豆牌-豆柏 4斤"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="60dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_centerVertical="true"
+            android:background="@color/line_color"
+            android:layout_width="@dimen/common_dimension_2"
+            android:layout_height="30dp"/>
+        <TextView
+            android:padding="3dp"
+            android:layout_centerInParent="true"
+            android:text="编辑"
+            android:id="@+id/tvEditor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

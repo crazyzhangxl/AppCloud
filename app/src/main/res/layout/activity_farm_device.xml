@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.jit.appcloud.ui.activity.cultivate.FarmDeviceActivity">
+    <include
+        layout="@layout/include_toolbar"/>
+    <!--客户====日期-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:layout_height="@dimen/common_dimension_45">
+        <LinearLayout
+            android:id="@+id/llCus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:text="客户:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                app:ms_background_color="@color/white"
+                android:id="@+id/spFarm"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:id="@+id/llTime"
+            android:layout_marginLeft="@dimen/common_dimension_15"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:text="日期: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/common_dimension_5"
+                android:id="@+id/tvTimeOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2018-06-25"
+                android:textColor="@color/black"
+                android:textSize="@dimen/BasicTextSize" />
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/ivTimeOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_dimension_8"
+                android:layout_marginRight="@dimen/common_dimension_8"
+                android:src="@mipmap/ic_arrow_bottom"
+                tools:targetApi="lollipop" />
+        </LinearLayout>
+
+    </RelativeLayout>
+    <View
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_0.5"/>
+    <TextView
+        android:id="@+id/tvDeviceTotal"
+        android:layout_marginLeft="8dp"
+        android:text="总设备数:0  在线设备:0  离线设备:0"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_45" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:id="@+id/lqr_agencyList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

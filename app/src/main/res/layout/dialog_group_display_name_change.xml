@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="@dimen/common_dimension_300"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_corner_rect_solid_white"
+        android:orientation="vertical"
+        android:padding="@dimen/common_dimension_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_display_name_in_group"
+            android:textColor="@color/black"
+            android:textSize="@dimen/LargeTextSize"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/common_dimension_30"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:drawableBottom="@drawable/shape_bottom_green"
+                android:gravity="bottom"
+                android:textColorHint="@color/gray3"
+                android:textSize="@dimen/BasicTextSize"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_dimension_10"
+                android:text="@string/set_your_display_name_in_group"
+                android:textColor="@color/gray2"
+                android:textSize="@dimen/SmallerTextSize"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_dimension_40"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvCancle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:textColor="@color/gray1"
+                android:textSize="@dimen/BasicTextSize"/>
+
+            <TextView
+                android:id="@+id/tvOk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_dimension_20"
+                android:text="@string/sure"
+                android:textColor="@color/green3"
+                android:textSize="@dimen/BasicTextSize"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

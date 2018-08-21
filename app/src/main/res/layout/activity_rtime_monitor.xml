@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.jit.appcloud.ui.activity.cultivate.RTimeMonitorActivity">
+    <include
+        layout="@layout/include_toolbar_farm_log"/>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_50">
+        <TextView
+            android:id="@+id/tvSpTitle"
+            android:layout_marginLeft="@dimen/common_dimension_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            app:ms_background_color="@color/white"
+            android:id="@+id/spinner"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="@dimen/common_dimension_0"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:id="@+id/llDeviceTime"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:text="日期: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/common_dimension_5"
+                android:id="@+id/tvDeviceTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/BasicTextSize" />
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/ivTimeTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_dimension_8"
+                android:layout_marginRight="@dimen/common_dimension_8"
+                android:src="@mipmap/ic_arrow_bottom"
+                tools:targetApi="lollipop" />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:background="@color/bg_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_0.5"/>
+    <LinearLayout
+        android:background="@color/color_chart_title"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingTop="@dimen/common_dimension_8"
+            android:paddingBottom="@dimen/common_dimension_8"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/BasicTextSize"
+            android:textColor="@color/black"
+            android:text="设备"
+            android:layout_width="0dp"
+            android:layout_weight="1.3"
+            android:layout_height="wrap_content" />
+        <View
+            android:background="@color/bg_line_2"
+            android:layout_width="@dimen/common_dimension_0.5"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:paddingLeft="@dimen/common_dimension_2"
+            android:paddingTop="@dimen/common_dimension_8"
+            android:paddingBottom="@dimen/common_dimension_8"
+            android:textSize="@dimen/BasicTextSize"
+            android:textColor="@color/black"
+            android:drawableLeft="@mipmap/ic_pond_o2"
+            android:text="溶氧"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <View
+            android:background="@color/bg_line_2"
+            android:layout_width="@dimen/common_dimension_0.5"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:paddingLeft="@dimen/common_dimension_12"
+            android:paddingTop="@dimen/common_dimension_8"
+            android:paddingBottom="@dimen/common_dimension_8"
+            android:textSize="@dimen/BasicTextSize"
+            android:textColor="@color/black"
+            android:drawableLeft="@mipmap/ic_pond_ph"
+            android:text="PH"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <View
+            android:background="@color/bg_line_2"
+            android:layout_width="@dimen/common_dimension_0.5"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:paddingTop="@dimen/common_dimension_8"
+            android:paddingBottom="@dimen/common_dimension_8"
+            android:paddingLeft="@dimen/common_dimension_8"
+            android:textSize="@dimen/BasicTextSize"
+            android:textColor="@color/black"
+            android:drawableLeft="@mipmap/ic_pond_temp"
+            android:text="水温"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <View
+            android:background="@color/bg_line_2"
+            android:layout_width="@dimen/common_dimension_0.5"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:paddingTop="@dimen/common_dimension_8"
+            android:paddingBottom="@dimen/common_dimension_8"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/BasicTextSize"
+            android:textColor="@color/black"
+            android:text="更新日期"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View
+        android:background="@color/bg_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_0.5"/>
+    <!-- 便携式设备的数据展示-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvRTMonitor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

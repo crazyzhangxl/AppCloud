@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 图标数据的显示-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.cultivate.NormalChartActivity">
+    <include
+        layout="@layout/include_toolbar_farm_log"/>
+    <!--  状态栏 -->
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:background="@color/color_chart_title"
+                android:layout_marginTop="@dimen/common_dimension_1"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="@dimen/common_dimension_40">
+                <TextView
+                    android:id="@+id/tvToday"
+                    android:gravity="center"
+                    android:text="今天"
+                    android:textSize="@dimen/LargeTextSize"
+                    android:textColor="@color/black"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/tvYesterday"
+                    android:gravity="center"
+                    android:text="昨天"
+                    android:textSize="@dimen/LargeTextSize"
+                    android:textColor="@color/black"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/tvBeforeDay"
+                    android:gravity="center"
+                    android:text="前天"
+                    android:textSize="@dimen/LargeTextSize"
+                    android:textColor="@color/black"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/tvTenDay"
+                    android:gravity="center"
+                    android:text="十天"
+                    android:textSize="@dimen/LargeTextSize"
+                    android:textColor="@color/black"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <View
+                android:layout_marginTop="@dimen/common_dimension_1"
+                android:background="@color/bg_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_45">
+                <ImageView
+                    android:paddingLeft="@dimen/common_dimension_8"
+                    android:paddingRight="@dimen/common_dimension_8"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_pond_ph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:text="PH值"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/LargeTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/bg_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartPH"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="8dp" />
+            <View
+                android:background="@color/bg_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_45">
+                <ImageView
+                    android:paddingLeft="@dimen/common_dimension_8"
+                    android:paddingRight="@dimen/common_dimension_8"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_pond_o2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:text="溶解氧(mg/L)"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/LargeTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/bg_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartO2"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="8dp" />
+            <View
+                android:background="@color/bg_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_45">
+                <ImageView
+                    android:paddingLeft="@dimen/common_dimension_8"
+                    android:paddingRight="@dimen/common_dimension_8"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_pond_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:text="水温(℃)"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/LargeTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/bg_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartTmp"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="8dp" />
+            <View
+                android:background="@color/bg_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

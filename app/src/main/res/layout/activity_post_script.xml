@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.message.PostScriptActivity">
+    <include layout="@layout/include_toolbar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_dimension_10"
+        android:layout_marginTop="@dimen/common_dimension_20"
+        android:text="@string/postscript_tip"
+        android:textColor="@color/gray2"
+        android:textSize="12sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_dimension_20">
+
+        <EditText
+            android:id="@+id/etMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_dimension_15"
+            android:layout_marginRight="@dimen/common_dimension_15"
+            android:background="@null"
+            android:drawableBottom="@drawable/shape_bottom_green"
+            android:drawablePadding="@dimen/common_dimension_10"
+            android:gravity="bottom"
+            android:hint=""
+            android:textColorHint="@color/gray3"
+            android:textSize="@dimen/BasicTextSize"
+            android:visibility="visible"/>
+
+        <ImageButton
+            android:id="@+id/ibClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/common_dimension_20"
+            android:background="@null"
+            android:src="@mipmap/ic_delete"/>
+
+    </RelativeLayout>
+</LinearLayout>

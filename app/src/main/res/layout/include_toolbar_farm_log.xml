@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout
+    android:id="@+id/app_bar_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="@dimen/toolbar_height">
+    <FrameLayout
+        android:id="@+id/flToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+            <!-- 返回按钮
+                 牛逼啊,设置这样
+            -->
+            <ImageView
+                android:scaleType="centerInside"
+                android:visibility="visible"
+                android:layout_marginLeft="@dimen/common_dimension_10"
+                android:id="@+id/ivToolbarNavigation"
+                android:layout_width="@dimen/common_dimension_20"
+                android:layout_height="@dimen/common_dimension_40"
+
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back2" />
+            <!--  竖直的线-->
+            <View
+                android:id="@+id/vToolbarDivision"
+                android:layout_width="@dimen/common_dimension_20"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/ivToolbarNavigation"
+                android:background="@drawable/shape_vertical_line"
+                android:visibility="visible"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/llToolbarTitle"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/vToolbarDivision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvToolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_15"
+                    android:visibility="visible"/>
+            </LinearLayout>
+
+            <TextView
+                android:text="发布"
+                android:id="@+id/tv_publish_now"
+                android:layout_marginRight="@dimen/common_dimension_10"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_15"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:id="@+id/llLogAll"
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/common_dimension_12"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/llDownload"
+                    android:layout_marginLeft="@dimen/common_dimension_8"
+                    android:layout_gravity="center_vertical"
+                    android:paddingTop="@dimen/common_dimension_3"
+                    android:paddingBottom="@dimen/common_dimension_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/ic_download_white"
+                        android:layout_width="@dimen/common_dimension_20"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/common_dimension_5"
+                        android:text="@string/download"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <ImageView
+                    android:gravity="center_vertical"
+                    android:id="@+id/ivDnLog"
+                    android:src="@mipmap/ic_list"
+                    android:paddingTop="@dimen/common_dimension_3"
+                    android:paddingBottom="@dimen/common_dimension_3"
+                    android:layout_marginLeft="@dimen/common_dimension_18"
+                    android:layout_marginRight="@dimen/common_dimension_5"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llTable"
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/common_dimension_12"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/common_dimension_8"
+                    android:layout_gravity="center_vertical"
+                    android:paddingTop="@dimen/common_dimension_3"
+                    android:paddingBottom="@dimen/common_dimension_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/common_dimension_5"
+                        android:text="养殖记录表"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/llSave"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/common_dimension_12"
+                android:paddingTop="@dimen/common_dimension_3"
+                android:paddingBottom="@dimen/common_dimension_3"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_save_white_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:text="@string/save"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
+</android.support.design.widget.AppBarLayout>

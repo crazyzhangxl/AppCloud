@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_margin="@dimen/common_dimension_3"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout
+        android:layout_marginLeft="@dimen/common_dimension_3"
+        android:layout_marginRight="@dimen/common_dimension_3"
+        android:background="@drawable/bg_card"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginTop="@dimen/common_dimension_5"
+            android:layout_marginLeft="@dimen/common_dimension_8"
+            android:layout_marginRight="@dimen/common_dimension_8"
+            android:id="@+id/llPondInfo"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="设备ID:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/tvDeviceId"
+                android:textSize="@dimen/LargeTextSize" />
+            <TextView
+                android:text="Mac地址:"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/tvMacAddress"
+                android:textSize="@dimen/BasicTextSize"/>
+            <TextView
+                android:text="功能:"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/tvDeviceFunc"
+                android:textSize="14sp"/>
+            <TextView
+                android:text="鱼塘:"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/tvDevicePond"
+                android:textSize="14sp"/>
+            <View
+                android:layout_marginTop="@dimen/common_dimension_5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="@dimen/common_dimension_5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_40"
+            android:gravity="right">
+            <LinearLayout
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/llDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="15sp"
+                    android:layout_height="30sp"
+                    android:src="@mipmap/ic_pond_delete"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="删除"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:textColor="@color/red0"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/set_remove_adapter"
+                    android:layout_marginRight="15dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/llEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="15sp"
+                    android:layout_height="30sp"
+                    android:src="@mipmap/ic_pond_edit"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="修改"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:textColor="@color/green1"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_8"/>
+
+
+</LinearLayout>

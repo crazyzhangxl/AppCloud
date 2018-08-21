@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.cultivate.DeviceSelectedActivity">
+    <include
+        layout="@layout/include_toolbar"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:background="#f7f7f7"
+            android:id="@+id/category_left_rv"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+
+        <com.lqr.recyclerview.LQRRecyclerView
+            app:rv_divider_color="@color/line_color"
+            app:rv_divider_size="@dimen/common_dimension_1"
+            android:id="@+id/category_right_rv"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>

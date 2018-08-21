@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <!--设置与上下左右间距为25dp-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/common_dimension_25"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivHeader"
+                android:layout_width="@dimen/common_dimension_65"
+                android:layout_height="@dimen/common_dimension_65"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/default_header"/>
+            <!-- 设置marginRight 为很长不至于到末尾去-->
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_dimension_10"
+                android:layout_marginRight="@dimen/common_dimension_10"
+                android:layout_marginTop="@dimen/common_dimension_10"
+                android:text="小张"
+                android:textColor="@color/gray0"
+                android:textSize="@dimen/BasicTextSize"/>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivCard"
+            android:layout_width="@dimen/common_dimension_150"
+            android:layout_height="@dimen/common_dimension_150"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/common_dimension_20"
+            android:layout_marginTop="@dimen/common_dimension_10"
+            />
+
+        <TextView
+            android:id="@+id/tvTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/common_dimension_20"
+            android:layout_marginLeft="@dimen/common_dimension_20"
+            android:layout_marginRight="@dimen/common_dimension_20"
+            android:layout_marginTop="@dimen/common_dimension_20"
+            android:textColor="@color/gray1"
+            android:textSize="@dimen/SmallerTextSize"/>
+    </LinearLayout>
+</FrameLayout>

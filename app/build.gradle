@@ -1,0 +1,159 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.jit.appcloud"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 10
+        versionName "1.0.6"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true /* 分包用的啊 我的哥*/
+
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //lambda必备
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // 解决rx和pixture冲突问题
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    // 强制让所有模块都用相同的支持库版本。
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '26.1.0'
+                }
+            }
+        }
+    }
+
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    // butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // PermissionDispatche库 更新会出问题的
+    compile 'com.github.hotchemi:permissionsdispatcher:2.3.2'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.3.2'
+
+    // rx相关
+    compile 'io.reactivex.rxjava2:rxjava:2.1.11'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    // 图片选择器  注意包含了Glide4.5了
+
+    // 版本很高
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+
+    //BottomBar
+    compile 'com.roughike:bottom-bar:2.3.1'
+
+    // 引入fragmentation
+    compile 'me.yokeyword:fragmentation:1.3.3'
+
+    // 引入MaterialDialog弹出框
+    implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
+
+    // 圆角 design库
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.github.lygttpod:SuperTextView:2.1.6'
+
+    // 高德地图定位
+    implementation files('libs/AMap3DMap_6.1.0_AMapSearch_6.1.0_AMapLocation_3.8.0_20180330.jar')
+
+    // BRVAH
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    compile 'com.github.SilenceDut:TaskScheduler:1.0.3'
+    compile 'com.contrarywind:Android-PickerView:3.2.5'
+    compile 'org.greenrobot:eventbus:3.1.1'
+
+    // 二维码工具
+    implementation 'cn.bingoogolapple:bga-qrcode-zxing:1.2.1'
+
+    // 数据库 litepal
+    compile 'org.litepal.android:core:1.6.1'
+    implementation files('libs/Rong_IMLib.jar')
+    compile 'com.android.support:multidex:1.0.3'
+    implementation files('libs/joda-time-2.5.jar')
+    compile 'com.lqr.emoji:library:1.0.2'
+    compile 'cn.bingoogolapple:bga-refreshlayout:1.1.7'
+    compile 'com.lqr.audio:library:1.0.0'
+    compile 'com.lqr.adapter:library:1.0.2'
+    compile 'com.lqr.recyclerview:library:1.0.2'
+    compile 'com.lqr.ninegridimageview:library:1.0.0'
+    compile 'com.lqr.optionitemview:library:1.0.7'
+
+    // Material 日历引入
+    implementation 'com.prolificinteractive:material-calendarview:1.4.3'
+    compile 'com.jaredrummler:material-spinner:1.0.4'
+
+    // 类似于广播
+    compile 'com.silencedut:router:1.3.0'
+    compile 'com.hyman:flowlayout-lib:1.1.2'
+    compile 'com.commit451:PhotoView:1.2.4'
+
+    //图片缩放
+    implementation 'jp.wasabeef:glide-transformations:3.3.0'
+
+    //高斯背景
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    // 毕加索返回bitmap对象
+    implementation 'com.zaaach:citypicker:2.0.2'
+    compile 'com.pgyersdk:sdk:2.8.1'
+
+    // 蒲公英SDK
+    implementation files('libs/pinyin4j-2.5.0.jar')
+
+    //  生成表格的jar
+    implementation files('libs/jxl.jar')
+
+    //  选择按钮
+    compile 'com.kyleduo.switchbutton:library:1.4.4'
+    compile 'com.alibaba:fastjson:1.2.29'
+    compile 'com.github.clans:fab:1.6.4'//悬浮动画菜单
+    implementation files('libs/MiPush_SDK_Client_3_5_1.jar')
+    // MPAndroidCharts -----
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+}

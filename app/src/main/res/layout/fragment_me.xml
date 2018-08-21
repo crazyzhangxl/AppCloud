@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        layout="@layout/include_toolbar"/>
+
+    <!-- 陈列式信息-->
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <View
+                android:background="@color/gray5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/option_item_margin_top"/>
+            <!--个人中心 -->
+            <LinearLayout
+                android:id="@+id/llMyInfo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_89"
+                android:background="@drawable/selector_common_item"
+                android:paddingRight="@dimen/common_dimension_3">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivHeader"
+                    android:layout_width="@dimen/common_dimension_70"
+                    android:layout_height="@dimen/common_dimension_70"
+                    android:layout_marginLeft="@dimen/common_dimension_15"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/option_item_margin_right"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/default_header" />
+
+                <!-- 666666 设置了权重为1了 那么只要摆放了其他位置中间就确定了 -->
+                <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/common_dimension_70"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/common_dimension_3"
+                        android:singleLine="true"
+                        android:text="@string/str_default_name"
+                        android:textColor="@color/gray0"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <TextView
+                        android:id="@+id/tvSignature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/common_dimension_3"
+                        android:singleLine="true"
+                        android:hint="@string/str_default_signature"
+                        android:textColor="@color/gray2"
+                        android:textSize="@dimen/SmallTextSize" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="@dimen/common_dimension_15"
+                        android:id="@+id/ivQRCordCard"
+                        android:padding="@dimen/common_dimension_2"
+                        android:layout_width="@dimen/common_dimension_25"
+                        android:layout_height="@dimen/common_dimension_25"
+                        android:scaleType="centerInside"
+                        android:layout_marginRight="@dimen/option_item_margin_right"
+                        android:src="@mipmap/ic_qr_code" />
+
+                    <ImageView
+                        android:layout_marginTop="@dimen/common_dimension_5"
+                        android:padding="@dimen/common_dimension_2"
+                        android:layout_marginRight="@dimen/option_item_margin_right"
+                        android:id="@+id/ivEditor"
+                        android:src="@mipmap/ic_info_editor"
+                        android:layout_width="23dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <View
+                android:background="@color/line_color"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_35">
+                <TextView
+                    android:text="常用功能"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <com.allen.library.SuperTextView
+                stv:sDividerLineType="both"
+                android:id="@+id/stv_me_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/str_me_calendar"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@drawable/ic_me_calendar"
+                stv:sRightIconRes="@drawable/shape_arrow">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="420dp" />
+            </com.allen.library.SuperTextView>
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_me_weather"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/str_me_weather"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@drawable/ic_me_weather"
+                stv:sRightIconRes="@drawable/shape_arrow"
+                />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_me_zxing"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/str_me_zxing"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@drawable/ic_me_zxing"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_me_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/str_me_gallery"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@drawable/ic_me_gallery"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+
+            <!-- 滑动效果好啊 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_35">
+                <TextView
+                    android:text="养殖管理"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <!-- 每个用户都有数据管理的功能-->
+            <com.allen.library.SuperTextView
+                stv:sDividerLineType="both"
+                android:visibility="visible"
+                android:id="@+id/stvAlData"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/str_allocate_data"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@mipmap/ic_al_data"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+            <com.allen.library.SuperTextView
+                android:visibility="gone"
+                android:id="@+id/stvDn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="字典管理"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@mipmap/ic_stv_dn"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+
+            <com.allen.library.SuperTextView
+                android:visibility="gone"
+                android:id="@+id/stvBank"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="设备明细"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@mipmap/ic_stv_bank"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+
+            <com.allen.library.SuperTextView
+                android:visibility="gone"
+                android:id="@+id/stvAlPond"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/str_allocate_pond"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@mipmap/ic_al_pond"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+            <com.allen.library.SuperTextView
+                android:visibility="gone"
+                android:id="@+id/stvAlDevice"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/str_allocate_device"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@mipmap/ic_al_device"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+            <RelativeLayout
+                android:id="@+id/rlInfo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_35">
+                <TextView
+                    android:text="信息维护"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <com.allen.library.SuperTextView
+                stv:sDividerLineType="both"
+                android:id="@+id/stv_change_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/str_change_password"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@mipmap/ic_setting_pswd"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+
+            <com.allen.library.SuperTextView
+                android:visibility="visible"
+                android:id="@+id/stv_register"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/stv_vice_user_manage"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@mipmap/ic_me_register"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_35">
+                <TextView
+                    android:text="关于系统"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <com.allen.library.SuperTextView
+                stv:sDividerLineType="both"
+                android:id="@+id/stv_me_setting"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50"
+                stv:sLeftTextString="@string/str_me_setting"
+                stv:sLeftIconWidth="@dimen/common_dimension_30"
+                stv:sLeftIconHeight="@dimen/common_dimension_30"
+                stv:sLeftIconRes="@drawable/ic_me_setting"
+                stv:sRightIconRes="@drawable/shape_arrow"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

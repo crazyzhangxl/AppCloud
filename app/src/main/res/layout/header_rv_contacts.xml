@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llNewFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_common_item"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/item_margin_top_and_bottom"
+        android:paddingLeft="@dimen/item_margin_left_and_right"
+        android:paddingRight="@dimen/item_margin_left_and_right"
+        android:paddingTop="@dimen/item_margin_top_and_bottom">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivNewFriend"
+                android:layout_width="@dimen/common_dimension_40"
+                android:layout_height="@dimen/common_dimension_40"
+                android:layout_marginRight="@dimen/common_dimension_5"
+                android:layout_marginTop="@dimen/common_dimension_5"
+                android:src="@mipmap/ic_new_friend"/>
+            <TextView
+                android:id="@+id/tvNewFriendUnread"
+                android:layout_width="@dimen/common_dimension_7.5"
+                android:layout_height="@dimen/common_dimension_7.5"
+                android:layout_alignRight="@id/ivNewFriend"
+                android:layout_alignTop="@id/ivNewFriend"
+                android:layout_marginRight="@dimen/common_dimension_minus4"
+                android:layout_marginTop="@dimen/common_dimension_minus2.5"
+                android:background="@mipmap/bg_unread"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/SmallerTextSize"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_margin_left_and_right"
+            android:text="@string/new_friend"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_17"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/Line"
+        android:layout_marginLeft="@dimen/item_margin_left_and_right"
+        android:layout_marginRight="@dimen/item_margin_left_and_right"
+        />
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/llGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_common_item"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/item_margin_top_and_bottom"
+        android:paddingLeft="@dimen/item_margin_left_and_right"
+        android:paddingRight="@dimen/item_margin_left_and_right"
+        android:paddingTop="@dimen/item_margin_top_and_bottom">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/common_dimension_40"
+                android:layout_height="@dimen/common_dimension_40"
+                android:layout_marginRight="@dimen/common_dimension_5"
+                android:layout_marginTop="@dimen/common_dimension_5"
+                android:src="@mipmap/ic_group_cheat"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_margin_left_and_right"
+            android:text="@string/group_cheat"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_17"/>
+
+    </LinearLayout>
+
+    <View
+        android:visibility="gone"
+        style="@style/Line"
+        android:layout_marginLeft="@dimen/item_margin_left_and_right"
+        android:layout_marginRight="@dimen/item_margin_left_and_right"
+        />
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_common_item"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/item_margin_top_and_bottom"
+        android:paddingLeft="@dimen/item_margin_left_and_right"
+        android:paddingRight="@dimen/item_margin_left_and_right"
+        android:paddingTop="@dimen/item_margin_top_and_bottom">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/common_dimension_40"
+                android:layout_height="@dimen/common_dimension_40"
+                android:layout_marginRight="@dimen/common_dimension_5"
+                android:layout_marginTop="@dimen/common_dimension_5"
+                android:src="@mipmap/ic_tag"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_margin_left_and_right"
+            android:text="@string/tag"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_17"/>
+
+    </LinearLayout>
+
+    <View
+        android:visibility="gone"
+        style="@style/Line"
+        android:layout_marginLeft="@dimen/item_margin_left_and_right"
+        android:layout_marginRight="@dimen/item_margin_left_and_right"
+        />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_common_item"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/item_margin_top_and_bottom"
+        android:paddingLeft="@dimen/item_margin_left_and_right"
+        android:paddingRight="@dimen/item_margin_left_and_right"
+        android:paddingTop="@dimen/item_margin_top_and_bottom">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/common_dimension_40"
+                android:layout_height="@dimen/common_dimension_40"
+                android:layout_marginRight="@dimen/common_dimension_5"
+                android:layout_marginTop="@dimen/common_dimension_5"
+                android:src="@mipmap/ic_offical"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_margin_left_and_right"
+            android:text="@string/group_public_number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_17"/>
+
+    </LinearLayout>
+
+    <View
+        android:visibility="gone"
+        style="@style/Line"
+        android:layout_marginLeft="@dimen/item_margin_left_and_right"
+        android:layout_marginRight="@dimen/item_margin_left_and_right"
+        />
+</LinearLayout>

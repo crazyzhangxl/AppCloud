@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.message.FriendCircleActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/include"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/main_color">
+            <ImageView
+                android:scaleType="centerInside"
+                android:visibility="visible"
+                android:layout_marginLeft="@dimen/common_dimension_10"
+                android:id="@+id/ivToolbarNavigation"
+                android:layout_width="@dimen/common_dimension_20"
+                android:layout_height="@dimen/common_dimension_40"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_back2" />
+            <View
+                android:id="@+id/vToolbarDivision"
+                android:layout_width="@dimen/common_dimension_20"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/ivToolbarNavigation"
+                android:background="@drawable/shape_vertical_line"
+                android:visibility="invisible"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/llToolbarTitle"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/vToolbarDivision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvToolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_15"
+                    android:visibility="visible"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvContent"
+            android:layout_marginBottom="@dimen/common_dimension_20"
+            android:layout_below="@id/include"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+        <!-- 居于底部的 bubble -->
+        <LinearLayout
+            android:id="@+id/editTextBodyLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_dimension_5"
+            android:gravity="center_vertical"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bubble_color_white"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+            <!--完美 设置padding值就Ok了 了解了-->
+            <EditText
+                android:id="@+id/circleEt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/common_dimension_8"
+                android:background="@drawable/selector_gray_border"
+                android:layout_weight="1"
+                android:maxLines="4"
+                android:textSize="@dimen/BasicTextSize"
+                android:hint="说点什么吧..."
+                />
+            <ImageView
+                android:id="@+id/sendIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_dimension_4"
+                android:layout_marginRight="@dimen/common_dimension_4"
+                android:padding="@dimen/common_dimension_12"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@mipmap/ic_msg_send" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!--  悬浮按钮  -->
+    <include layout="@layout/item_floating_action_button" />
+
+</android.support.design.widget.CoordinatorLayout>

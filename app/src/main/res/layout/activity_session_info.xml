@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray5"
+    tools:context="com.jit.appcloud.ui.activity.message.SessionInfoActivity">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--群成员头像列表（5列）-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvMember"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/common_dimension_3"
+                android:paddingLeft="@dimen/common_dimension_7.5"
+                android:paddingRight="@dimen/common_dimension_7.5"
+                android:paddingTop="@dimen/common_dimension_3" />
+            <LinearLayout
+                android:id="@+id/llGroupPart1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_dimension_10"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.lqr.optionitemview.OptionItemView
+                    android:id="@+id/oivGroupName"
+                    style="@style/OptionItem"
+                    android:background="@drawable/selector_option_item"
+                    app:left_text="@string/group_name"
+                    app:left_text_color="@color/black"
+                    app:left_text_margin_left="@dimen/option_item_margin_left"
+                    app:left_text_size="@dimen/mediumTextSize"
+                    app:right_text="@string/untitled"
+                    app:right_text_color="@color/gray2"
+                    app:right_text_margin_right="@dimen/option_item_margin_right"
+                    app:right_text_size="@dimen/BasicTextSize"/>
+
+                <View
+                    style="@style/Line"
+                    android:layout_marginLeft="@dimen/common_dimension_15"
+                    android:layout_marginRight="@dimen/common_dimension_15"
+                    />
+
+                <com.lqr.optionitemview.OptionItemView
+                    android:id="@+id/oivQRCordCard"
+                    style="@style/OptionItem"
+                    android:background="@drawable/selector_option_item"
+                    app:left_text="@string/group_qr_code"
+                    app:left_text_color="@color/black"
+                    app:left_text_margin_left="@dimen/option_item_margin_left"
+                    app:left_text_size="@dimen/mediumTextSize"
+                    app:right_image_margin_right="@dimen/option_item_margin_right"
+                    app:right_src="@mipmap/ic_qr_code"/>
+
+                <View
+                    style="@style/Line"
+                    android:layout_marginLeft="@dimen/common_dimension_15"
+                    android:layout_marginRight="@dimen/common_dimension_15"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/llAnnouncement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/common_dimension_40"
+                        android:gravity="center_vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/option_item_margin_left"
+                            android:layout_weight="1"
+                            android:text="@string/group_announcement"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/mediumTextSize"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvAnnouncement"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/common_dimension_10"
+                        android:layout_marginLeft="@dimen/common_dimension_25"
+                        android:layout_marginRight="@dimen/common_dimension_25"
+                        android:layout_marginTop="@dimen/common_dimension_5"
+                        android:text=""
+                        android:textColor="@color/gray2"
+                        android:textSize="@dimen/BasicTextSize"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+                <View
+                    android:id="@+id/vLineTeamManage"
+                    style="@style/Line"
+                    android:layout_marginLeft="@dimen/option_item_margin_left"
+                    android:layout_marginRight="@dimen/option_item_margin_right"
+                    android:visibility="gone"
+                    />
+                <com.lqr.optionitemview.OptionItemView
+                    android:id="@+id/oivTeamManage"
+                    style="@style/OptionItem"
+                    android:background="@drawable/selector_option_item"
+                    android:visibility="gone"
+                    app:left_text="群管理"
+                    app:left_text_color="@color/black"
+                    app:left_text_margin_left="@dimen/option_item_margin_left"
+                    app:left_text_size="@dimen/mediumTextSize"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_dimension_10"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="visible">
+                <LinearLayout
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_48"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/common_dimension_16"
+                        android:layout_weight="1"
+                        android:text="@string/message_free"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/mediumTextSize"/>
+                    <com.kyleduo.switchbutton.SwitchButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/option_item_margin_right"
+                        app:kswBackDrawable="@drawable/ios_back_drawable"
+                        app:kswBackMeasureRatio="1.8"
+                        app:kswThumbDrawable="@drawable/ios_thumb_selector"
+                        app:kswThumbMarginBottom="-4dp"
+                        app:kswThumbMarginLeft="-2dp"
+                        app:kswThumbMarginRight="-2dp"
+                        app:kswThumbMarginTop="-0dp"
+                        app:kswThumbWidth="10dp"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/Line"
+                    android:layout_marginLeft="@dimen/common_dimension_15"
+                    android:layout_marginRight="@dimen/common_dimension_15"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_48"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/common_dimension_16"
+                        android:layout_weight="1"
+                        android:text="@string/set_conversation_to_top"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/mediumTextSize"/>
+
+                    <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/sbToTop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/option_item_margin_right"
+                        app:kswBackDrawable="@drawable/ios_back_drawable"
+                        app:kswBackMeasureRatio="1.8"
+                        app:kswThumbDrawable="@drawable/ios_thumb_selector"
+                        app:kswThumbMarginBottom="-4dp"
+                        app:kswThumbMarginLeft="-2dp"
+                        app:kswThumbMarginRight="-2dp"
+                        app:kswThumbMarginTop="-0dp"
+                        app:kswThumbWidth="10dp"/>
+                </LinearLayout>
+
+                <View
+                    style="@style/Line"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:text="保存到通讯录"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/mediumTextSize"/>
+
+                    <com.kyleduo.switchbutton.SwitchButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        app:kswBackDrawable="@drawable/ios_back_drawable"
+                        app:kswBackMeasureRatio="1.8"
+                        app:kswThumbDrawable="@drawable/ios_thumb_selector"
+                        app:kswThumbMarginBottom="-4dp"
+                        app:kswThumbMarginLeft="-2dp"
+                        app:kswThumbMarginRight="-2dp"
+                        app:kswThumbMarginTop="-0dp"
+                        app:kswThumbWidth="10dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llGroupPart2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_dimension_10"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.lqr.optionitemview.OptionItemView
+                    android:id="@+id/oivNickNameInGroup"
+                    style="@style/OptionItem"
+                    android:background="@drawable/selector_option_item"
+                    app:left_text="@string/my_nickname_in_this_group"
+                    app:left_text_color="@color/black"
+                    app:left_text_margin_left="@dimen/option_item_margin_left"
+                    app:left_text_size="@dimen/mediumTextSize"
+                    app:right_text="沧晓"
+                    app:right_text_color="@color/gray2"
+                    app:right_text_margin_right="@dimen/option_item_margin_right"
+                    app:right_text_size="@dimen/BasicTextSize"/>
+
+
+                <View
+                    style="@style/Line"
+                    android:layout_marginLeft="@dimen/common_dimension_15"
+                    android:layout_marginRight="@dimen/common_dimension_15"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/llShowNickName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_48"
+                    android:background="@drawable/selector_option_item"
+                    android:gravity="center_vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/common_dimension_16"
+                        android:layout_weight="1"
+                        android:text="@string/show_group_member_name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/mediumTextSize"/>
+
+                    <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/sbShowNickName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/option_item_margin_right"
+                        app:kswBackDrawable="@drawable/ios_back_drawable"
+                        app:kswBackMeasureRatio="1.8"
+                        app:kswThumbDrawable="@drawable/ios_thumb_selector"
+                        app:kswThumbMarginBottom="-4dp"
+                        app:kswThumbMarginLeft="-2dp"
+                        app:kswThumbMarginRight="-2dp"
+                        app:kswThumbMarginTop="-0dp"
+                        app:kswThumbWidth="10dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.lqr.optionitemview.OptionItemView
+                android:id="@+id/oivClearMsgRecord"
+                style="@style/OptionItem"
+                android:layout_marginTop="@dimen/common_dimension_10"
+                android:background="@drawable/selector_option_item"
+                app:left_text="@string/clear_chat_log"
+                app:left_text_color="@color/black"
+                app:left_text_margin_left="@dimen/option_item_margin_left"
+                app:left_text_size="@dimen/mediumTextSize"/>
+
+            <Button
+                android:id="@+id/btnQuit"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_45"
+                android:layout_marginBottom="@dimen/common_dimension_20"
+                android:layout_marginLeft="@dimen/option_item_margin_left"
+                android:layout_marginRight="@dimen/option_item_margin_right"
+                android:layout_marginTop="@dimen/common_dimension_10"
+                android:background="@drawable/shape_btn_delete"
+                android:text="@string/delete_and_exit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/mediumTextSize"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

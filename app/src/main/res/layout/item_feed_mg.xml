@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  投喂管理的餐数-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="@dimen/common_dimension_161"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/tvID"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_width="80dp"
+            android:layout_height="match_parent" />
+        <View
+            android:background="@color/line_color"
+            android:layout_width="@dimen/common_dimension_0.5"
+            android:layout_height="match_parent"/>
+        <EditText
+            android:textCursorDrawable="@drawable/style_cursor_black"
+            android:textSize="@dimen/SmallTextSize"
+            android:id="@+id/tvFeedNum"
+            android:text="0"
+            android:inputType="numberDecimal"
+            android:background="@null"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_width="80dp"
+            android:layout_height="match_parent" />
+        <View
+            android:background="@color/line_color"
+            android:layout_width="@dimen/common_dimension_0.5"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <View
+        android:background="@color/line_color"
+        android:layout_width="@dimen/common_dimension_161"
+        android:layout_height="@dimen/common_dimension_0.5"/>
+</LinearLayout>

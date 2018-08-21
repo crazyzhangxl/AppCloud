@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jit.appcloud.ui.activity.cultivate.SubmitWaterActivity">
+    <include
+        android:id="@+id/include"
+        layout="@layout/include_toolbar"/>
+    <!-- 看来这个就是位于bar下面啊-->
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollview"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/ll_pond"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="塘口"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="@dimen/SmallTextSize"
+                    android:id="@+id/tvPondSelected"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="点击选择塘口"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+            <LinearLayout
+                android:id="@+id/ll_tmp"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="水温(℃)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textSize="@dimen/SmallTextSize"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/etTmpInput"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="填写水温"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:visibility="invisible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_alkali"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="盐度(mg/l)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textSize="@dimen/SmallTextSize"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/etAlkaliInput"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="填写盐度"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:visibility="invisible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_nano2"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="氨氮(mg/l)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textSize="@dimen/SmallTextSize"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/etNano2Input"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="填写氨氮"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:visibility="invisible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_nh"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="PH值"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textSize="@dimen/SmallTextSize"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/etPHInput"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="填写PH值"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:visibility="invisible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_o2"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="溶解氧(mg/l)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textSize="@dimen/SmallTextSize"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/etO2Input"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="填写溶解氧"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:visibility="invisible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_detectionTime"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:text="水质检测时间"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tvTimeSelected"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="点击选择时间"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+
+            <RelativeLayout
+                android:id="@+id/rl_ReMark"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_60">
+                <TextView
+                    android:text="备注"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="@dimen/SmallTextSize"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginRight="@dimen/common_dimension_35"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/tvReMarkInput"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:lines="2"
+                    android:hint="添加特殊记录。例如：检测人，记录员姓名或其他环境因素可能导致的记录偏差"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="visible"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/common_dimension_5"
+                    android:src="@mipmap/shape_arrow_bigger"
+                    android:layout_width="@dimen/common_dimension_16"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_0.5"
+                />
+            <FrameLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginRight="90dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_add_head_pic">
+
+                <FrameLayout
+                    android:id="@+id/flAdd"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:visibility="visible"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true">
+
+                        <ImageView
+                            android:id="@+id/ivHeadPic"
+                            android:layout_width="102dp"
+                            android:layout_height="102dp"
+                            android:scaleType="centerCrop" />
+                    </android.support.v7.widget.CardView>
+
+                </FrameLayout>
+                <ImageView
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:id="@+id/delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/shape_pic_del"
+                    android:padding="5dp"
+                    android:src="@mipmap/ic_pic_del"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/tvAddWaterPic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@mipmap/ic_pic_head_add"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:text="添加水质图片"
+                    android:visibility="visible" />
+            </FrameLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_120"/>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/logTab"
+        app:backgroundTint="@color/md_red_400"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="@dimen/common_dimension_16"
+        android:layout_marginBottom="@dimen/common_dimension_16"
+        android:clickable="true"
+        android:elevation="4dp"
+        app:elevation="4dp"
+        app:layout_anchor="@id/scrollview"
+        app:borderWidth="0dp"
+        app:layout_anchorGravity="right|bottom"
+        android:src="@mipmap/ic_log"/>
+</android.support.design.widget.CoordinatorLayout>

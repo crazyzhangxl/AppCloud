@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#313131</color>
+    <color name="colorPrimaryDark">#313131</color>
+    <color name="colorAccent">#7e7e7e</color>
+    <color name="accent">#DD2C00</color>
+
+    <color name="color_weather_theme">#00BCD4</color>
+    <color name="color_weather_colorAccent">#3FC1C9</color>
+
+    <color name="color_zxing_corner">#f57257</color>
+    <color name="colorPrimaryDarkTrans">#CCf57257</color>
+    <color name="color_red">#f00</color>
+
+    <color name="green0">#45C01A</color>
+    <color name="green1">#45C01A</color>
+    <color name="green2">#A3DEA3</color>
+    <color name="green3">#1AAD19</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="line">#D2D2D2</color>
+    <color name="disable_or_hint_white">#4Cffffff</color>
+    <color name="secondly_text_white">#ABffffff</color>
+    <color name="gray0">#464646</color>
+    <color name="gray1">#7e7e7e</color>
+    <color name="gray2">#969696</color>
+    <color name="gray3">#c8969696</color>
+    <color name="gray4">#F5F5F5</color> // dark_background
+    <color name="gray5">#EBEBEB</color>
+    <color name="gray6">#FBFBFB</color>
+    <color name="gray7">#999999</color>
+    <color name="gray8">#D9D9D9</color>
+    <color name="gray9">#DBDFE0</color>
+    <color name="main_text_black">#DE000000</color>
+    <color name="line_color">#EEEEEE</color>
+
+    <color name="bg_detail_orange">#FDCA7E</color>
+
+    <color name="red0">#ff0000</color>
+    <color name="red1">#D84E43</color>
+    <color name="red2">#F08B88</color>
+    <color name="red3">#FFFAF5</color>
+    <color name="red4">#823026</color>
+    <color name="red5">#FA6F5F</color>
+    <color name="red6">#D54A47</color>
+    <color name="red7">#E64340</color>
+    <color name="red8">#FF3E3E</color>
+    <color name="red9">#ff7474</color>
+    <color name="colorThemeRed">#ffce3d3a</color>
+    <color name="material_red_400">#EF5350</color>
+
+    <color name="red10">#fe542d</color>
+    <color name="orange_add_pond">#FE5400</color>
+
+    <color name="md_red_400">#e84e40</color>
+    <color name="secondly_text_or_icon_black">#8A000000</color>
+    <color name="color_add_line">#fff0f2f5</color>
+    <color name="text_color">#D000</color>
+
+
+    <!--  弹出喜好背景-->
+    <color name="bg_enjoy_normal">#f6f6f6</color>
+    <color name="bg_enjoy_pink">#FFEFEB</color>
+    <color name="colorPageBg">#f2f4f5</color>
+    <color name="colorTitle">#666</color>
+    <color name="zxing_bg_color">#484845</color>
+    <color name="bubble_color_white">#f6f6f6</color>
+    <color name="bg_white_gray">#f2f2f2</color>
+    <color name="gray">#FFF0F0F0</color>
+    <color name="gray_deep">#c9000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="circleTextColor">#FF000000</color>
+    <color name="circleTextColor2">#c9000000</color>
+    <color name="zone_textcolor_bg">#DDDDDD</color>
+    <!--透明色-->
+    <color name="colorTransparent">#00000000</color>
+    <!--半透明-->
+    <color name="colorBanTransparent">#11000000</color>
+    <!--首页item文字颜色-->
+    <color name="colorSubtitle">#999</color>
+    <color name="colorTheme">#ffce3d3a</color>
+    <!--tab标签栏文字的颜色-->
+    <color name="colorTabText">#585858</color>
+    <!--正文文字颜色-->
+    <color name="colorContent">#ff333333</color>
+    <!--水波纹或5.0以下选择器颜色-->
+    <color name="tabBackground">#777D7D7D</color>
+    <!--item的水波纹颜色-->
+    <color name="itemBackground">#DD7D7D7D</color>
+    <!--item的5.0一下版本选择器颜色-->
+    <color name="itemLowBackground">#d9d9d9</color>
+    <color name="colorRateRed">#FB5B81</color>
+
+
+    <color name="transparent_normal">#F0FFFFFF</color>
+    <color name="transparent_selected">#E0DBDBDB</color>
+
+
+    <color name="pond_selected">#33475f</color>
+    <color name="bg_log_item">#EDE5DB</color>
+
+    <!--遮盖层颜色-->
+    <color name="mask">#32000000</color>
+
+    <!--快速索引bar颜色-->
+    <color name="side_bar">#919091</color>
+    <color name="side_bar_pressed">#BFBFBF</color>
+
+    <!-- 设备背景-->
+    <color name="device_bg_yellow">#FEFEB2</color>
+    <color name="device_bg_green">#D1FED1</color>
+    <color name="device_bg_red">#FECDCD</color>
+
+    <color name="item_select_color">#FBE381</color>
+    <color name="bg_line_2">#A000</color>
+
+    <color name="dialog_bg">#EAEDF0</color>
+
+    <color name="image_overlay_true">#80000000</color>
+    <color name="image_overlay_false">#20000000</color>
+
+    <color name="dDVTransparentGray">#99000000</color>
+    <color name="dDVColorPrimary">@color/colorPrimary</color>
+
+    <color name="dropDownContainerColor">#fff</color>
+    <color name="dropDownSelectedColor">#FBE381</color>
+    <color name="transparentGray">#99000000</color> <!-- 空白的背景色-->
+
+    <!-- 悬浮按钮的颜色 -->
+    <color name="main_color">#FA7C20</color>
+    <color name="orange">#FA8C20</color>
+    <color name="red">#FFFF0000</color>
+    <color name="circle_name_selector_color">#cccccc</color>
+
+    <color name="light_gray">#808080</color>
+    <color name="light_white">#33ffffff</color>
+    <color name="color_chart_title">#E8EDF1</color>
+    <color name="bg_title_selector">#3E4D6A</color>
+    <color name="transparent_gray">#90000000</color>
+
+
+</resources>

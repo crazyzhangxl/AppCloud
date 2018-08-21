@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<litepal>
+    <dbname value="cloud_unite"/>
+    <version value="2"/>
+    <list>
+        <mapping class = "com.jit.appcloud.db.db_model.CityWeatherBean"/>
+        <mapping class = "com.jit.appcloud.db.db_model.Friend"/>
+        <mapping class = "com.jit.appcloud.db.db_model.GroupMember"/>
+        <mapping class = "com.jit.appcloud.db.db_model.Groups"/>
+        <mapping class = "com.jit.appcloud.db.db_model.FarmerNameBean"/>
+        <mapping class = "com.jit.appcloud.db.db_model.PondBean"/>
+        <mapping class = "com.jit.appcloud.db.db_model.FeedMeal"/>
+        <mapping class = "com.jit.appcloud.db.db_model.SeedMeal"/>
+
+        <!-- 持久化塘口数据!! 啊哈哈 以及设备-->
+        <mapping class = "com.jit.appcloud.db.db_model.AgPondBean"/>
+        <mapping class = "com.jit.appcloud.db.db_model.AgDeviceBean"/>
+        <mapping class = "com.jit.appcloud.db.db_model.AgDeviceDetailBean"/>
+        <mapping class = "com.jit.appcloud.db.db_model.MyPbNewsBean"/>
+    </list>
+</litepal>

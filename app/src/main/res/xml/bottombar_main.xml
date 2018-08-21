@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 所有的列表-->
+<tabs>
+    <tab
+        id="@+id/tab_recents"
+        icon="@drawable/ic_main_cultivation"
+        title="检测" />
+    <tab
+        id="@+id/tab_favorites"
+        icon="@drawable/ic_main_news"
+        title="资讯" />
+    <tab
+        id="@+id/tab_center" />
+    <tab
+        id="@+id/tab_nearby"
+        icon="@drawable/ic_main_message"
+        title="消息" />
+    <tab
+        id="@+id/tab_friends"
+        icon="@drawable/ic_main_me"
+        title="我" />
+</tabs>

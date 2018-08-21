@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.me.GalleryShowActivity">
+    <include
+        android:id="@+id/includeBar"
+        layout="@layout/include_toolbar_gallery"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/picRcv"
+        android:layout_marginTop="@dimen/common_dimension_5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/includeBar"
+        android:layout_marginBottom="@dimen/common_dimension_45"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp" />
+</LinearLayout>

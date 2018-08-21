@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto">
+<com.github.clans.fab.FloatingActionMenu
+    android:id="@+id/menu_red"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:paddingRight="25dp"
+    android:paddingBottom="25dp"
+    fab:menu_colorNormal="@color/orange"
+    fab:menu_colorPressed="@color/main_color"
+    fab:menu_colorRipple="@color/main_color"
+    fab:menu_labels_ellipsize="end"
+    fab:menu_labels_singleLine="true"
+    fab:menu_backgroundColor="@color/transparent">
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fabRf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_circle_rf"
+        fab:backgroundTint="#4BB7A7"
+        fab:fab_colorNormal="#4BB7A7"
+        fab:fab_size="mini"
+        fab:fab_label="刷新" />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fabChangeGl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_change_gl"
+        fab:backgroundTint="@color/red"
+        fab:fab_colorNormal="@color/red"
+        fab:fab_size="mini"
+        fab:fab_label="更换封面" />
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fabPublish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/textmsg"
+        fab:backgroundTint="#ff9800"
+        fab:fab_colorNormal="#ff9800"
+        fab:fab_size="mini"
+        fab:fab_label="说说" />
+
+</com.github.clans.fab.FloatingActionMenu>
+</LinearLayout>

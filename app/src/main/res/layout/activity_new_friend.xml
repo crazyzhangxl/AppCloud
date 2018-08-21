@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray5"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/include_toolbar"
+        />
+
+    <LinearLayout
+        android:id="@+id/llNoNewFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_dimension_95"
+            android:text="@string/no_recommend_friend"
+            android:textColor="@color/gray3"
+            android:textSize="@dimen/text_size_20"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_dimension_14"
+            android:text="@string/no_recommend_friend_tip"
+            android:textColor="@color/gray3"
+            android:textSize="@dimen/text_size_15"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/OptionItem"
+            android:layout_height="@dimen/common_dimension_65"
+            android:layout_marginTop="@dimen/common_dimension_82.5"
+            android:background="@drawable/selector_common_item"
+            app:left_image_margin_left="@dimen/option_item_margin_left"
+            app:left_image_margin_right="@dimen/option_item_margin_right"
+            app:left_src="@mipmap/ic_phone"
+            app:left_text="@string/add_phone_contact"
+            app:left_text_color="@color/black"
+            app:left_text_size="@dimen/BasicTextSize"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:id="@+id/llHasNewFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_dimension_15"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/common_dimension_8"
+            android:paddingTop="@dimen/common_dimension_10">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_dimension_15"
+                android:layout_marginRight="@dimen/common_dimension_15"
+                android:drawableBottom="@drawable/shape_bottom_gray"
+                android:drawableLeft="@mipmap/ic_friend_search_gray"
+                android:drawablePadding="@dimen/common_dimension_10"
+                android:gravity="bottom"
+                android:hint="@string/wechat_qq_phone"
+                android:textColorHint="@color/gray3"
+                android:textSize="@dimen/SmallTextSize"
+                android:visibility="visible"/>
+        </LinearLayout>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvNewFriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_dimension_5"
+            android:layout_marginLeft="@dimen/common_dimension_15"
+            android:layout_marginTop="@dimen/common_dimension_15"
+            android:text="@string/new_friend"
+            android:textColor="@color/gray1"
+            android:textSize="@dimen/SmallerTextSize"/>
+
+        <com.lqr.recyclerview.LQRRecyclerView
+            android:id="@+id/rvNewFriend"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:rv_divider_color="@color/line"
+            app:rv_divider_size="@dimen/common_dimension_0.5"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

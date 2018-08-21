@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray5"
+    tools:context="com.jit.appcloud.ui.activity.me.SettingActivity">
+    <include
+        layout="@layout/include_toolbar"/>
+    <com.allen.library.SuperTextView
+        android:id="@+id/stv_notify_ps"
+        android:layout_marginTop="@dimen/common_dimension_20"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_50"
+        stv:sLeftTextString="@string/str_mesage_notify"
+        stv:sLeftIconWidth="@dimen/common_dimension_30"
+        stv:sLeftIconHeight="@dimen/common_dimension_30"
+        stv:sLeftIconRes="@mipmap/ic_setting_message"
+        stv:sRightViewType="switchBtn"
+        stv:sSwitchMinWidth="40dp"
+        stv:sThumbResource="@drawable/cb_thumb"
+        stv:sTrackResource="@drawable/cb_track"/>
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/stv_about_cloud"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_50"
+        stv:sLeftTextString="@string/str_about_cloud_unite"
+        stv:sLeftIconWidth="@dimen/common_dimension_30"
+        stv:sLeftIconHeight="@dimen/common_dimension_30"
+        stv:sLeftIconRes="@mipmap/ic_setting_cloud" />
+    <com.allen.library.SuperTextView
+        android:id="@+id/stv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_dimension_50"
+        stv:sLeftTextString="@string/str_logout"
+        stv:sLeftIconWidth="@dimen/common_dimension_30"
+        stv:sLeftIconHeight="@dimen/common_dimension_30"
+        stv:sLeftIconRes="@mipmap/ic_setting_logout" />
+</LinearLayout>

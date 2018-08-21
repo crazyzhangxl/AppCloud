@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/common_dimension_3"
+    android:layout_height="102dp">
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:scaleType="centerCrop"
+            />
+        <View
+            android:id="@+id/hover"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:background="@color/disable_or_hint_white"
+            android:visibility="invisible"
+            />
+        <!-- padding时背景也大了-->
+        <ImageView
+            android:padding="5dp"
+            android:background="@drawable/shape_pic_del"
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/ic_pic_del"
+            android:visibility="visible" />
+    </FrameLayout>
+
+
+</FrameLayout>

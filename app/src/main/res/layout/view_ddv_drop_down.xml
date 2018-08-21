@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  <merge /> 标签来减少视图层级结构
+  在Android layout文件中需要一个顶级容器来容纳其他的组件，而不能直接放置多个组件
+            目的是通过删减多余或者额外的层级，从而优化整个Android Layout的结构。
+            直接作用在父布局之下  也就是 RelativeLayout
+            如下面的 tools:parentTag = "android.widget.RelativeLayout" 就是很好的解释
+  -->
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="android.widget.RelativeLayout">
+
+    <LinearLayout
+        android:id="@+id/drop_down_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+        <!-- 控件的头 -->
+        <RelativeLayout
+            android:id="@+id/drop_down_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dDVColorPrimary"
+            android:gravity="center">
+            <!-- Will have one child for Header/Collapsed View -->
+        </RelativeLayout>
+        <!-- 内容主体View-->
+        <FrameLayout
+            android:id="@+id/fmContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+    </LinearLayout>
+
+</merge>

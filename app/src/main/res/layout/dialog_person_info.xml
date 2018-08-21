@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  用于展示个人信息的 Dialog  -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/llRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/dialog_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/llMyInfo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_89"
+            android:paddingRight="@dimen/common_dimension_3">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivHeader"
+                android:layout_width="@dimen/common_dimension_70"
+                android:layout_height="@dimen/common_dimension_70"
+                android:layout_marginLeft="@dimen/common_dimension_15"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/option_item_margin_right"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/default_header" />
+            <!-- 666666 设置了权重为1了 那么只要摆放了其他位置中间就确定了 -->
+            <LinearLayout
+                android:layout_gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/common_dimension_70"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/common_dimension_3"
+                    android:singleLine="true"
+                    android:text="@string/str_default_name"
+                    android:textColor="@color/gray0"
+                    android:textSize="@dimen/text_size_15" />
+
+                <TextView
+                    android:id="@+id/tvSignature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_dimension_3"
+                    android:singleLine="true"
+                    android:hint="@string/str_default_signature"
+                    android:textColor="@color/gray2"
+                    android:textSize="@dimen/SmallTextSize" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="@dimen/common_dimension_5"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <View
+            android:layout_marginTop="@dimen/common_dimension_5"
+            android:background="@color/bg_line_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimension_0.5"/>
+        <TextView
+            android:layout_margin="@dimen/common_dimension_8"
+            android:textColor="@color/black"
+            android:textSize="@dimen/mediumTextSize"
+            android:text="照片墙"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_marginBottom="@dimen/common_dimension_15"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <android.support.v7.widget.RecyclerView
+                android:layout_toLeftOf="@id/ivMore"
+                android:id="@+id/rcPic"
+                android:layout_marginLeft="@dimen/common_dimension_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+            <ImageView
+                android:layout_margin="@dimen/common_dimension_8"
+                android:layout_centerVertical="true"
+                android:id="@+id/ivMore"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_pic_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

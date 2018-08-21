@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jit.appcloud.ui.activity.message.SetAliasActivity">
+    <include layout="@layout/include_toolbar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_dimension_10"
+        android:layout_marginTop="@dimen/common_dimension_20"
+        android:text="@string/alias"
+        android:textColor="@color/gray2"
+        android:textSize="@dimen/BasicTextSize"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_dimension_20">
+
+        <EditText
+            android:id="@+id/etAlias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_dimension_15"
+            android:layout_marginRight="@dimen/common_dimension_15"
+            android:background="@null"
+            android:drawableBottom="@drawable/selector_edit_focus"
+            android:drawablePadding="@dimen/common_dimension_10"
+            android:gravity="bottom"
+            android:hint=""
+            android:textColorHint="@color/gray3"
+            android:textSize="@dimen/BasicTextSize"
+            android:visibility="visible"/>
+
+        <ImageButton
+            android:id="@+id/ibClearAlias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/BasicTextSize"
+            android:background="@null"
+            android:src="@mipmap/ic_delete"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+</LinearLayout>
