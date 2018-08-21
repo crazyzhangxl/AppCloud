@@ -17,6 +17,7 @@ import com.jit.appcloud.commom.AppConst;
 import com.jit.appcloud.manager.BroadcastManager;
 import com.jit.appcloud.ui.base.BaseActivity;
 import com.jit.appcloud.ui.presenter.SessionInfoAtPresenter;
+import com.jit.appcloud.ui.view.IFarmLogAtView;
 import com.jit.appcloud.ui.view.ISessionInfoAtView;
 import com.jit.appcloud.util.UIUtils;
 import com.kyleduo.switchbutton.SwitchButton;
@@ -36,9 +37,10 @@ import static com.jit.appcloud.commom.AppConst.SESSION_TYPE_PRIVATE;
  *         discription: 会话用户信息的界面
  */
 public class SessionInfoActivity extends BaseActivity<ISessionInfoAtView, SessionInfoAtPresenter> implements ISessionInfoAtView {
-    public static int REQ_ADD_MEMBERS = 1000;
-    public static int REQ_REMOVE_MEMBERS = 1001;
-    public static int REQ_SET_GROUP_NAME = 1002;
+    public static final int REQ_ADD_MEMBERS = 1000;
+    public static final int REQ_REMOVE_MEMBERS = 1001;
+    public static final int  REQ_SET_GROUP_NAME = 1002;
+    public static final int REQ_CRETE_GROUP = 1003;
 
     private String mSessionId = "";
     private Conversation.ConversationType mConversationType = Conversation.ConversationType.PRIVATE;
@@ -209,22 +211,28 @@ public class SessionInfoActivity extends BaseActivity<ISessionInfoAtView, Sessio
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ_ADD_MEMBERS) {
-            if (resultCode == RESULT_OK) {
-                ArrayList<String> selectedIds = data.getStringArrayListExtra("selectedIds");
-                mPresenter.addGroupMember(selectedIds);
-            }
-        } else if (requestCode == REQ_REMOVE_MEMBERS) {
-            if (resultCode == RESULT_OK) {
-                ArrayList<String> selectedIds = data.getStringArrayListExtra("selectedIds");
-                mPresenter.deleteGroupMembers(selectedIds);
-            }
-        } else if (requestCode == REQ_SET_GROUP_NAME) {
-            if (resultCode == RESULT_OK) {
-                String groupName = data.getStringExtra("group_name");
-                mOivGroupName.setRightText(groupName);
+        ArrayList<String> selectedIds;
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case REQ_ADD_MEMBERS:
+                     selectedIds = data.getStringArrayListExtra("selectedIds");
+                    mPresenter.addGroupMember(selectedIds);
+                    break;
+                case REQ_REMOVE_MEMBERS:
+                    selectedIds = data.getStringArrayListExtra("selectedIds");
+                    mPresenter.deleteGroupMembers(selectedIds);
+                    break;
+                case REQ_SET_GROUP_NAME:
+                    String groupName = data.getStringExtra("group_name");
+                    mOivGroupName.setRightText(groupName);
+                case REQ_CRETE_GROUP:
+                    selectedIds = data.getStringArrayListExtra("selectedIds");
+                    break;
+                default:
+                    break;
             }
         }
+
     }
 
     @Override

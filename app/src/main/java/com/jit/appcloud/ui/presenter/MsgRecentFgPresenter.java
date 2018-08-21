@@ -211,7 +211,12 @@ public class MsgRecentFgPresenter extends BasePresenter<IMsgRecentView> {
                         GroupNotificationMessage groupNotificationMessage = (GroupNotificationMessage) item.getLatestMessage();
                         try {
                             UserInfo curUserInfo = DBManager.getInstance().getUserInfo(UserCache.getId());
-                            GroupNotificationMessageData data = JsonMananger.jsonToBean(groupNotificationMessage.getData(), GroupNotificationMessageData.class);
+                            GroupNotificationMessageData data = JsonMananger.jsonToBean(
+                                    groupNotificationMessage.getData(),
+                                    GroupNotificationMessageData.class);
+                            if (data == null) {
+                                return;
+                            }
                             String operation = groupNotificationMessage.getOperation();
                             String notification = "";
                             String operatorName = data.getOperatorNickname().equals(curUserInfo.getName()) ? UIUtils.getString(R.string.you) : data.getOperatorNickname();

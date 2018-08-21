@@ -219,9 +219,11 @@ public class MyApp extends MultiDexApplication implements RongIMClient.OnReceive
                 }
 
                 //如果: 创建了群聊天,那么就应该对应的通知所属的群成员 进而去拉取网络数据,储存到数据库,且广播通知
-                if (groupNotificationMessage.getOperation().equals(GroupNotificationMessage.GROUP_OPERATION_CREATE)) {
+                if (groupNotificationMessage.getOperation().equals(GroupNotificationMessage
+                        .GROUP_OPERATION_CREATE)) {
                     DBManager.getInstance().getGroups(groupId);
                     DBManager.getInstance().getGroupMember(groupId);
+
                 } else if (groupNotificationMessage.getOperation().equals(GroupNotificationMessage.GROUP_OPERATION_DISMISS)) {
                     handleGroupDismiss(groupId);
                 } else if (groupNotificationMessage.getOperation().equals(GroupNotificationMessage.GROUP_OPERATION_KICKED)) {
@@ -248,7 +250,8 @@ public class MyApp extends MultiDexApplication implements RongIMClient.OnReceive
                         DBManager.getInstance().deleteGroupMembers(groupId, kickedUserIDs);
                         //因为操作存在异步，故不在这里发送广播
                     }
-                } else if (groupNotificationMessage.getOperation().equals(GroupNotificationMessage.GROUP_OPERATION_ADD)) {
+                } else if (groupNotificationMessage.getOperation().equals(GroupNotificationMessage
+                        .GROUP_OPERATION_ADD)) {
                     DBManager.getInstance().getGroups(groupId);
                     DBManager.getInstance().getGroupMember(groupId);
                     /* 发送刷新信息列表的广播*/

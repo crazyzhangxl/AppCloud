@@ -150,6 +150,8 @@ public class CreateGroupAtPresenter extends BasePresenter<ICreateGroupAtView> {
 
     /**
      * 创建群聊并发出群聊的通知
+     *
+     * 解决BUG -- 单纯的创建群聊是OK的,但是通过好友聊天创建群聊是失败的
      * @param groupName
      * @param imagePath
      */
@@ -161,13 +163,16 @@ public class CreateGroupAtPresenter extends BasePresenter<ICreateGroupAtView> {
         }
         int size = mSelectedData.size();
         LogUtils.e("创建群聊","已经有的人数:"+size);
-        if ( (memberAccounts != null) && (size == 1) ){
+        if ( (memberAccounts != null) && size == 1 ){
+            // 创建群聊 ---- 聊天界面转入
             UIUtils.showToast("客官请选择群聊成员!");
             return;
         }else if (memberAccounts == null && size ==0){
+            // 普通 创建
             UIUtils.showToast("客官请选择群聊成员!");
             return;
         }else if (memberAccounts == null && size == 1){
+            // 这是普通 创建群聊时的入口
             Intent intent = new Intent(mContext,SessionActivity.class);
             intent.putExtra("sessionId", mSelectedData.get(0).getUserId());
             intent.putExtra("sessionType", AppConst.SESSION_TYPE_PRIVATE);
@@ -181,6 +186,7 @@ public class CreateGroupAtPresenter extends BasePresenter<ICreateGroupAtView> {
             Friend friend = mSelectedData.get(i);
             sb.append(friend.getUserId()).append("-");
         }
+        LogUtils.e("创建群聊",sb.toString());
         String groupMembers =  sb.substring(0, sb.lastIndexOf("-"));
         mContext.showWaitingDialog(UIUtils.getString(R.string.str_please_waiting));
         ApiRetrofit.getInstance().createGroup(groupName,groupMembers,new File(imagePath))
@@ -208,7 +214,6 @@ public class CreateGroupAtPresenter extends BasePresenter<ICreateGroupAtView> {
                         List<GroupMbQyResponse.DataBean> list = groupMbQyResponse.getData();
                         if (list != null && list.size() > 0) {
                             DBManager.getInstance().saveGroupMembers(list, String.valueOf(mGroupID));
-
                         }
                         for (GroupMbQyResponse.DataBean bean : list){
                             mTargetIDS.add(String.valueOf(bean.getUser_id()));
@@ -220,8 +225,15 @@ public class CreateGroupAtPresenter extends BasePresenter<ICreateGroupAtView> {
                         messageData.setTargetUserDisplayNames(mTargetName);
                         messageData.setTargetUserIds(mTargetIDS);
                         GroupNotificationMessage requestMessage = GroupNotificationMessage.
-                                obtain(UserCache.getId(), GroupNotificationMessage.GROUP_OPERATION_CREATE, JsonMananger.beanToJson(messageData), "哈哈");
-                        RongIMClient.getInstance().sendMessage(Message.obtain(String.valueOf(mGroupID), Conversation.ConversationType.GROUP, requestMessage), "RC:GrpNtf", "", new IRongCallback.ISendMessageCallback() {
+                                obtain(UserCache.getId(),
+                                        GroupNotificationMessage.GROUP_OPERATION_CREATE,
+                                        JsonMananger.beanToJson(messageData),
+                                        "哈哈");
+                        RongIMClient.getInstance().sendMessage(Message.obtain(String.valueOf(mGroupID),
+                                Conversation.ConversationType.GROUP, requestMessage),
+                                "RC:GrpNtf",
+                                "",
+                                new IRongCallback.ISendMessageCallback() {
                             @Override
                             public void onAttached(Message message) {
 
@@ -243,7 +255,6 @@ public class CreateGroupAtPresenter extends BasePresenter<ICreateGroupAtView> {
                         intent.putExtra("sessionType", SESSION_TYPE_GROUP);
                         mContext.jumpToActivity(intent);
                         BroadcastManager.getInstance(mContext).sendBroadcast(AppConst.GROUP_LIST_UPDATE);
-
                         mContext.finish();
                     }else {
                         UIUtils.showToast(UIUtils.getString(R.string.create_group_fail));

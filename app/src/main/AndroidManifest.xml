@@ -146,9 +146,10 @@
             android:theme="@style/weatherImageActivity" />
         <activity android:name=".ui.activity.me.ZxingActivity" />
         <activity android:name=".ui.activity.me.SettingActivity" />
+        <!-- 栈内复用模式-->
         <activity
             android:name=".ui.activity.message.SessionActivity"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity android:name=".ui.activity.message.ShowBigImageActivity" />
         <activity

@@ -88,7 +88,7 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
      */
     private List<SensorNormalBean> mPondDeviceList = new ArrayList<>();
     private BaseQuickAdapter<SensorNormalBean,BaseViewHolder> mPondDeviceAdapter;
-    private List<PondGetByMGResponse.DataBean> mMEpPondList; // 获取的塘口列表
+    private List<PondGetByMGResponse.DataBean> mMEpPondList = new ArrayList<>(); // 获取的塘口列表
     private List<String> mPondStrList = new ArrayList<>();
 
     public CultivateFgPresenter(BaseActivity context) {
@@ -115,7 +115,9 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
                 .subscribe(userBdAmResponse -> {
                     if (userBdAmResponse != null && userBdAmResponse.getCode() == 1){
                         mListGAData.clear();
-                        mListGAData.addAll(userBdAmResponse.getData());
+                        if (userBdAmResponse.getData() != null) {
+                            mListGAData.addAll(userBdAmResponse.getData());
+                        }
                         mListGAAdapter.notifyDataSetChanged();
                     }else {
                         UIUtils.showToast(userBdAmResponse.getMsg());
@@ -271,7 +273,9 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
                 .subscribe(userBdAmResponse -> {
                     if (userBdAmResponse.getCode() == 1){
                         mCustomBeanList.clear();
-                        mCustomBeanList.addAll(userBdAmResponse.getData());
+                        if (userBdAmResponse.getData() != null) {
+                            mCustomBeanList.addAll(userBdAmResponse.getData());
+                        }
                         filterMS();
                     }else {
                         UIUtils.showToast(userBdAmResponse.getMsg());
@@ -281,7 +285,7 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
     }
 
     private void filterMS() {
-        if (mCustomBeanList != null){
+        if (mCustomBeanList != null && mCustomBeanList.size() != 0){
             for (PersonalBean bean:mCustomBeanList){
                 mEmployeeList.add(bean.getRealname());
             }
@@ -319,7 +323,9 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
                                 getView().getAgRefreshLayout().setRefreshing(false);
                                 if (sensorNmResponse != null && sensorNmResponse.getCode() ==1 ) {
                                     mDeviceList.clear();
-                                    mDeviceList.addAll(sensorNmResponse.getData());
+                                    if (sensorNmResponse.getData() != null) {
+                                        mDeviceList.addAll(sensorNmResponse.getData());
+                                    }
                                     mDeviceAdapter.notifyDataSetChanged();
                                 }else {
                                     UIUtils.showToast(sensorNmResponse.getMsg());
@@ -347,7 +353,9 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
                 .subscribe(sensorNmResponse -> {
                     if (sensorNmResponse != null && sensorNmResponse.getCode() == 1){
                         mDeviceList.clear();
-                        mDeviceList.addAll(sensorNmResponse.getData());
+                        if (sensorNmResponse.getData() != null) {
+                            mDeviceList.addAll(sensorNmResponse.getData());
+                        }
                         mDeviceAdapter.notifyDataSetChanged();
                         updateFmTotal();
                     }else {
@@ -464,13 +472,20 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pondGetByMGResponse -> {
                     if (pondGetByMGResponse != null && pondGetByMGResponse.getCode() == 1){
-                        mMEpPondList = pondGetByMGResponse.getData();
+                        mMEpPondList.clear();
+                        if (pondGetByMGResponse.getData() != null) {
+                            mMEpPondList.addAll(pondGetByMGResponse.getData());
+                        }
                         mPondStrList.clear();
-                        for (PondGetByMGResponse.DataBean bean:mMEpPondList){
-                            mPondStrList.add(bean.getNumber());
+                        // 是这个的原因
+                        if (mMEpPondList != null && mMEpPondList.size() != 0) {
+                            for (PondGetByMGResponse.DataBean bean : mMEpPondList) {
+                                mPondStrList.add(bean.getNumber());
+                            }
                         }
                         filterPondList();
                     }else {
+                        LogUtils.e("设备",pondGetByMGResponse.getMsg());
                         UIUtils.showToast(pondGetByMGResponse.getMsg());
                     }
                 }, throwable -> {
@@ -494,15 +509,22 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
                 .subscribe(sensorNmResponse -> {
                     if (sensorNmResponse != null && sensorNmResponse.getCode() == 1){
                         mPondDeviceList.clear();
-                        mPondDeviceList.addAll(sensorNmResponse.getData());
+                        if (sensorNmResponse.getData() != null) {
+                            mPondDeviceList.addAll(sensorNmResponse.getData());
+                        }
                         mPondDeviceAdapter.notifyDataSetChanged();
                         updateTotal();
-
                     }else {
                         UIUtils.showToast("实时设备信息获取失败!");
                     }
 
-                }, throwable -> UIUtils.showToast(throwable.getLocalizedMessage()));
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        LogUtils.e("设备",throwable.getLocalizedMessage());
+                        UIUtils.showToast(throwable.getLocalizedMessage());
+                    }
+                });
     }
 
     private void updateTotal() {
@@ -583,7 +605,9 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
                     getView().getFmSwipeRefreshLayout().setRefreshing(false);
                     if (sensorNmResponse != null && sensorNmResponse.getCode() ==1 ) {
                         mPondDeviceList.clear();
-                        mPondDeviceList.addAll(sensorNmResponse.getData());
+                        if (sensorNmResponse.getData() != null) {
+                            mPondDeviceList.addAll(sensorNmResponse.getData());
+                        }
                         mPondDeviceAdapter.notifyDataSetChanged();
                         LogUtils.e("错误","成功");
                     }else {
@@ -601,7 +625,4 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
     }
 
     /* ===============  养殖户身份结束  =========================*/
-
-
-
 }

@@ -165,13 +165,13 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
             }
             intent.putExtra("selectedMember", selectedTeamMemberAccounts);
             intent.putExtra(AppConst.EXTRA_FLAG_GROUP,AppConst.GROUP_FLAG_UPDATE);
+            mContext.startActivityForResult(intent, SessionInfoActivity.REQ_ADD_MEMBERS);
         }else {
             selectedTeamMemberAccounts.add(mSessionId);
             intent.putExtra("selectedMember", selectedTeamMemberAccounts);
             intent.putExtra(AppConst.EXTRA_FLAG_GROUP,AppConst.GROUP_FLAG_CREATE);
-
+            mContext.startActivityForResult(intent, SessionInfoActivity.REQ_CRETE_GROUP);
         }
-        mContext.startActivityForResult(intent, SessionInfoActivity.REQ_ADD_MEMBERS);
     }
 
     /**
@@ -214,12 +214,15 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
                         }
                         // 管理员移除出群聊
                         GroupNotificationMessageData messageData = new GroupNotificationMessageData();
-                        messageData.setOperatorNickname(DBManager.getInstance().getGroupMemberById(mSessionId,UserCache.getId()).getDisplayName());
+                        messageData.setOperatorNickname(DBManager.getInstance()
+                                .getGroupMemberById(mSessionId,UserCache.getId()).getDisplayName());
                         messageData.setTargetUserIds(mTargetIDS);
+                        messageData.setTargetUserDisplayNames(mTargetName);
                         GroupNotificationMessage requestMessage = GroupNotificationMessage.
                                 obtain(UserCache.getId(),
                                         GroupNotificationMessage.GROUP_OPERATION_KICKED,
-                                        JsonMananger.beanToJson(messageData), "");
+                                        JsonMananger.beanToJson(messageData),
+                                        "删除");
                         RongIMClient.getInstance().sendMessage(Message.obtain(mSessionId,
                                 Conversation.ConversationType.GROUP, requestMessage),
                                 "RC:GrpNtf", "", new IRongCallback.ISendMessageCallback() {
@@ -230,17 +233,18 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
 
                             @Override
                             public void onSuccess(Message message) {
-                                LogUtils.e("群组消息的通知","----------发送成功了");
+                                LogUtils.e("删除群成员","----------发送成功了");
                             }
 
                             @Override
                             public void onError(Message message, RongIMClient.ErrorCode errorCode) {
-                                LogUtils.e("群组消息的通知","----------发送失败了");
+                                LogUtils.e("删除群成员","----------发送失败了");
+                                LogUtils.e("删除群成员",errorCode.getMessage()+" "+errorCode.getValue());
+
                             }
                         });
                         mContext.hideWaitingDialog();
                         setAdapter();
-                        BroadcastManager.getInstance(mContext).sendBroadcast(AppConst.REFRESH_CURRENT_SESSION);
                         UIUtils.showToast(UIUtils.getString(R.string.del_member_success));
                     } else {
                         mContext.hideWaitingDialog();
@@ -370,14 +374,19 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
 
                         // 发送了添加群聊的通知
                         GroupNotificationMessageData messageData = new GroupNotificationMessageData();
-                        messageData.setOperatorNickname(DBManager.getInstance().getGroupMemberById(mSessionId,UserCache.getId()).getDisplayName());
+                        messageData.setOperatorNickname(DBManager.getInstance()
+                                .getGroupMemberById(mSessionId,
+                                        UserCache.getId()).getDisplayName());
                         messageData.setTargetUserDisplayNames(mTargetName);
                         messageData.setTargetUserIds(mTargetIDS);
                         GroupNotificationMessage requestMessage = GroupNotificationMessage.
                                 obtain(UserCache.getId(),
                                         GroupNotificationMessage.GROUP_OPERATION_ADD,
-                                        JsonMananger.beanToJson(messageData), "");
-                        RongIMClient.getInstance().sendMessage(Message.obtain(mSessionId, Conversation.ConversationType.GROUP, requestMessage), "RC:GrpNtf", "", new IRongCallback.ISendMessageCallback() {
+                                        JsonMananger.beanToJson(messageData), "添加");
+                        RongIMClient.getInstance().sendMessage(Message.obtain(mSessionId,
+                                Conversation.ConversationType.GROUP, requestMessage),
+                                "RC:GrpNtf",
+                                "", new IRongCallback.ISendMessageCallback() {
                             @Override
                             public void onAttached(Message message) {
 
@@ -385,17 +394,19 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
 
                             @Override
                             public void onSuccess(Message message) {
-                                LogUtils.e("群组消息的通知","----------发送成功了");
+                                LogUtils.e("添加群成员","----------发送成功了");
+                                BroadcastManager.getInstance(mContext).sendBroadcast(AppConst.REFRESH_CURRENT_SESSION);
+                                BroadcastManager.getInstance(mContext).sendBroadcast(AppConst.UPDATE_CONVERSATIONS);
                             }
 
                             @Override
                             public void onError(Message message, RongIMClient.ErrorCode errorCode) {
-                                LogUtils.e("群组消息的通知","----------发送失败了");
+                                LogUtils.e("添加群成员","----------发送失败了");
+                                LogUtils.e("添加群成员",errorCode.getMessage()+errorCode.getValue());
                             }
                         });
                         mContext.hideWaitingDialog();
                         loadData();
-                        BroadcastManager.getInstance(mContext).sendBroadcast(AppConst.REFRESH_CURRENT_SESSION);
                         UIUtils.showToast(UIUtils.getString(R.string.add_member_success));
                     }else {
                         mContext.hideWaitingDialog();
@@ -521,7 +532,20 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
      * 清除聊天记录
      */
     public void clearConversationMsg() {
+        mContext.showMaterialDialog(null, UIUtils.getString(R.string.are_you_sure_to_clear_msg_record), UIUtils.getString(R.string.clear), UIUtils.getString(R.string.cancel),
+                (dialog, which) -> RongIMClient.getInstance().clearMessages(mConversationType, mSessionId, new RongIMClient.ResultCallback<Boolean>() {
+                    @Override
+                    public void onSuccess(Boolean aBoolean) {
+                        mContext.hideMaterialDialog();
+                        BroadcastManager.getInstance(mContext).sendBroadcast(AppConst.UPDATE_CONVERSATIONS);
+                        BroadcastManager.getInstance(mContext).sendBroadcast(AppConst.REFRESH_CURRENT_SESSION);
+                    }
 
+                    @Override
+                    public void onError(RongIMClient.ErrorCode errorCode) {
+                        mContext.hideMaterialDialog();
+                    }
+                }), (dialog, which) -> mContext.hideMaterialDialog());
 
     }
 

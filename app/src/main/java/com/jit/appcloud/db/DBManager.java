@@ -623,6 +623,11 @@ public class DBManager {
         DataSupport.deleteAll(GroupMember.class);
     }
 
+    /**
+     * 删除好友时 这里并不会回调的 ----------
+     * @param groupId
+     * @param kickedUserIds
+     */
     public synchronized void deleteGroupMembers(String groupId, List<String> kickedUserIds) {
         if (kickedUserIds != null && kickedUserIds.size() > 0) {
             for (String userId : kickedUserIds) {

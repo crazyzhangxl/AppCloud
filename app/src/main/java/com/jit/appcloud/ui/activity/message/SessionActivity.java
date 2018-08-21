@@ -291,6 +291,7 @@ public class SessionActivity extends BaseFragmentActivity<ISessionAtView, Sessio
         BroadcastManager.getInstance(this).register(AppConst.REFRESH_CURRENT_SESSION, new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
+                LogUtils.e("会话","---------- 执行了刷新会话 --------------");
                 mPresenter.loadMessage();
             }
         });
