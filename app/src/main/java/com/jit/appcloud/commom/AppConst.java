@@ -12,7 +12,7 @@ import retrofit2.http.PUT;
  */
 
 public class AppConst {
-    public static boolean isDebug = true;//发布时;false
+    public static boolean isDebug = false;//发布时;false
     public static String SP_NAME = "config";//sp 文件保存名
     public static boolean isTesting = false; // 是否后台未开启
     public static String PS_SAVE_DIR = "appCloud"; // 文件保存Dir
@@ -31,6 +31,7 @@ public class AppConst {
     public static final int SP_TYPE_EMPLOYEE = 2;
     public static final int SP_TYPE_POND = 3;
 
+    public static  final String[] DEVICE_KIND = {"普通实时设备","便携检测设备"};
     /*  用户权限*/
     public static String ROLE_FARMER = "ROLE_EMPLOYEE"; // 农户
     public static String ROLE_AGENCY= "ROLE_MANAGER";   // 经销商

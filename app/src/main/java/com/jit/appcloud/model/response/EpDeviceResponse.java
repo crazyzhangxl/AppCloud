@@ -66,6 +66,15 @@ public class EpDeviceResponse {
         private String username;
         private String fromUser;
         private String number;
+        private int type;
+
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
+        }
 
         public String getNumber() {
             return number;

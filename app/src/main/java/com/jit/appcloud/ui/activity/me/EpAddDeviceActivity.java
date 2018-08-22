@@ -19,6 +19,7 @@ import com.jit.appcloud.ui.base.BaseActivity;
 import com.jit.appcloud.ui.base.BasePresenter;
 import com.jit.appcloud.util.UIUtils;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import butterknife.BindView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -49,6 +50,8 @@ public class EpAddDeviceActivity extends BaseActivity {
     TextView mTvSearchMacIP;
     @BindView(R.id.mSPPond)
     MaterialSpinner mMSPPond;
+    @BindView(R.id.mSpCg)
+    MaterialSpinner mMspCg;
     @BindView(R.id.etWorkAddress)
     EditText mEtWorkAddress;
     @BindView(R.id.llIncrease)
@@ -80,6 +83,7 @@ public class EpAddDeviceActivity extends BaseActivity {
         mTvPublishNow.setVisibility(View.VISIBLE);
         mTvPublishNow.setText(getString(R.string.title_add));
         mTvToolbarTitle.setText(R.string.title_add_device);
+        mMspCg.setItems(Arrays.asList(AppConst.DEVICE_KIND));
     }
 
     /**
@@ -127,11 +131,6 @@ public class EpAddDeviceActivity extends BaseActivity {
             UIUtils.showToast("请输入设备ID");
             return;
         }
-        String macIp =  mEtMacIP.getText().toString();
-        if (TextUtils.isEmpty(macIp)){
-            UIUtils.showToast("请输入设备ID");
-            return;
-        }
 
         if (mLlIncrease.getChildCount() == 0){
             UIUtils.showToast("请增加设备功能");
@@ -141,10 +140,10 @@ public class EpAddDeviceActivity extends BaseActivity {
         int mPondId = mMEpPondList.get(mMSPPond.getSelectedIndex()).getId();
         String mWorkAddress = mEtWorkAddress.getText().toString();
         EpDeviceRequest request = new EpDeviceRequest();
-        request.setDevice_no(Integer.parseInt(deviceId));
-        request.setMac_ip(macIp);
+        request.setDevice_no(deviceId);
         request.setPound_id(mPondId);
         request.setAddress(mWorkAddress);
+        request.setType(mMspCg.getSelectedIndex());
         ApiRetrofit.getInstance().epInsertDevice(request)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

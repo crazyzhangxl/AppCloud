@@ -29,7 +29,7 @@
                     android:textColor="@color/green1"
                     android:textSize="@dimen/BasicTextSize"/>
                 <EditText
-                    android:inputType="number"
+                    android:inputType="text"
                     android:id="@+id/etDeviceId"
                     android:background="@null"
                     android:lines="1"

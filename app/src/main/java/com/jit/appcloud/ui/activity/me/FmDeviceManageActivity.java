@@ -100,8 +100,8 @@ public class FmDeviceManageActivity extends BaseActivity {
                     helper.getView(R.id.llDevice).setBackgroundColor(UIUtils.getColor(R.color.white));
                 }
                 /*  设置数据 -------------  */
+                helper.setText(R.id.tvDeviceFunc,AppConst.DEVICE_KIND[item.getType()]);
                 helper.setText(R.id.tvDeviceID, item.getDevice_no());
-                helper.setText(R.id.tvMaIP, item.getMac_ip());
                 helper.setText(R.id.tvPondID, item.getNumber());
             }
         };

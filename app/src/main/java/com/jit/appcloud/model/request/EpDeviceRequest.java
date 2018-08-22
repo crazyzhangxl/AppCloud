@@ -14,17 +14,26 @@ public class EpDeviceRequest {
      * address : 设备地址1
      */
 
-    private int device_no;
+    private String device_no;
     private String mac_ip;
     private int pound_id;
     private int status;
     private String address;
+    private int type;
 
-    public int getDevice_no() {
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public String getDevice_no() {
         return device_no;
     }
 
-    public void setDevice_no(int device_no) {
+    public void setDevice_no(String device_no) {
         this.device_no = device_no;
     }
 

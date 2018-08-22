@@ -219,7 +219,7 @@ public class EpEtDeviceActivity extends BaseActivity {
         int mPondId =  mMEpPondList.get(mMSPPond.getSelectedIndex()).getId();
         String mWorkAddress = mEtWorkAddress.getText().toString();
         EpDeviceRequest request = new EpDeviceRequest();
-        request.setDevice_no(Integer.parseInt(deviceId));
+        request.setDevice_no(deviceId);
         request.setMac_ip(macIp);
         request.setPound_id(mPondId);
         request.setAddress(mWorkAddress);
