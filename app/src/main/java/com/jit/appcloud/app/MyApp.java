@@ -202,7 +202,7 @@ public class MyApp extends MultiDexApplication implements RongIMClient.OnReceive
             BroadcastManager.getInstance(getContext()).sendBroadcast(AppConst.UPDATE_FRIEND);
 
         }else if (messageContent instanceof GroupNotificationMessage){
-            LogUtils.e("接收","类型3");
+            LogUtils.e("融云 接收","类型3");
             GroupNotificationMessage groupNotificationMessage = (GroupNotificationMessage) messageContent;
             String groupId = message.getTargetId();
             LogUtils.e("群组消息的通知","创建者:"+groupNotificationMessage.getOperatorUserId()+
@@ -277,7 +277,7 @@ public class MyApp extends MultiDexApplication implements RongIMClient.OnReceive
             BroadcastManager.getInstance(getContext()).sendBroadcast(AppConst.UPDATE_CONVERSATIONS);
         }else {
             // 单聊消息是类型四  普通的消息
-            LogUtils.e("接收","类型4");
+            LogUtils.e("融云 接收","类型4");
             // 如果的话,也是在这里弹出窗体
 
             // 更新会话上层

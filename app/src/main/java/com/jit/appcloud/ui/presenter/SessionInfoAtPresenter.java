@@ -343,10 +343,12 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
      * @param selectedIds
      */
     public void addGroupMember(ArrayList<String> selectedIds) {
+        List<String> mTargetIDS = new ArrayList<>();
         mContext.showWaitingDialog(UIUtils.getString(R.string.str_please_waiting));
         StringBuilder sb = new StringBuilder();
         for (String strID : selectedIds){
             sb.append(strID).append("-");
+            mTargetIDS.add(strID);
         }
         ApiRetrofit.getInstance().addGroupMb(Integer.parseInt(mSessionId),sb.substring(0,sb.lastIndexOf("-")))
                 .subscribeOn(Schedulers.io())
@@ -355,7 +357,6 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
                     if (response != null && response.getCode() == 1){
                         Groups groups = DBManager.getInstance().getGroupsById(mSessionId);
                         List<String> mTargetName = new ArrayList<>();
-                        List<String> mTargetIDS = new ArrayList<>();
                         for (String groupMemberId : selectedIds) {
                             UserInfo userInfo = DBManager.getInstance().getUserInfo(groupMemberId);
                             if (userInfo != null) {
@@ -367,23 +368,32 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
                                         groups.getName(),
                                         groups.getPortraitUri());
                                 mTargetName.add(userInfo.getName());
-                                mTargetIDS.add(userInfo.getUserId());
                                 DBManager.getInstance().saveOrUpdateGroupMember(newMember);
                             }
                         }
 
                         // 发送了添加群聊的通知
-                        GroupNotificationMessageData messageData = new GroupNotificationMessageData();
+                        GroupNotificationMessageData messageData =
+                                new GroupNotificationMessageData();
                         messageData.setOperatorNickname(DBManager.getInstance()
                                 .getGroupMemberById(mSessionId,
                                         UserCache.getId()).getDisplayName());
                         messageData.setTargetUserDisplayNames(mTargetName);
                         messageData.setTargetUserIds(mTargetIDS);
-                        GroupNotificationMessage requestMessage = GroupNotificationMessage.
+                        /*
+                          操作人用户ID
+                          操作名称
+                          数据集
+                          拓展可以去掉
+                        * */
+                        GroupNotificationMessage requestMessage =
+                                GroupNotificationMessage.
                                 obtain(UserCache.getId(),
                                         GroupNotificationMessage.GROUP_OPERATION_ADD,
-                                        JsonMananger.beanToJson(messageData), "添加");
-                        RongIMClient.getInstance().sendMessage(Message.obtain(mSessionId,
+                                        JsonMananger.beanToJson(messageData),
+                                        "添加");
+                        RongIMClient.getInstance().sendMessage(
+                                Message.obtain(mSessionId,
                                 Conversation.ConversationType.GROUP, requestMessage),
                                 "RC:GrpNtf",
                                 "", new IRongCallback.ISendMessageCallback() {

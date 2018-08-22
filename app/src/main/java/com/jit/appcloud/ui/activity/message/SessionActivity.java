@@ -160,7 +160,6 @@ public class SessionActivity extends BaseFragmentActivity<ISessionAtView, Sessio
         LogUtils.e("身份","   类型"+sessionType);
         // 直接就清除通知就得了
         new NotificationUtils.Build(mContext).cancelTargetNf(mSessionId);
-
         switch (sessionType) {
             case SESSION_TYPE_PRIVATE:
                 mConversationType = Conversation.ConversationType.PRIVATE;

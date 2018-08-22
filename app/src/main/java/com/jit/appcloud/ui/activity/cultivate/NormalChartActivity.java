@@ -17,6 +17,7 @@ import com.jit.appcloud.commom.AppConst;
 import com.jit.appcloud.manager.LinearChartManager;
 import com.jit.appcloud.model.bean.IncomeBean;
 import com.jit.appcloud.model.bean.SensorDtBean;
+import com.jit.appcloud.model.response.SensorDfInfoResponse;
 import com.jit.appcloud.ui.activity.FarmLogActivity;
 import com.jit.appcloud.ui.base.BaseActivity;
 import com.jit.appcloud.ui.base.BasePresenter;
@@ -29,6 +30,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
@@ -74,6 +76,7 @@ public class NormalChartActivity extends BaseActivity {
     private List<IncomeBean> mDataPH;
     private List<IncomeBean> mDataO2;
     private List<IncomeBean> mDataTmp;
+    private Observable<SensorDfInfoResponse> mDeviceDFDay;
 
     @Override
     protected void init() {
@@ -224,22 +227,27 @@ public class NormalChartActivity extends BaseActivity {
             switch (nowPosition) {
                 case 0:
                     date = TimeUtil.getPastDate(0);
+                    mDeviceDFDay = ApiRetrofit.getInstance().getDeviceDFDay(deviceID, date);
                     break;
                 case 1:
                     date = TimeUtil.getPastDate(1);
+                    mDeviceDFDay = ApiRetrofit.getInstance().getDeviceDFDay(deviceID, date);
                     break;
                 case 2:
                     date = TimeUtil.getPastDate(2);
+                    mDeviceDFDay = ApiRetrofit.getInstance().getDeviceDFDay(deviceID, date);
                     break;
                 case 3:
                     date = TimeUtil.getPastDate(10);
+                    mDeviceDFDay = ApiRetrofit.getInstance().getDeviceDFByTime
+                            (deviceID,date,TimeUtil.getPastDate(0));
                     break;
                 default:
                     break;
             }
             showWaitingDialog(getString(R.string.str_please_waiting));
             if (!TextUtils.isEmpty(date) ) {
-                ApiRetrofit.getInstance().getDeviceDFDay(deviceID, date)
+                        mDeviceDFDay
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(response -> {

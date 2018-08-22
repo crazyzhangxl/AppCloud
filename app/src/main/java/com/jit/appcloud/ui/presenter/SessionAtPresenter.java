@@ -320,7 +320,7 @@ public class SessionAtPresenter extends BaseFragmentPresenter<ISessionAtView> {
         RongIMClient.getInstance().getHistoryMessages(mConversationType, mSessionId, messageId, mMessageCount, new RongIMClient.ResultCallback<List<Message>>() {
             @Override
             public void onSuccess(List<Message> messages) {
-                LogUtils.e("融云","获得消息成功啦 ==========");
+                LogUtils.e("融云","获得消息成功啦++开始加载数据 ==========");
                 getView().getRefreshLayout().endRefreshing();
                 // 如果历史数据为空 那么要从远端获取,否则就是保存
                 if (messages == null || messages.size() == 0) {

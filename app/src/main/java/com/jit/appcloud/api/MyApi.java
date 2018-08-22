@@ -353,7 +353,7 @@ public interface MyApi {
      * @return
      */
     @GET("sensor/period")
-    Observable<NormalResponse> getDeviceDFByTime(@Header("Authorization") String auto,
+    Observable<SensorDfInfoResponse> getDeviceDFByTime(@Header("Authorization") String auto,
                                                  @Query("device_id") int deviceID,
                                                  @Query("start_time") String startTime,
                                                  @Query("end_time") String endTime);

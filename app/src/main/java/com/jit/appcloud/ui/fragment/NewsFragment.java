@@ -1,4 +1,6 @@
 package com.jit.appcloud.ui.fragment;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -105,6 +107,11 @@ public class NewsFragment extends BaseFragment<INewsFgView, NewsFgPresenter> imp
 
     @Override
     public void initData() {
+    }
+
+    @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
         mLlNewsTabSyn.callOnClick();
     }
 

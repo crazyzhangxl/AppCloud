@@ -7,7 +7,9 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 /**
- * Created by 张先磊 on 2018/5/4.
+ *
+ * @author 张先磊
+ * @date 2018/5/4
  */
 
 public class MyKeyBoardLinearLayout extends LinearLayout {

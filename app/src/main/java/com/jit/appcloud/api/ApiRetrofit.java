@@ -346,7 +346,7 @@ public class ApiRetrofit extends MyBaseApiRetrofit {
         return mApi.epInsertDevice(UserCache.getToken(),getMyRequestBody(request));
     }
 
-    public Observable<NormalResponse> getDeviceDFByTime(int deviceID,String startTime,String endTime){
+    public Observable<SensorDfInfoResponse> getDeviceDFByTime(int deviceID,String startTime,String endTime){
         return mApi.getDeviceDFByTime(UserCache.getToken(),deviceID,startTime,endTime);
     }
 

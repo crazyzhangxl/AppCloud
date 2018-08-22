@@ -145,7 +145,9 @@ public class FarmDeviceActivity extends BaseActivity {
                 .subscribe(sensorNmResponse -> {
                     if (sensorNmResponse != null && sensorNmResponse.getCode() == 1){
                         mDeviceList.clear();
-                        mDeviceList.addAll(sensorNmResponse.getData());
+                        if (sensorNmResponse.getData() != null) {
+                            mDeviceList.addAll(sensorNmResponse.getData());
+                        }
                         mAdapter.notifyDataSetChanged();
                         updateFmTotal();
                     }else {
@@ -319,7 +321,9 @@ public class FarmDeviceActivity extends BaseActivity {
                     .subscribe(sensorNmResponse -> {
                         if (sensorNmResponse != null && sensorNmResponse.getCode() == 1){
                             mDeviceList.clear();
-                            mDeviceList.addAll(sensorNmResponse.getData());
+                            if (sensorNmResponse.getData() != null) {
+                                mDeviceList.addAll(sensorNmResponse.getData());
+                            }
                             mAdapter.notifyDataSetChanged();
                             updateFmTotal();
                         }else {

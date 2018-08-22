@@ -208,6 +208,8 @@ public class MsgRecentFgPresenter extends BasePresenter<IMsgRecentView> {
                             tvContent.setText("[" + UIUtils.getString(R.string.video) + "]");
                         }
                     }else if (item.getLatestMessage() instanceof GroupNotificationMessage) {
+                        // 人为设置 --- 哈哈
+                        helper.setViewVisibility(R.id.ivError, View.GONE);
                         GroupNotificationMessage groupNotificationMessage = (GroupNotificationMessage) item.getLatestMessage();
                         try {
                             UserInfo curUserInfo = DBManager.getInstance().getUserInfo(UserCache.getId());

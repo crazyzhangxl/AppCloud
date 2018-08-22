@@ -144,16 +144,20 @@ public class SessionAdapter extends LQRAdapterForRecyclerView<Message> {
             params.width = UIUtils.dip2Px(65) + UIUtils.dip2Px(increment);
             rlAudio.setLayoutParams(params);
         }  else if (msgContent instanceof GroupNotificationMessage) {
-            LogUtils.e("群组消息的通知","-----是有通知的--");
+            LogUtils.e("群消息","-----sessionAdapter = 是有通知的 -----");
             GroupNotificationMessage groupNotificationMessage = (GroupNotificationMessage) msgContent;
             try {
                 UserInfo curUserInfo = DBManager.getInstance().getUserInfo(UserCache.getId());
-                GroupNotificationMessageData data = JsonMananger.jsonToBean(groupNotificationMessage.getData(), GroupNotificationMessageData.class);
+                GroupNotificationMessageData data =
+                        JsonMananger.jsonToBean(groupNotificationMessage.getData(),
+                                GroupNotificationMessageData.class);
                 String operation = groupNotificationMessage.getOperation();
                 String notification = "";
-                String operatorName = data.getOperatorNickname().equals(curUserInfo.getName()) ? UIUtils.getString(R.string.you) : data.getOperatorNickname();
+                String operatorName = data.getOperatorNickname().equals(curUserInfo.getName())
+                        ? UIUtils.getString(R.string.you) : data.getOperatorNickname();
                 String targetUserDisplayNames = "";
-                List<String> targetUserDisplayNameList = data.getTargetUserDisplayNames();
+                List<String> targetUserDisplayNameList =
+                        data.getTargetUserDisplayNames();
                 for (String name : targetUserDisplayNameList) {
                     targetUserDisplayNames += name.equals(curUserInfo.getName()) ? UIUtils.getString(R.string.you) : name+" ";
                 }
@@ -387,7 +391,7 @@ public class SessionAdapter extends LQRAdapterForRecyclerView<Message> {
             if (UserCache.getId().equals(item.getSenderUserId())){
                 helper.setViewVisibility(R.id.tvName, View.GONE);
             }else {
-                if (mMyMember.isShowNickName()) {
+                if (mMyMember != null &&  mMyMember.isShowNickName()) {
                     helper.setViewVisibility(R.id.tvName, View.VISIBLE)
                             .setText(R.id.tvName, DBManager.getInstance().getGroupMemberById(groupID, item.getSenderUserId()).getName());
                 }else {
