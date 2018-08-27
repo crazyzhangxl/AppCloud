@@ -99,6 +99,7 @@ public class ZxingActivity extends BaseActivity implements QRCodeView.Delegate {
         mTvToolbarTitle.setText(R.string.str_title_zxing);
         mIvLight.setVisibility(View.VISIBLE);
         mZxingview.setDelegate(this);
+
     }
 
     @Override
@@ -149,7 +150,7 @@ public class ZxingActivity extends BaseActivity implements QRCodeView.Delegate {
             intent.putExtra(AppConst.EXTRA_FRIEND_ID,friendID);
             jumpToActivity(intent);
             finish();
-        }else {
+        }else  if (result.startsWith(AppConst.QrCodeCommon.JOIN)){
             // 进群 -----------------
             String groupId = result.substring(AppConst.QrCodeCommon.JOIN.length());
             showWaitingDialog(getString(R.string.str_please_waiting));
@@ -161,74 +162,70 @@ public class ZxingActivity extends BaseActivity implements QRCodeView.Delegate {
                 ApiRetrofit.getInstance().joinGroup(Integer.parseInt(groupId))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Consumer<NormalResponse>() {
-                            @Override
-                            public void accept(NormalResponse response) throws Exception {
-                                if (response != null && response.getCode() == 1){
-                                    // 同步组信息 ----------------
-                                    DBManager.getInstance().getGroups(groupId);
-                                    DBManager.getInstance().getGroupMember(groupId);
-                                    // 延迟1秒执执行操作
-                                    // 发送了添加群聊的通知
-                                    List<String> name = new ArrayList<>();
-                                    List<String> IDS = new ArrayList<>();
-                                    name.add(UserCache.getName());
-                                    IDS.add(UserCache.getId());
-                                    GroupNotificationMessageData messageData = new GroupNotificationMessageData();
-                                    messageData.setOperatorNickname("通过二维码");
-                                    messageData.setTargetUserDisplayNames(name);
-                                    messageData.setTargetUserIds(IDS);
-                                    GroupNotificationMessage requestMessage = GroupNotificationMessage.
-                                            obtain(UserCache.getId(),
-                                                    GroupNotificationMessage.GROUP_OPERATION_ADD,
-                                                    JsonMananger.beanToJson(messageData), "");
-                                    RongIMClient.getInstance().sendMessage(Message.obtain(groupId,
-                                            Conversation.ConversationType.GROUP, requestMessage),
-                                            "RC:GrpNtf",
-                                            "",
-                                            new IRongCallback.ISendMessageCallback() {
-                                        @Override
-                                        public void onAttached(Message message) {
+                        .subscribe(response -> {
+                            if (response != null && response.getCode() == 1){
+                                // 同步组信息 ----------------
+                                DBManager.getInstance().getGroups(groupId);
+                                DBManager.getInstance().getGroupMember(groupId);
+                                // 延迟1秒执执行操作
+                                // 发送了添加群聊的通知
+                                List<String> name = new ArrayList<>();
+                                List<String> IDS = new ArrayList<>();
+                                name.add(UserCache.getName());
+                                IDS.add(UserCache.getId());
+                                GroupNotificationMessageData messageData = new GroupNotificationMessageData();
+                                messageData.setOperatorNickname("通过二维码");
+                                messageData.setTargetUserDisplayNames(name);
+                                messageData.setTargetUserIds(IDS);
+                                GroupNotificationMessage requestMessage = GroupNotificationMessage.
+                                        obtain(UserCache.getId(),
+                                                GroupNotificationMessage.GROUP_OPERATION_ADD,
+                                                JsonMananger.beanToJson(messageData), "");
+                                RongIMClient.getInstance().sendMessage(Message.obtain(groupId,
+                                        Conversation.ConversationType.GROUP, requestMessage),
+                                        "RC:GrpNtf",
+                                        "",
+                                        new IRongCallback.ISendMessageCallback() {
+                                    @Override
+                                    public void onAttached(Message message) {
 
-                                        }
+                                    }
 
-                                        @Override
-                                        public void onSuccess(Message message) {
-                                            LogUtils.e("群组消息的通知","----------发送成功了");
-                                        }
+                                    @Override
+                                    public void onSuccess(Message message) {
+                                        LogUtils.e("群组消息的通知","----------发送成功了");
+                                    }
 
-                                        @Override
-                                        public void onError(Message message, RongIMClient.ErrorCode errorCode) {
-                                            LogUtils.e("群组消息的通知","----------发送失败了");
-                                        }
-                                    });
+                                    @Override
+                                    public void onError(Message message, RongIMClient.ErrorCode errorCode) {
+                                        LogUtils.e("群组消息的通知","----------发送失败了");
+                                    }
+                                });
 
-                                    new Handler().postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            hideWaitingDialog();
-                                            Intent intent = new Intent(ZxingActivity.this, SessionActivity.class);
-                                            intent.putExtra("sessionId", groupId);
-                                            intent.putExtra("sessionType", SESSION_TYPE_GROUP);
-                                            jumpToActivity(intent);
-                                            finish();
-                                        }
-                                    },1000);
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        hideWaitingDialog();
+                                        Intent intent = new Intent(ZxingActivity.this, SessionActivity.class);
+                                        intent.putExtra("sessionId", groupId);
+                                        intent.putExtra("sessionType", SESSION_TYPE_GROUP);
+                                        jumpToActivity(intent);
+                                        finish();
+                                    }
+                                },1000);
 
-                                }else {
-                                    UIUtils.showToast(response.getMsg());
-                                }
+                            }else {
+                                UIUtils.showToast(response.getMsg());
                             }
-                        }, new Consumer<Throwable>() {
-                            @Override
-                            public void accept(Throwable throwable) throws Exception {
-                                hideWaitingDialog();
-                                UIUtils.showToast(throwable.getLocalizedMessage());
-                            }
+                        }, throwable -> {
+                            hideWaitingDialog();
+                            UIUtils.showToast(throwable.getLocalizedMessage());
                         });
             }
 
 
+        }else {
+            UIUtils.showToast("扫描结果:"+result);
         }
 
     }

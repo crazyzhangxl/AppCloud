@@ -32,6 +32,7 @@ import com.jit.appcloud.ui.activity.cultivate.SingleSelectionActivity;
 import com.jit.appcloud.ui.adapter.PicPutSelectMulAdapter;
 import com.jit.appcloud.ui.base.BaseFragment;
 import com.jit.appcloud.ui.base.BasePresenter;
+import com.jit.appcloud.util.LogUtils;
 import com.jit.appcloud.util.TimeUtil;
 import com.jit.appcloud.util.UIUtils;
 import com.luck.picture.lib.PictureSelector;
@@ -280,11 +281,16 @@ public class CtFarmLogInFragment extends BaseFragment {
         EpInsertFeedRequest requestFeed = new EpInsertFeedRequest();
         requestFeed.setPound_id(mMEpPondList.get(mSelectPosition).getId());
         requestFeed.setDate(mTvTimeSelected.getText().toString());
+        LogUtils.e("日志提交",mMEpPondList.get(mSelectPosition).getId()+"  ");
         if (mLlFeedIncrease.getChildCount() != 0) {
             for (int i = 0; i < mLlFeedIncrease.getChildCount(); i++) {
                 View view = mLlFeedIncrease.getChildAt(i);
                 EditText etNum = view.findViewById(R.id.tvFeedNum);
-                int seedNum = Integer.parseInt(etNum.getText().toString());
+                int seedNum = 0;
+                String trim = etNum.getText().toString().trim();
+                if (!TextUtils.isEmpty(trim)){
+                    seedNum = Integer.parseInt(trim);
+                }
                 switch (i) {
                     case 0:
                         requestFeed.setCount1(seedNum);

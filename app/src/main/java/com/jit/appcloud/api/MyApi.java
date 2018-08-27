@@ -260,7 +260,7 @@ public interface MyApi {
     @GET("pound/{id}")
     Observable<SinglePondResponse> getSinglePondInfo(@Header("Authorization") String auto,@Path("id") int pound_id);
 
-    @GET("diary/")
+    @GET("diary/get")
     Observable<DiaryResponse> getDiaryInfo(@Header("Authorization") String auto,@Query("pound_id") int pound_id,@Query("start_date") String start_date,@Query("end_date") String end_date);
 
 

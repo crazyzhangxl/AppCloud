@@ -12,7 +12,7 @@ import retrofit2.http.PUT;
  */
 
 public class AppConst {
-    public static boolean isDebug = false;//发布时;false
+    public static boolean isDebug = true;//发布时;false
     public static String SP_NAME = "config";//sp 文件保存名
     public static boolean isTesting = false; // 是否后台未开启
     public static String PS_SAVE_DIR = "appCloud"; // 文件保存Dir
@@ -204,7 +204,7 @@ public class AppConst {
     public static String[] WEATHER_SHOW = new String[]{
             "晴","多云转晴","阴转晴","晴转阴","阴转多云","多云转阴",
             "小雪","中雪","大雪","雨夹雪","多云转小雨","阵雨转多云","多云转阵雨",
-            "阴","小雪转小雨","阴转阵雨","雷阵雨转多云","浮沉",
+            "阴","小雪转小雨","阴转阵雨","雷阵雨转多云","浮尘",
             "雾霾","多云","雷雨","台风","小雨","中雨",
             "大雨","雷阵雨","暴雨","其他"
     };
