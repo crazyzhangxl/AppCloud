@@ -312,14 +312,14 @@ public class LogFileCsActivity extends BaseActivity {
             beanList.add(String.valueOf(bean.getCount_total()));
             beanList.add(String.valueOf(bean.getPh_min()));
             beanList.add(String.valueOf(bean.getPh_max()));
-            beanList.add(String.valueOf(bean.getPh_range()));
-            beanList.add(String.valueOf(bean.getO2_min()));
-            beanList.add(String.valueOf(bean.getO2_max()));
-            beanList.add(String.valueOf(bean.getO2_range()));
+            beanList.add(String.valueOf(bean.getPh_fluctuate()));
+            beanList.add(String.valueOf(bean.getOxygen_min()));
+            beanList.add(String.valueOf(bean.getOxygen_max()));
+            beanList.add(String.valueOf(bean.getOxygen_fluctuate()));
             beanList.add(String.valueOf(bean.getTemperature_min()));
             beanList.add(String.valueOf(bean.getTemperature_max()));
-            beanList.add(String.valueOf(bean.getTemperature_range()));
-            beanList.add(bean.getNh());
+            beanList.add(String.valueOf(bean.getTemperature_fluctuate()));
+            beanList.add(bean.getAmmo_nitro());
             beanList.add(bean.getNano2());
             beanList.add(bean.getAlkali());
             beanList.add(bean.getMedicine());
@@ -347,14 +347,14 @@ public class LogFileCsActivity extends BaseActivity {
                     .append(String.valueOf(bean.getCount_total())).append("\t")
                     .append(String.valueOf(bean.getPh_min())).append("\t")
                     .append(String.valueOf(bean.getPh_max())).append("\t")
-                    .append(String.valueOf(bean.getPh_range())).append("\t")
-                    .append(String.valueOf(bean.getO2_min())).append("\t")
-                    .append(String.valueOf(bean.getO2_max())).append("\t")
-                    .append(String.valueOf(bean.getO2_range())).append("\t")
+                    .append(String.valueOf(bean.getPh_fluctuate())).append("\t")
+                    .append(String.valueOf(bean.getOxygen_min())).append("\t")
+                    .append(String.valueOf(bean.getOxygen_max())).append("\t")
+                    .append(String.valueOf(bean.getOxygen_fluctuate())).append("\t")
                     .append(String.valueOf(bean.getTemperature_min())).append("\t")
                     .append(String.valueOf(bean.getTemperature_max())).append("\t")
-                    .append(String.valueOf(bean.getTemperature_range())).append("\t")
-                    .append(bean.getNh()).append("\t")
+                    .append(String.valueOf(bean.getTemperature_fluctuate())).append("\t")
+                    .append(bean.getAmmo_nitro()).append("\t")
                     .append(bean.getNano2()).append("\t")
                     .append(bean.getAlkali()).append("\t")
                     .append(bean.getMedicine()).append("\t")
@@ -400,14 +400,14 @@ public class LogFileCsActivity extends BaseActivity {
                     .append(String.valueOf(bean.getCount_total())).append("\t").append(",")
                     .append(String.valueOf(bean.getPh_min())).append("\t").append(",")
                     .append(String.valueOf(bean.getPh_max())).append("\t").append(",")
-                    .append(String.valueOf(bean.getPh_range())).append("\t").append(",")
-                    .append(String.valueOf(bean.getO2_min())).append("\t").append(",")
-                    .append(String.valueOf(bean.getO2_max())).append("\t").append(",")
-                    .append(String.valueOf(bean.getO2_range())).append("\t").append(",")
+                    .append(String.valueOf(bean.getPh_fluctuate())).append("\t").append(",")
+                    .append(String.valueOf(bean.getOxygen_min())).append("\t").append(",")
+                    .append(String.valueOf(bean.getOxygen_max())).append("\t").append(",")
+                    .append(String.valueOf(bean.getOxygen_max())).append("\t").append(",")
                     .append(String.valueOf(bean.getTemperature_min())).append("\t").append(",")
                     .append(String.valueOf(bean.getTemperature_max())).append("\t").append(",")
-                    .append(String.valueOf(bean.getTemperature_range())).append("\t").append(",")
-                    .append(bean.getNh()).append("\t").append(",")
+                    .append(String.valueOf(bean.getTemperature_fluctuate())).append("\t").append(",")
+                    .append(bean.getAmmo_nitro()).append("\t").append(",")
                     .append(bean.getNano2()).append("\t").append(",")
                     .append(bean.getAlkali()).append("\t").append(",")
                     .append(bean.getMedicine()).append("\t").append(",")

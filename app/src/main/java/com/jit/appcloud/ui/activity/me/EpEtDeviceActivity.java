@@ -1,6 +1,5 @@
 package com.jit.appcloud.ui.activity.me;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -28,6 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -62,14 +62,17 @@ public class EpEtDeviceActivity extends BaseActivity {
     TextView mTvDeviceNum;
     @BindView(R.id.llIncrease)
     LinearLayout mLlIncrease;
+    @BindView(R.id.mSpCg)
+    MaterialSpinner mMSpCg;
     private List<PondGetByMGResponse.DataBean> mMEpPondList;
     private List<String> mPondStrList = new ArrayList<>();
     private EpDeviceResponse.DataBean mDeviceBean;
 
     @Override
     protected void init() {
-        if (getIntent() != null){
-            mDeviceBean = (EpDeviceResponse.DataBean) getIntent().getExtras().getSerializable(AppConst.EXTRA_SER_AG_DEVICE_EDITOR);
+        if (getIntent() != null) {
+            mDeviceBean = (EpDeviceResponse.DataBean) getIntent().getExtras()
+                    .getSerializable(AppConst.EXTRA_SER_AG_DEVICE_EDITOR);
         }
     }
 
@@ -88,6 +91,7 @@ public class EpEtDeviceActivity extends BaseActivity {
         mTvPublishNow.setVisibility(View.VISIBLE);
         mTvPublishNow.setText(getString(R.string.str_title_save));
         mTvToolbarTitle.setText("编辑设备");
+        mMSpCg.setItems(Arrays.asList(AppConst.DEVICE_KIND));
         initNormal();
         //initFun();
     }
@@ -97,6 +101,7 @@ public class EpEtDeviceActivity extends BaseActivity {
             mEtDeviceId.setText(String.valueOf(mDeviceBean.getDevice_no()));
             mEtMacIP.setText(mDeviceBean.getMac_ip());
             mEtWorkAddress.setText(mDeviceBean.getAddress());
+            mMSpCg.setSelectedIndex(mDeviceBean.getType());
         }
     }
 
@@ -104,8 +109,8 @@ public class EpEtDeviceActivity extends BaseActivity {
         List<String> mFunList = Arrays.asList(AppConst.LIST_DEVICE_CH);
         //动了手脚了
         List<AgDeviceDetailBean> agDeviceDetailBeans = null;
-        if (agDeviceDetailBeans != null){
-            for (int i=0;i<agDeviceDetailBeans.size();i++){
+        if (agDeviceDetailBeans != null) {
+            for (int i = 0; i < agDeviceDetailBeans.size(); i++) {
                 AgDeviceDetailBean agDeviceDetailBean = agDeviceDetailBeans.get(i);
                 /* 增加下面的功能*/
                 View funcView = LayoutInflater.from(mContext).inflate(R.layout.item_device_func_add, null);
@@ -113,12 +118,12 @@ public class EpEtDeviceActivity extends BaseActivity {
                 mSpFun.setItems(AppConst.LIST_DEVICE_CH);
                 mSpFun.setSelectedIndex(mFunList.indexOf(agDeviceDetailBean.getFunctionName()));
 
-                EditText etY1 =  funcView.findViewById(R.id.etYellow1);
-                EditText etY2 =  funcView.findViewById(R.id.etYellow2);
-                EditText etY3 =  funcView.findViewById(R.id.etYellow3);
-                EditText etY4 =  funcView.findViewById(R.id.etYellow4);
-                EditText etG1 =  funcView.findViewById(R.id.etGreen1);
-                EditText etG2 =  funcView.findViewById(R.id.etGreen2);
+                EditText etY1 = funcView.findViewById(R.id.etYellow1);
+                EditText etY2 = funcView.findViewById(R.id.etYellow2);
+                EditText etY3 = funcView.findViewById(R.id.etYellow3);
+                EditText etY4 = funcView.findViewById(R.id.etYellow4);
+                EditText etG1 = funcView.findViewById(R.id.etGreen1);
+                EditText etG2 = funcView.findViewById(R.id.etGreen2);
                 etY1.setText(String.valueOf(agDeviceDetailBean.getYellow1()));
                 etY2.setText(String.valueOf(agDeviceDetailBean.getYellow2()));
                 etY3.setText(String.valueOf(agDeviceDetailBean.getYellow3()));
@@ -126,16 +131,16 @@ public class EpEtDeviceActivity extends BaseActivity {
                 etG1.setText(String.valueOf(agDeviceDetailBean.getGreen1()));
                 etG2.setText(String.valueOf(agDeviceDetailBean.getGreen2()));
                 TextView tvFuncCount = funcView.findViewById(R.id.tvFuncCount);
-                tvFuncCount.setText(String.valueOf(mLlIncrease.getChildCount()+1));
+                tvFuncCount.setText(String.valueOf(mLlIncrease.getChildCount() + 1));
                 funcView.findViewById(R.id.ivDelFun).setOnClickListener(v -> {
                     mLlIncrease.removeView(funcView);
                     refreshFunNum();
-                    mTvDeviceNum.setText(String.format("记录数:%s",mLlIncrease.getChildCount()));
+                    mTvDeviceNum.setText(String.format("记录数:%s", mLlIncrease.getChildCount()));
                 });
 
                 mLlIncrease.addView(funcView);
         /* 显示记录数 */
-                mTvDeviceNum.setText(String.format("记录数:%s",mLlIncrease.getChildCount()));
+                mTvDeviceNum.setText(String.format("记录数:%s", mLlIncrease.getChildCount()));
 
             }
 
@@ -145,12 +150,12 @@ public class EpEtDeviceActivity extends BaseActivity {
 
     /**
      * 重新编号---
-     * */
+     */
     private void refreshFunNum() {
-        for (int i=0;i<mLlIncrease.getChildCount();i++){
+        for (int i = 0; i < mLlIncrease.getChildCount(); i++) {
             View view = mLlIncrease.getChildAt(i);
-            TextView tvNum =  view.findViewById(R.id.tvFuncCount);
-            tvNum.setText(String.valueOf(i+1));
+            TextView tvNum = view.findViewById(R.id.tvFuncCount);
+            tvNum.setText(String.valueOf(i + 1));
         }
 
     }
@@ -162,17 +167,17 @@ public class EpEtDeviceActivity extends BaseActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pondGetByMGResponse -> {
-                    if (pondGetByMGResponse != null && pondGetByMGResponse.getCode() == 1){
+                    if (pondGetByMGResponse != null && pondGetByMGResponse.getCode() == 1) {
                         hideWaitingDialog();
                         mMEpPondList = pondGetByMGResponse.getData();
                         mPondStrList.clear();
-                        for (PondGetByMGResponse.DataBean bean:mMEpPondList){
+                        for (PondGetByMGResponse.DataBean bean : mMEpPondList) {
                             mPondStrList.add(bean.getNumber());
                         }
                         mMSPPond.setItems(mPondStrList);
                         // 设置换种的Id即可
                         refreshMSP();
-                    }else {
+                    } else {
                         UIUtils.showToast(pondGetByMGResponse.getMsg());
                     }
                 }, throwable -> {
@@ -183,14 +188,14 @@ public class EpEtDeviceActivity extends BaseActivity {
 
     /**
      * 重新刷新MaterialSpinner
-     * */
+     */
     private void refreshMSP() {
-        if (mDeviceBean != null){
+        if (mDeviceBean != null) {
             int id = mDeviceBean.getPound_id();
             int selectPosition = -1;
-            for (int i=0;i<mMEpPondList.size();i++){
+            for (int i = 0; i < mMEpPondList.size(); i++) {
                 PondGetByMGResponse.DataBean pondBean = mMEpPondList.get(i);
-                if (id == pondBean.getId()){
+                if (id == pondBean.getId()) {
                     selectPosition = i;
                     break;
                 }
@@ -201,36 +206,24 @@ public class EpEtDeviceActivity extends BaseActivity {
 
     private void updateDevice() {
         String deviceId = mEtDeviceId.getText().toString();
-        if (TextUtils.isEmpty(deviceId)){
-            UIUtils.showToast("请输入设备ID");
-            return;
-        }
-        String macIp =  mEtMacIP.getText().toString();
-        if (TextUtils.isEmpty(macIp)){
+        if (TextUtils.isEmpty(deviceId)) {
             UIUtils.showToast("请输入设备ID");
             return;
         }
 
-        if (mLlIncrease.getChildCount() == 0){
-            UIUtils.showToast("请增加设备功能");
-            return;
-        }
-
-        int mPondId =  mMEpPondList.get(mMSPPond.getSelectedIndex()).getId();
-        String mWorkAddress = mEtWorkAddress.getText().toString();
+        int mPondId = mMEpPondList.get(mMSPPond.getSelectedIndex()).getId();
         EpDeviceRequest request = new EpDeviceRequest();
         request.setDevice_no(deviceId);
-        request.setMac_ip(macIp);
         request.setPound_id(mPondId);
-        request.setAddress(mWorkAddress);
-        ApiRetrofit.getInstance().epUpdateDevice(mDeviceBean.getId(),request)
+        request.setType(mMSpCg.getSelectedIndex());
+        ApiRetrofit.getInstance().epUpdateDevice(mDeviceBean.getId(), request)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    if (response.getCode() == 1){
+                    if (response.getCode() == 1) {
                         BroadcastManager.getInstance(this).sendBroadcast(AppConst.UPDATE_EP_DEVICE);
                         finish();
-                    }else {
+                    } else {
                         UIUtils.showToast(response.getMsg());
                     }
                 }, throwable -> UIUtils.showToast(throwable.getLocalizedMessage()));
@@ -255,15 +248,16 @@ public class EpEtDeviceActivity extends BaseActivity {
         mSpFun.setSelectedIndex(0);
 
         TextView tvFuncCount = funcView.findViewById(R.id.tvFuncCount);
-        tvFuncCount.setText(String.valueOf(mLlIncrease.getChildCount()+1));
+        tvFuncCount.setText(String.valueOf(mLlIncrease.getChildCount() + 1));
         funcView.findViewById(R.id.ivDelFun).setOnClickListener(v -> {
             mLlIncrease.removeView(funcView);
             refreshFunNum();
-            mTvDeviceNum.setText(String.format("记录数:%s",mLlIncrease.getChildCount()));
+            mTvDeviceNum.setText(String.format("记录数:%s", mLlIncrease.getChildCount()));
         });
 
         mLlIncrease.addView(funcView);
         /* 显示记录数 */
-        mTvDeviceNum.setText(String.format("记录数:%s",mLlIncrease.getChildCount()));
+        mTvDeviceNum.setText(String.format("记录数:%s", mLlIncrease.getChildCount()));
     }
+
 }

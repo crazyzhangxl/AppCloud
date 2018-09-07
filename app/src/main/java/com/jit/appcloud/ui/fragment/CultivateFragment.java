@@ -247,9 +247,12 @@ public class CultivateFragment extends BaseFragment<ICultivateFgView, CultivateF
             public void onReceive(Context context, Intent intent) {
                 String realName = intent.getStringExtra("String");
                 LogUtils.e("传递数值", realName);
+                // 121
                 mPresenter.setEpSelectName(realName);
             }
         });
+
+
     }
 
     @Override
@@ -259,7 +262,6 @@ public class CultivateFragment extends BaseFragment<ICultivateFgView, CultivateF
         BroadcastManager.getInstance(getActivity()).unregister(AppConst.UPDATE_EP_CUL_POUND);
         BroadcastManager.getInstance(getActivity()).unregister(AppConst.UPDATE_MG_EP_LIST);
         BroadcastManager.getInstance(getActivity()).unregister(AppConst.UPDATE_DEVICE_SELECTED);
-
     }
 
     @Override

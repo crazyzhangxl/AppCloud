@@ -349,9 +349,10 @@ public class MgRegisterFmActivity extends BaseActivity {
             DeviceBatchInsert batchInsert = new DeviceBatchInsert();
 
             batchInsert.setDevice_no(agDeviceBean.getDeviceID());
-            batchInsert.setAddress(agDeviceBean.getWorkAddress());
-            batchInsert.setMac_ip(agDeviceBean.getMacAddress());
+            //batchInsert.setAddress(agDeviceBean.getWorkAddress());
+            //batchInsert.setMac_ip(agDeviceBean.getMacAddress());
             batchInsert.setPound_id(agDeviceBean.getPondId());
+            batchInsert.setType(agDeviceBean.getType());
             mDeviceBeans.add(batchInsert);
         }
         ApiRetrofit.getInstance().deviciceBatchInsert(mDeviceBeans)
@@ -523,8 +524,8 @@ public class MgRegisterFmActivity extends BaseActivity {
             @Override
             protected void convert(BaseViewHolder helper, AgDeviceBean item) {
                 helper.setText(R.id.tvDeviceId, String.format("设备ID:%s", item.getDeviceID()));
-                helper.setText(R.id.tvMacAddress, String.format("Mac地址:%s", item.getMacAddress()));
-                helper.setText(R.id.tvDeviceFunc, String.format("功能:%s", item.getFunctionName()));
+                //helper.setText(R.id.tvMacAddress, String.format("Mac地址:%s", item.getMacAddress()));
+                helper.setText(R.id.tvDeviceFunc, String.format("功能:%s", AppConst.DEVICE_KIND[item.getType()]));
                 helper.setText(R.id.tvDevicePond, String.format("鱼塘:%s", item.getPondName()));
                 helper.getView(R.id.llDelete).setOnClickListener(v -> {
                     mAgDeviceBeanList.remove(helper.getAdapterPosition());

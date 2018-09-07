@@ -175,7 +175,6 @@ public class NewsFgPresenter extends BasePresenter<INewsFgView> {
                 nowPosition = position;
                 mAdapter.notifyItemChanged(prePosition);
                 mAdapter.notifyItemChanged(nowPosition);
-                return;
             }
             if (AppConst.MSG_TYPE.PIC.equals(mListCurrent.get(position).getMsg_type())) {
                 PublishDetailShowActivity.startAction(mmContext,mListCurrent.get(position), view);

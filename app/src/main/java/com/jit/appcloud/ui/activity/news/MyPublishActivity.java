@@ -104,6 +104,7 @@ public class MyPublishActivity extends BaseActivity<IMyPublishAtView, MyPublishA
             }
         });
 
+
     }
 
     @Override
@@ -112,4 +113,6 @@ public class MyPublishActivity extends BaseActivity<IMyPublishAtView, MyPublishA
         BroadcastManager.getInstance(this).unregister(AppConst.ADD_MY_PB);
         BroadcastManager.getInstance(this).unregister(AppConst.UPDATE_MY_PB);
     }
+
+
 }

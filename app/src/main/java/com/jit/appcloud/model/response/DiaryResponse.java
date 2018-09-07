@@ -82,20 +82,80 @@ public class DiaryResponse {
         private int count_total;
         private float ph_min;
         private float ph_max;
-        private float ph_range;
-        private float o2_min;
-        private float o2_max;
-        private float o2_range;
+        private float ph_fluctuate;//
+        private float oxygen_min;  //
+        private float oxygen_max ; //
+
+        public float getPh_fluctuate() {
+            return ph_fluctuate;
+        }
+
+        public void setPh_fluctuate(float ph_fluctuate) {
+            this.ph_fluctuate = ph_fluctuate;
+        }
+
+        public float getOxygen_min() {
+            return oxygen_min;
+        }
+
+        public void setOxygen_min(float oxygen_min) {
+            this.oxygen_min = oxygen_min;
+        }
+
+        public float getOxygen_max() {
+            return oxygen_max;
+        }
+
+        public void setOxygen_max(float oxygen_max) {
+            this.oxygen_max = oxygen_max;
+        }
+
+        public float getOxygen_fluctuate() {
+            return oxygen_fluctuate;
+        }
+
+        public void setOxygen_fluctuate(float oxygen_fluctuate) {
+            this.oxygen_fluctuate = oxygen_fluctuate;
+        }
+
+        public float getTemperature_fluctuate() {
+            return temperature_fluctuate;
+        }
+
+        public void setTemperature_fluctuate(float temperature_fluctuate) {
+            this.temperature_fluctuate = temperature_fluctuate;
+        }
+
+        private float oxygen_fluctuate; //
         private float temperature_min;
         private float temperature_max;
-        private float temperature_range;
-        private String nh;
+        private float temperature_fluctuate; //
+
+        private String salt;
+        private String ammo_nitro; // 氨氮
+        private String alkali; // 碱度
+        private String nano2; // 亚硝酸盐
+
         private String medicine;
         private String remark;
         private String date;
         private String weather;
-        private String alkali;
-        private String nano2;
+
+        public String getSalt() {
+            return salt;
+        }
+
+        public void setSalt(String salt) {
+            this.salt = salt;
+        }
+
+        public String getAmmo_nitro() {
+            return ammo_nitro;
+        }
+
+        public void setAmmo_nitro(String ammo_nitro) {
+            this.ammo_nitro = ammo_nitro;
+        }
 
         public int getId() {
             return id;
@@ -177,37 +237,7 @@ public class DiaryResponse {
             this.ph_max = ph_max;
         }
 
-        public float getPh_range() {
-            return ph_range;
-        }
 
-        public void setPh_range(float ph_range) {
-            this.ph_range = ph_range;
-        }
-
-        public float getO2_min() {
-            return o2_min;
-        }
-
-        public void setO2_min(float o2_min) {
-            this.o2_min = o2_min;
-        }
-
-        public float getO2_max() {
-            return o2_max;
-        }
-
-        public void setO2_max(float o2_max) {
-            this.o2_max = o2_max;
-        }
-
-        public float getO2_range() {
-            return o2_range;
-        }
-
-        public void setO2_range(float o2_range) {
-            this.o2_range = o2_range;
-        }
 
         public float getTemperature_min() {
             return temperature_min;
@@ -225,21 +255,7 @@ public class DiaryResponse {
             this.temperature_max = temperature_max;
         }
 
-        public float getTemperature_range() {
-            return temperature_range;
-        }
 
-        public void setTemperature_range(float temperature_range) {
-            this.temperature_range = temperature_range;
-        }
-
-        public String getNh() {
-            return nh;
-        }
-
-        public void setNh(String nh) {
-            this.nh = nh;
-        }
 
         public String getMedicine() {
             return medicine;

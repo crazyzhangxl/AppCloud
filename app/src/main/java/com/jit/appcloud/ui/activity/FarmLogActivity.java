@@ -173,15 +173,15 @@ public class FarmLogActivity extends BaseActivity<IFarmLogAtView, FarmLogAtPrese
                 helper.setText(R.id.tvFeedTotal,String.valueOf(item.getCount_total()));
                 helper.setText(R.id.tvPHMin,String.valueOf(item.getPh_min()));
                 helper.setText(R.id.tvPhMax,String.valueOf(item.getPh_max()));
-                helper.setText(R.id.tvPhRange,String.valueOf(item.getPh_range()));
-                helper.setText(R.id.tvO2Min,String.valueOf(item.getO2_min()));
-                helper.setText(R.id.tvO2Max,String.valueOf(item.getO2_max()));
-                helper.setText(R.id.tvO2Range,String.valueOf(item.getO2_range()));
+                helper.setText(R.id.tvPhRange,String.valueOf(item.getPh_fluctuate()));
+                helper.setText(R.id.tvO2Min,String.valueOf(item.getOxygen_min()));
+                helper.setText(R.id.tvO2Max,String.valueOf(item.getOxygen_max()));
+                helper.setText(R.id.tvO2Range,String.valueOf(item.getOxygen_fluctuate()));
                 helper.setText(R.id.tvTempMin,String.valueOf(item.getTemperature_min()));
                 helper.setText(R.id.tvTempMax,String.valueOf(item.getTemperature_max()));
-                helper.setText(R.id.tvTempRange,String.valueOf(item.getTemperature_range()));
-                if (!TextUtils.isEmpty(item.getNh())) {
-                    helper.setText(R.id.tvAnDAn, item.getNh());}
+                helper.setText(R.id.tvTempRange,String.valueOf(item.getTemperature_fluctuate()));
+                if (!TextUtils.isEmpty(item.getAmmo_nitro())) {
+                    helper.setText(R.id.tvAnDAn, item.getAmmo_nitro());}
                 if (!TextUtils.isEmpty(item.getNano2())) {
                     helper.setText(R.id.tvXiaoSuan, item.getNano2());}
                 if (!TextUtils.isEmpty(item.getAlkali())){

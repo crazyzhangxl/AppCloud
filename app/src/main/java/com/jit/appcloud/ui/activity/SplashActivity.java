@@ -57,7 +57,6 @@ import static com.jit.appcloud.commom.AppConst.SESSION_TYPE_PRIVATE;
  */
 @RuntimePermissions
 public class SplashActivity extends BaseActivity {
-
     @BindView(R.id.tv_version_name)
     TextView mTvVersionName;
     @BindView(R.id.rl_splash)

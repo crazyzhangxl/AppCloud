@@ -261,8 +261,15 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
      * @param realName 养殖户真实姓名
      */
     public void setEpSelectName(String realName){
-        getView().getSpFarm().setSelectedIndex( mEmployeeList.indexOf(realName));
-        materialSpSelected(AppConst.SP_TYPE_EMPLOYEE, mEmployeeList.indexOf(realName));
+        // 再刷新一次 -----
+        int i = mEmployeeList.indexOf(realName);
+        if (i == -1){
+            LogUtils.e("广播","未索引到--------");
+            return;
+        }
+        LogUtils.e("广播","----数值-----"+i);
+        getView().getSpFarm().setSelectedIndex(i);
+        materialSpSelected(AppConst.SP_TYPE_EMPLOYEE,i);
     }
 
     public void setMSpItem() {
@@ -284,7 +291,9 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
 
     }
 
+
     private void filterMS() {
+        mEmployeeList.clear();
         if (mCustomBeanList != null && mCustomBeanList.size() != 0){
             for (PersonalBean bean:mCustomBeanList){
                 mEmployeeList.add(bean.getRealname());
@@ -309,39 +318,34 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
             return;
         }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ApiRetrofit.getInstance()
-                        .querySensorLatestByUName(mCustomBeanList.get(mAgSelected)
-                                .getUsername())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Consumer<SensorNmResponse>() {
-                            @Override
-                            public void accept(SensorNmResponse sensorNmResponse) throws Exception {
-                                getView().getAgRefreshLayout().setRefreshing(false);
-                                if (sensorNmResponse != null && sensorNmResponse.getCode() ==1 ) {
-                                    mDeviceList.clear();
-                                    if (sensorNmResponse.getData() != null) {
-                                        mDeviceList.addAll(sensorNmResponse.getData());
-                                    }
-                                    mDeviceAdapter.notifyDataSetChanged();
-                                }else {
-                                    UIUtils.showToast(sensorNmResponse.getMsg());
-                                }
+        new Handler().postDelayed(() -> ApiRetrofit.getInstance()
+                .querySensorLatestByUName(mCustomBeanList.get(mAgSelected)
+                        .getUsername())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<SensorNmResponse>() {
+                    @Override
+                    public void accept(SensorNmResponse sensorNmResponse) throws Exception {
+                        getView().getAgRefreshLayout().setRefreshing(false);
+                        if (sensorNmResponse != null && sensorNmResponse.getCode() ==1 ) {
+                            mDeviceList.clear();
+                            if (sensorNmResponse.getData() != null) {
+                                mDeviceList.addAll(sensorNmResponse.getData());
+                            }
+                            mDeviceAdapter.notifyDataSetChanged();
+                        }else {
+                            UIUtils.showToast(sensorNmResponse.getMsg());
+                        }
 
-                            }
-                        }, new Consumer<Throwable>() {
-                            @Override
-                            public void accept(Throwable throwable) throws Exception {
-                                getView().getAgRefreshLayout().setRefreshing(false);
-                                LogUtils.e("错误",throwable.getLocalizedMessage());
-                                UIUtils.showToast(throwable.getLocalizedMessage());
-                            }
-                        });
-            }
-        },1000);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        getView().getAgRefreshLayout().setRefreshing(false);
+                        LogUtils.e("错误",throwable.getLocalizedMessage());
+                        UIUtils.showToast(throwable.getLocalizedMessage());
+                    }
+                }),1000);
     }
 
 
@@ -575,7 +579,6 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
      * 塘口信息
      */
     public void jumpMiniChartFromPond() {
-
         Intent intent = new Intent(mContext,RTimeMonitorActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt(AppConst.K_SELECTED_INDEX,mFmSelected);
@@ -623,6 +626,8 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
 
 
     }
+
+
 
     /* ===============  养殖户身份结束  =========================*/
 }

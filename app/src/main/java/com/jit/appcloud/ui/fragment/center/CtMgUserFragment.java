@@ -109,8 +109,7 @@ public class CtMgUserFragment extends BaseFragment {
                 helper.getView(R.id.tvEquNum).setOnClickListener(v -> {
                     ((MainActivity)getActivity()).turnToCul();
                     BroadcastManager.getInstance(mContext)
-                            .sendBroadcast(AppConst.UPDATE_DEVICE_SELECTED
-                            ,item.getRealname());
+                            .sendBroadcast(AppConst.UPDATE_DEVICE_SELECTED,item.getRealname());
                 });
 
                 helper.getView(R.id.llDel).setOnClickListener(new View.OnClickListener() {

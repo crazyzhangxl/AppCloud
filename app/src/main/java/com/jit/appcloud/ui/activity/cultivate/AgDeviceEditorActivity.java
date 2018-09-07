@@ -63,7 +63,8 @@ public class AgDeviceEditorActivity extends BaseActivity {
     private AgDeviceBean mAgDeviceBean;
     private List<String> mPondsList = new ArrayList<>();
     private List<AgPondBean> mAgPondBeans;
-
+    @BindView(R.id.mSpCg)
+    MaterialSpinner mMSpCg;
     @Override
     protected void init() {
         mAgDeviceBean = (AgDeviceBean) getIntent().getSerializableExtra(AppConst.EXTRA_SER_AG_DEVICE_EDITOR);
@@ -88,6 +89,7 @@ public class AgDeviceEditorActivity extends BaseActivity {
         mTvPublishNow.setVisibility(View.VISIBLE);
         mTvPublishNow.setText(getString(R.string.str_title_save));
         mTvToolbarTitle.setText("编辑设备");
+        mMSpCg.setItems(Arrays.asList(AppConst.DEVICE_KIND));
         initNormal();
         initPondSp();
         initFun();
@@ -95,8 +97,9 @@ public class AgDeviceEditorActivity extends BaseActivity {
 
     private void initNormal() {
         mEtDeviceId.setText(mAgDeviceBean.getDeviceID());
-        mEtMacIP.setText(mAgDeviceBean.getMacAddress());
-        mEtWorkAddress.setText(mAgDeviceBean.getWorkAddress());
+        //mEtMacIP.setText(mAgDeviceBean.getMacAddress());
+        //mEtWorkAddress.setText(mAgDeviceBean.getWorkAddress());
+        mMSpCg.setSelectedIndex(mAgDeviceBean.getType());
     }
 
     private void initFun() {
@@ -177,20 +180,11 @@ public class AgDeviceEditorActivity extends BaseActivity {
             UIUtils.showToast("请输入设备ID");
             return;
         }
-        String macIp =  mEtMacIP.getText().toString();
-        if (TextUtils.isEmpty(macIp)){
-            UIUtils.showToast("请输入设备ID");
-            return;
-        }
 
-        if (mLlIncrease.getChildCount() == 0){
-            UIUtils.showToast("请增加设备功能");
-            return;
-        }
 
         String mPondName =  mPondsList.get(mMSPPond.getSelectedIndex());
         int mPondId =  mAgPondBeans.get(mMSPPond.getSelectedIndex()).getPondPosition();
-        String mWorkAddress = mEtWorkAddress.getText().toString();
+        //String mWorkAddress = mEtWorkAddress.getText().toString();
 
         DBManager.getInstance().deleteDvDtByDeviceId(mAgDeviceBean.getDeviceID());/* 删除对应设备的详细信息*/
 
@@ -208,9 +202,9 @@ public class AgDeviceEditorActivity extends BaseActivity {
             AgDeviceDetailBean agDeviceDetailBean = new AgDeviceDetailBean();
 
             agDeviceDetailBean.setDeviceId(deviceId);
-            agDeviceDetailBean.setMacAddress(macIp);
+            //agDeviceDetailBean.setMacAddress(macIp);
             agDeviceDetailBean.setPondName(mPondName);
-            agDeviceDetailBean.setWorkAddress(mWorkAddress);
+            //agDeviceDetailBean.setWorkAddress(mWorkAddress);
             agDeviceDetailBean.setFunctionName(AppConst.LIST_DEVICE_CH[spFun.getSelectedIndex()]);
             if (!TextUtils.isEmpty(etY1.getText().toString())){
                 agDeviceDetailBean.setYellow1(Float.parseFloat(etY1.getText().toString()));
@@ -241,10 +235,12 @@ public class AgDeviceEditorActivity extends BaseActivity {
 
             }
 
-            if (i == 0)
+            if (i == 0) {
                 sbFun.append(AppConst.LIST_DEVICE_CH[spFun.getSelectedIndex()]);
-            else
+            }
+            else {
                 sbFun.append(",").append(AppConst.LIST_DEVICE_CH[spFun.getSelectedIndex()]);
+            }
 
             /* ============= 保存设备详细信息 =============*/
             DBManager.getInstance().saveAgDeviceDetail(agDeviceDetailBean);
@@ -252,11 +248,12 @@ public class AgDeviceEditorActivity extends BaseActivity {
 
         AgDeviceBean agDeviceBean = new AgDeviceBean();
         agDeviceBean.setDeviceID(deviceId);
-        agDeviceBean.setMacAddress(macIp);
+        //agDeviceBean.setMacAddress(macIp);
         agDeviceBean.setPondName(mPondName);
         agDeviceBean.setPondId(mPondId);
-        agDeviceBean.setWorkAddress(mWorkAddress);
+        //agDeviceBean.setWorkAddress(mWorkAddress);
         agDeviceBean.setFunctionName(sbFun.toString());
+        agDeviceBean.setType(mMSpCg.getSelectedIndex());
         /* 更新了View*/
         DBManager.getInstance().updateAgDevice(agDeviceBean,mAgDeviceBean.getId());
         setResult(RESULT_OK);

@@ -281,7 +281,7 @@ public interface MyApi {
     @DELETE("device/{id}")
     Observable<NormalResponse>  epDeleteSingleDevice(@Header("Authorization") String auto,@Path("id") int id);
 
-    @PUT("device/{id}")
+    @PUT("device/update/{id}")
     Observable<NormalResponse> epUpdateDevice(@Header("Authorization") String auto,@Path("id") int id,@Body RequestBody requestBody);
 
     @POST("device/insert/private")

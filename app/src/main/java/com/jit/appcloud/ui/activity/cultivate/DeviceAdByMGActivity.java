@@ -112,6 +112,8 @@ public class DeviceAdByMGActivity extends BaseActivity {
                     mTvPondID.setText(pondSelected);
                     UIUtils.showToast(String.valueOf(mPondId));
                     break;
+                default:
+                    break;
             }
         }
     }

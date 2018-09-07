@@ -27,6 +27,7 @@
                 android:id="@+id/tvDeviceId"
                 android:textSize="@dimen/LargeTextSize" />
             <TextView
+                android:visibility="gone"
                 android:text="Mac地址:"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"

@@ -20,6 +20,7 @@ import com.jit.appcloud.ui.base.BasePresenter;
 import com.jit.appcloud.util.LogUtils;
 import com.jit.appcloud.util.UIUtils;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import butterknife.BindView;
 /**
@@ -57,7 +58,8 @@ public class AgDeviceAddActivity extends BaseActivity {
     TextView mTvDeviceNum;
     private List<String> mPondsList = new ArrayList<>();
     private List<AgPondBean> mAgPondBeans;
-
+    @BindView(R.id.mSpCg)
+    MaterialSpinner mMSpCg;
     @Override
     protected void init() {
         mAgPondBeans = DBManager.getInstance().queryAllAgPondsId();
@@ -84,6 +86,7 @@ public class AgDeviceAddActivity extends BaseActivity {
         mTvToolbarTitle.setText("添加设备");
         mMSPPond.setItems(mPondsList);
         mMSPPond.setSelectedIndex(0);
+        mMSpCg.setItems(Arrays.asList(AppConst.DEVICE_KIND));
     }
 
     @Override
@@ -122,16 +125,7 @@ public class AgDeviceAddActivity extends BaseActivity {
             UIUtils.showToast("请输入设备ID");
             return;
         }
-        String macIp =  mEtMacIP.getText().toString();
-        if (TextUtils.isEmpty(macIp)){
-            UIUtils.showToast("请输入Mac地址");
-            return;
-        }
 
-        if (mLlIncrease.getChildCount() == 0){
-            UIUtils.showToast("请增加设备功能");
-            return;
-        }
 
         String mPondName =   mAgPondBeans.get(mMSPPond.getSelectedIndex()).getPondId();
         int mPondId = mAgPondBeans.get(mMSPPond.getSelectedIndex()).getPondPosition();
@@ -151,9 +145,9 @@ public class AgDeviceAddActivity extends BaseActivity {
             AgDeviceDetailBean agDeviceDetailBean = new AgDeviceDetailBean();
 
             agDeviceDetailBean.setDeviceId(deviceId);
-            agDeviceDetailBean.setMacAddress(macIp);
+            //agDeviceDetailBean.setMacAddress(macIp);
             agDeviceDetailBean.setPondName(mPondName);
-            agDeviceDetailBean.setWorkAddress(mWorkAddress);
+            //agDeviceDetailBean.setWorkAddress(mWorkAddress);
             agDeviceDetailBean.setFunctionName(AppConst.LIST_DEVICE_CH[spFun.getSelectedIndex()]);
             if (!TextUtils.isEmpty(etY1.getText().toString())){
                 agDeviceDetailBean.setYellow1(Float.parseFloat(etY1.getText().toString()));
@@ -195,11 +189,12 @@ public class AgDeviceAddActivity extends BaseActivity {
 
         AgDeviceBean agDeviceBean = new AgDeviceBean();
         agDeviceBean.setDeviceID(deviceId);
-        agDeviceBean.setMacAddress(macIp);
+        //agDeviceBean.setMacAddress(macIp);
         agDeviceBean.setPondName(mPondName);
-        agDeviceBean.setWorkAddress(mWorkAddress);
+        //agDeviceBean.setWorkAddress(mWorkAddress);
         agDeviceBean.setFunctionName(sbFun.toString());
         agDeviceBean.setPondId(mPondId);
+        agDeviceBean.setType(mMSpCg.getSelectedIndex());
         DBManager.getInstance().saveAgDevice(agDeviceBean);
         setResult(RESULT_OK);
         finish();

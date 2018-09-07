@@ -17,6 +17,15 @@ public class AgDeviceBean extends DataSupport implements Serializable{
     private String workAddress;
     private String functionName;
     private int pondId;
+    private int type;
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 
     public int getPondId() {
         return pondId;
@@ -40,6 +49,19 @@ public class AgDeviceBean extends DataSupport implements Serializable{
         this.workAddress = workAddress;
         this.functionName = functionName;
     }
+
+    public AgDeviceBean(String deviceID,
+                        String macAddress,
+                        String pondName,
+                        String workAddress,
+                        String functionName,
+                        int type){
+        this(deviceID,macAddress,pondName,workAddress,functionName);
+        this.type = type;
+
+    }
+
+
 
     public int getId() {
         return id;

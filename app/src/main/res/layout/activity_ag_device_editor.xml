@@ -61,6 +61,7 @@
                     />
             </RelativeLayout>
             <RelativeLayout
+                android:visibility="gone"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_dimension_50">
@@ -114,6 +115,33 @@
                     android:layout_height="match_parent"
                     android:background="@color/gray4"
                     android:gravity="center"
+                    android:text="设备类别"
+                    android:textColor="@color/green1"
+                    android:textSize="@dimen/BasicTextSize"/>
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/mSpCg"
+                    android:layout_marginLeft="@dimen/common_dimension_89"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_add_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimension_1"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimension_50">
+                <TextView
+                    android:paddingLeft="@dimen/common_dimension_10"
+                    android:layout_width="@dimen/common_dimension_85"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray4"
+                    android:gravity="center"
                     android:text="鱼塘"
                     android:textColor="@color/green1"
                     android:textSize="@dimen/BasicTextSize"/>
@@ -131,6 +159,7 @@
                     />
             </RelativeLayout>
             <RelativeLayout
+                android:visibility="gone"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_dimension_50">

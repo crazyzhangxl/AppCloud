@@ -30,8 +30,10 @@ import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.chad.library.adapter.base.BaseQuickAdapter.SLIDEIN_LEFT;
@@ -224,22 +226,25 @@ public class FmDataManageActivity extends BaseActivity {
             ApiRetrofit.getInstance().getAgencyNextUserInfo(UserCache.getToken())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .flatMap(userBdAmResponse -> {
-                        if (userBdAmResponse.getCode() == 1) {
-                            List<PersonalBean> beans = userBdAmResponse.getData();
-                            for (PersonalBean bean : beans) {
-                                mDataCusList.add(bean.getRealname());
-                            }
-                            mAdapter.notifyDataSetChanged();
-                            if (mDataCusList.size() != 0) {
-                                mTvCusName.setText(mDataCusList.get(0));
-                                return Observable.just(mDataCusList.get(0));
+                    .flatMap(new Function<UserBdAmResponse, ObservableSource<? extends String>>() {
+                        @Override
+                        public ObservableSource<? extends String> apply(UserBdAmResponse userBdAmResponse) throws Exception {
+                            if (userBdAmResponse.getCode() == 1) {
+                                List<PersonalBean> beans = userBdAmResponse.getData();
+                                for (PersonalBean bean : beans) {
+                                    mDataCusList.add(bean.getRealname());
+                                }
+                                mAdapter.notifyDataSetChanged();
+                                if (mDataCusList.size() != 0) {
+                                    mTvCusName.setText(mDataCusList.get(0));
+                                    return Observable.just(mDataCusList.get(0));
+                                } else {
+                                    return Observable.just("");
+                                }
                             } else {
+                                UIUtils.showToast(userBdAmResponse.getMsg());
                                 return Observable.just("");
                             }
-                        } else {
-                            UIUtils.showToast(userBdAmResponse.getMsg());
-                            return Observable.just("");
                         }
                     })
                     .observeOn(Schedulers.io())
@@ -360,19 +365,25 @@ public class FmDataManageActivity extends BaseActivity {
             ApiRetrofit.getInstance().getPondByEp()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(pondGetByMGResponse -> {
-                        hideWaitingDialog();
-                        if (pondGetByMGResponse != null && pondGetByMGResponse.getCode() == 1){
-                            mDataList.clear();
-                            mDataList.addAll(pondGetByMGResponse.getData());
-                            mDataAdapter.notifyDataSetChanged();
-                            updateNum();
-                        }else {
-                            UIUtils.showToast(pondGetByMGResponse.getMsg());
+                    .subscribe(new Consumer<PondGetByMGResponse>() {
+                        @Override
+                        public void accept(PondGetByMGResponse pondGetByMGResponse) throws Exception {
+                            FmDataManageActivity.this.hideWaitingDialog();
+                            if (pondGetByMGResponse != null && pondGetByMGResponse.getCode() == 1) {
+                                mDataList.clear();
+                                mDataList.addAll(pondGetByMGResponse.getData());
+                                mDataAdapter.notifyDataSetChanged();
+                                FmDataManageActivity.this.updateNum();
+                            } else {
+                                UIUtils.showToast(pondGetByMGResponse.getMsg());
+                            }
                         }
-                    }, throwable -> {
-                        hideWaitingDialog();
-                        UIUtils.showToast(throwable.getLocalizedMessage());
+                    }, new Consumer<Throwable>() {
+                        @Override
+                        public void accept(Throwable throwable) throws Exception {
+                            FmDataManageActivity.this.hideWaitingDialog();
+                            UIUtils.showToast(throwable.getLocalizedMessage());
+                        }
                     });
         }
 

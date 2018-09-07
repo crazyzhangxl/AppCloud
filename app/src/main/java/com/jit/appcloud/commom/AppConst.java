@@ -345,6 +345,7 @@ public class AppConst {
 
     public static final String UPDATE_CUL_CUSTOM  = "update_cul_custom"; //总代理 --> 更新客户列表
     public static final String UPDATE_FM_CUSTOM  = "update_fm_custom"; //经销商 --> 更新客户列表
+    public static final String UPDATE_MY_CUSTOM  = "update_my_custom"; //经销商 --> 更新客户列表
     public static final String UPDATE_EP_POUND  = "update_ep_pound"; // 更新养殖户的塘口
     public static final String UPDATE_EP_CUL_POUND = "update_ep_cul_pound"; // 更新养殖的塘口列表
     public static final String UPDATE_EP_DEVICE  = "update_ep_device"; // 更新养殖户的设备

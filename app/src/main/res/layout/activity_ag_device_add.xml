@@ -60,6 +60,7 @@
                     />
             </RelativeLayout>
             <RelativeLayout
+                android:visibility="gone"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_dimension_50">
@@ -103,6 +104,7 @@
                     android:layout_height="@dimen/common_dimension_1"
                     />
             </RelativeLayout>
+            <!-- 直接设置不可见 垃圾吧到吧-->
             <RelativeLayout
                 android:background="@color/white"
                 android:layout_width="match_parent"
@@ -157,6 +159,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:visibility="gone"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_dimension_50">

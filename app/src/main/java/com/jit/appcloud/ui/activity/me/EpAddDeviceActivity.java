@@ -132,17 +132,13 @@ public class EpAddDeviceActivity extends BaseActivity {
             return;
         }
 
-        if (mLlIncrease.getChildCount() == 0){
-            UIUtils.showToast("请增加设备功能");
-            return;
-        }
+
         showWaitingDialog(getString(R.string.str_please_waiting));
         int mPondId = mMEpPondList.get(mMSPPond.getSelectedIndex()).getId();
         String mWorkAddress = mEtWorkAddress.getText().toString();
         EpDeviceRequest request = new EpDeviceRequest();
         request.setDevice_no(deviceId);
         request.setPound_id(mPondId);
-        request.setAddress(mWorkAddress);
         request.setType(mMspCg.getSelectedIndex());
         ApiRetrofit.getInstance().epInsertDevice(request)
                 .subscribeOn(Schedulers.io())
