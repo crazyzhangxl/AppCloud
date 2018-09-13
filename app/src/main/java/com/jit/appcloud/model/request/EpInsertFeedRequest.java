@@ -9,12 +9,12 @@ import java.util.Date;
 
 public class EpInsertFeedRequest {
     private int pound_id;
-    private int count1;
-    private int count2;
-    private int count3;
-    private int count4;
-    private int count5;
-    private int count6;
+    private long count1;
+    private long count2;
+    private long count3;
+    private long count4;
+    private long count5;
+    private long count6;
     private String date;
 
     public EpInsertFeedRequest() {
@@ -28,51 +28,51 @@ public class EpInsertFeedRequest {
         this.pound_id = pound_id;
     }
 
-    public int getCount1() {
+    public long getCount1() {
         return count1;
     }
 
-    public void setCount1(int count1) {
+    public void setCount1(long count1) {
         this.count1 = count1;
     }
 
-    public int getCount2() {
+    public long getCount2() {
         return count2;
     }
 
-    public void setCount2(int count2) {
+    public void setCount2(long count2) {
         this.count2 = count2;
     }
 
-    public int getCount3() {
+    public long getCount3() {
         return count3;
     }
 
-    public void setCount3(int count3) {
+    public void setCount3(long count3) {
         this.count3 = count3;
     }
 
-    public int getCount4() {
+    public long getCount4() {
         return count4;
     }
 
-    public void setCount4(int count4) {
+    public void setCount4(long count4) {
         this.count4 = count4;
     }
 
-    public int getCount5() {
+    public long getCount5() {
         return count5;
     }
 
-    public void setCount5(int count5) {
+    public void setCount5(long count5) {
         this.count5 = count5;
     }
 
-    public int getCount6() {
+    public long getCount6() {
         return count6;
     }
 
-    public void setCount6(int count6) {
+    public void setCount6(long count6) {
         this.count6 = count6;
     }
 

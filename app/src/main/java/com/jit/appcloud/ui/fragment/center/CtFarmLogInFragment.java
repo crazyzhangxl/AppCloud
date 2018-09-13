@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -286,10 +287,11 @@ public class CtFarmLogInFragment extends BaseFragment {
             for (int i = 0; i < mLlFeedIncrease.getChildCount(); i++) {
                 View view = mLlFeedIncrease.getChildAt(i);
                 EditText etNum = view.findViewById(R.id.tvFeedNum);
-                int seedNum = 0;
+                etNum.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
+                long seedNum = 0;
                 String trim = etNum.getText().toString().trim();
                 if (!TextUtils.isEmpty(trim)){
-                    seedNum = Integer.parseInt(trim);
+                    seedNum = Long.parseLong(trim);
                 }
                 switch (i) {
                     case 0:

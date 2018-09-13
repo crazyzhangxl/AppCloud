@@ -305,12 +305,12 @@ public interface MyApi {
     @POST("feed/insert")
     Observable<NormalResponse> epInsertFeed(@Header("Authorization") String auto,
                                             @Query("pound_id") int pound_id,
-                                            @Query("count1") int count1,
-                                            @Query("count2") int count2,
-                                            @Query("count3") int count3,
-                                            @Query("count4") int count4,
-                                            @Query("count5") int count5,
-                                            @Query("count6") int count6,
+                                            @Query("count1") long count1,
+                                            @Query("count2") long count2,
+                                            @Query("count3") long count3,
+                                            @Query("count4") long count4,
+                                            @Query("count5") long count5,
+                                            @Query("count6") long count6,
                                             @Query("date") String date);
     /**
      * 水质信息插入

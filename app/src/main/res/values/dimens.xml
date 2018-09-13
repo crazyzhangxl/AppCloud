@@ -97,5 +97,5 @@
     <dimen name="common_dimension_minus15">-15dp</dimen>
     <dimen name="dimen_common_233">233dp</dimen>
     <dimen name="log_tab_head_height">60dp</dimen>
-    <dimen name="log_tab_item_height">40dp</dimen>
+    <dimen name="log_tab_item_height">48dp</dimen>
 </resources>

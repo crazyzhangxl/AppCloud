@@ -583,7 +583,7 @@ public class CultivateFgPresenter extends BasePresenter<ICultivateFgView>{
         Bundle bundle = new Bundle();
         bundle.putInt(AppConst.K_SELECTED_INDEX,mFmSelected);
         bundle.putString(AppConst.EXTRA_TIME,getView().tvPondTimeNow().getText().toString());
-        bundle.putInt(AppConst.K_SELECTED_INDEX,mFmSelected);
+        // 内容太多了
         bundle.putSerializable(AppConst.POND_SERIALIZABLE_ARRAY,(Serializable) mMEpPondList);
         intent.putExtras(bundle);
         mContext.jumpToActivity(intent);

@@ -27,6 +27,7 @@
             android:inputType="numberDecimal"
             android:background="@null"
             android:gravity="center"
+            android:maxLength="8"
             android:textColor="@color/black"
             android:layout_width="80dp"
             android:layout_height="match_parent" />

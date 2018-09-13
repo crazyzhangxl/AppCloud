@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
@@ -187,7 +188,11 @@ public class FarmLogActivity extends BaseActivity<IFarmLogAtView, FarmLogAtPrese
                 if (!TextUtils.isEmpty(item.getAlkali())){
                     helper.setText(R.id.tvJianDu,item.getAlkali());}
                 helper.setText(R.id.tvMedicine,item.getMedicine());
+                TextView tvMedicine =  helper.getView(R.id.tvMedicine);
+                tvMedicine.setMovementMethod(ScrollingMovementMethod.getInstance());
                 helper.setText(R.id.tvRemark,item.getRemark());
+                TextView tvRemark = helper.getView(R.id.tvRemark);
+                tvRemark.setMovementMethod(ScrollingMovementMethod.getInstance());
             }
         };
         mRvContent.setHasFixedSize(true); //*
